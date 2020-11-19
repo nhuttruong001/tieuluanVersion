@@ -24,8 +24,10 @@
 				</div>
 			</div>		
 		</div>
-	<a href="{{route('login')}}"><button class="button" style="position:absolute;top:28px;right:10px;">Đăng nhập</button><a/>
+	<a href="{{route('formlogin')}}"><button class="button" style="position:absolute;top:28px;right:90px;">Đăng nhập</button><a/>
+	<a href="{{route('formsignup')}}"><button class="button" style="position:absolute;top:28px;right:10px;">Đăng ký</button><a/>
 <!-- 
+
 	<div class="dropdown" style="position:absolute;top:28px;right:10px;">
 	<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
 	<a href="{{route('login')}}" style="color:white">Đăng nhập</a>

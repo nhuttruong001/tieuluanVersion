@@ -1,37 +1,157 @@
-   <!-- form signup -->
+<!DOCTYPE html>
+<html lang="en">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+<style>
+  label.error {
+        display: inline-block;
+        color:red;
+        width: 200px;
+    }
 
-   <link rel="stylesheet" href="frontend/css/signup.css">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400,400i|Noto+Sans:400,400i,700" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
-  <!-- form signup -->
+</style>
+<head>
+	<title>Đăng Nhập</title>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<html>
-    <head>
-        <title>Đăng kí</title>
-        
-    </head>
-    <body>
-        <div class="to">
-            <div class="form">
-                <h2>Đăng ký thành viên</h2>
-                <i class="fab fa-app-store-ios"></i>
-                <label >Username</label>
-                <input type="text" name="kh_username">
-                <label >Password</label>
-                <input type="password" name="kh_password">
-                <label>Họ tên</label>
-                <input type="text" name="kh_hoten">    
-                <label>Ngày sinh</label>
-                <input type="date" name="kh_ngaysinh"> 
-                <label>Giới tính</label>
-                <input type="boolean" name="kh_gioitinh"> 
-                <label >Địa chỉ</label>
-                <input type="text" name="kh_diachi"> 
-                <label >Số điện thoại</label>
-                <input type="number" name="kh_sdt"> 
-                <input id="submit" type="submit" name="submit" value="Đăng ký">
-            </div>                
-        </div>
-    </body>
+    <base href="{{asset('')}}">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="login/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="login/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="login/vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="login/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="login/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="login/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="login/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="login/css/util.css">
+	<link rel="stylesheet" type="text/css" href="login/css/main.css">
+<!--===============================================================================================-->
+
+</head>
+<body>
+
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+			<form class="login100-form validate-form" id="formDemo1" method="post" action="{{route('signup')}}">
+				@csrf
+				<span class="login100-form-title p-b-33">
+						ĐĂNG KÝ
+					</span>
+
+                 
+					<div class="wrap-input100 validate-input">
+					<input class="input100" type="text"  required name="user_username" placeholder="Nhập tên đăng nhập.....">
+					<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+
+
+					<div class="wrap-input100 rs1 validate-input">
+						<input class="input100" type="password" name="password" required placeholder="Nhập mật khẩu.....">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+
+
+                    <div class="wrap-input100 rs1 validate-input">
+						<input class="input100" type="text" name="user_hoten" required placeholder="Nhập họ tên.....">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+
+
+                    <div class="wrap-input100 rs1 validate-input">
+						<!-- <input class="input100" required placeholder="Chọn ngày sinh....."> -->
+                        <input class="input100" type="date" name="user_ngaysinh" title="Ngày sinh">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+
+
+                    <div class="wrap-input100 rs1 validate-input">
+						<!-- <input class="input100"  name="user_gioitinh" required placeholder="Chọn giới tính....."> -->
+                        <label class="radio-inline">
+                              <input type="radio" id="user_gioitinh" name="user_gioitinh" value="1"> Nam
+                          </label>
+                          <label class="radio-inline">
+                              <input type="radio" id="user_gioitinh" name="user_gioitinh" value="0"> Nữ
+                          </label>
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+
+                    <div class="wrap-input100 rs1 validate-input">
+						<input class="input100" type="text" name="user_diachi" required placeholder="Nhập địa chỉ.....">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+
+                    <div class="wrap-input100 rs1 validate-input">
+						<input class="input100" type="number" name="user_sdt" required placeholder="Nhập số điện thoại.....">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+
+
+					<p id="message"></p>
+					@if(session('error'))
+					<div style="color:red; padding: 20px;" role="alert">
+					<strong>{{session('error')}}</strong>
+					</div>
+				  	@endif
+
+					<div class="container-login100-form-btn m-t-20">
+						<button class="login100-form-btn">
+							Đăng ký
+						</button>
+					</div>
+
+					
+
+					<div class="text-center">
+					<a href="{{route('trangchu')}}" class="txt2 hov1">
+							Trang chủ
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+
+<!--===============================================================================================-->
+	<script src="login/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="login/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="login/vendor/bootstrap/js/popper.js"></script>
+	<script src="login/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="login/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="login/vendor/daterangepicker/moment.min.js"></script>
+	<script src="login/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="login/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+
+    <script src="login/js/main.js"></script>
+
+    
+
+</body>
+
 </html>

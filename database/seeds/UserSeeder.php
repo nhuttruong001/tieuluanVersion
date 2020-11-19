@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
             [
                 'user_id' => 1,
                 'user_username' => 'ngoclinh',
-                'user_password' => bcrypt('ngoclinh'),
+                'password' => bcrypt('ngoclinh'),
                 'user_hoten' => 'Nguyễn Ngọc Linh',
                 'user_ngaysinh' => '1998-02-01',
                 'user_gioitinh' => 1,#1 là nam 0 là nữ
@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
             [
                 'user_id' => 2,
                 'user_username' => 'hongtien',
-                'user_password' => bcrypt('hongtien'),
+                'password' => bcrypt('hongtien'),
                 'user_hoten' => 'Hồng Anh Tiến',
                 'user_ngaysinh' => '1998-07-03',
                 'user_gioitinh' => 1,#1 là nam 0 là nữ
@@ -41,7 +41,7 @@ class UserSeeder extends Seeder
             [
                 'user_id' => 3,
                 'user_username' => 'nhuttruong',
-                'user_password' => bcrypt('nhuttruong'),
+                'password' => bcrypt('nhuttruong'),
                 'user_hoten' => 'Nguyễn Nhựt Trường',
                 'user_ngaysinh' => '1998-04-24',
                 'user_gioitinh' => 1,#1 là nam 0 là nữ
@@ -54,7 +54,7 @@ class UserSeeder extends Seeder
             [
                 'user_id' => 4,
                 'user_username' => 'haisang',
-                'user_password' => bcrypt('haisang'),
+                'password' => bcrypt('haisang'),
                 'user_hoten' => 'Nguyễn Huỳnh Hải Sang',
                 'user_ngaysinh' => '1998-01-25',
                 'user_gioitinh' => 1,#1 là nam 0 là nữ

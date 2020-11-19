@@ -55,62 +55,49 @@ Route::get('/signup','IndexController@getSignup')->name('signup');
 
 //login
 
-Route::get('/login','AuthController@getLogin')->name('formlogin');
-Route::post('/login-xl','AuthController@postLogin')->name('login');
+// Route::get('/home/login','AuthController@getLogin')->name('formlogin');
+// Route::post('/login-xl','AuthController@postLogin')->name('login');
+
+// //xác thực tài khoảng
+Route::get('/dangnhap','AuthController@getLogin')->name('formlogin');
+Route::post('/dangnhap-xl','AuthController@postLogin')->name('login');
+
+//dang ky
+
+Route::get('/dangky','AuthController@getSignup')->name('formsignup');
+Route::post('/dangky-xl','AuthController@postSignup')->name('signup');
+
+// Route::get('/dangxuat','AuthController@logOut')->name('logout');
+// Route::get('/doimatkhau/{id}','AuthController@getChangePass')->name('formChange');
+// Route::post('/changpass/{id}','AuthController@postChangePass')->name('changePass');
 
 
-//login1
-Route::get('/login1','AuthController@getLogin')->name('formlogin1');
-Route::post('/login1-xl','AuthController@postLogin')->name('login1');
 
 
 
 
 
-
-Route::group(['prefix' => 'admin'],function(){
+Route::group(['prefix' => 'admin','middleware'=>'adminLogin'],function(){
     Route::get('/admin', function () {
         return view('admin.layout.master');
     })->name('admin');
 
     Route::group(['prefix' => 'User'],function(){
-    //     #Danh sach Admin
-    //     Route::get('/Admin_DS','AdminController@getDanhSach')->name('Admin_DS');
-    //     //Form Thêm Admin
-    //     Route::get('/Admin_FormThem', 'AdminController@getThem')->name('Admin_Them');
-    //     Route::post('/Admin_ThemAdmin', 'AdminController@postThem')->name('Admin_XLThem');
+        #Danh sach User
+        Route::get('/User_DS','UserController@getDanhSach')->name('User_DS');
+        //Form Thêm User
+        Route::get('/User_FormThem', 'UserController@getThem')->name('User_Them');
+        Route::post('/User_ThemUser', 'UserController@postThem')->name('User_XLThem');
 
-    //     //xoa Admin
-    //     Route::get('/Admin_Xoa/{id}', 'AdminController@getXoa')->name('Admin_Xoa');
+   
+      // From sua User
+        Route::get('/User_FormSua/{id}', 'UserController@getSua')->name('User_Sua');
+        Route::post('/User_SuaUser/{id}', 'UserController@postSua')->name('User_XLSua');
 
-    //     // tim kiem admin
-    //     Route::get('/Admin_Timkiem', 'AdminController@postTimkiem')->name('Admin_Timkiem');
-    // });
-
-    // Route::group(['prefix' => 'NhanVien'],function(){
-    //     #Danh sach NhanVien
-    //     Route::get('/NhanVien_DS','NhanVienController@getDanhSach')->name('NhanVien_DS');
-    //     //Form Thêm NhanVien
-    //     Route::get('/NhanVien_FormThem', 'NhanVienController@getThem')->name('NhanVien_Them');
-    //     Route::post('/NhanVien_ThemNhanVien', 'NhanVienController@postThem')->name('NhanVien_XLThem');
-
-    //     //From sua Nhan Vien
-    //     Route::get('/NhanVien_FormSua/{id}', 'NhanVienController@getSua')->name('NhanVien_Sua');
-    //     Route::post('/NhanVien_SuaNhanVien/{id}', 'NhanVienController@postSua')->name('NhanVien_XLSua');
-
-    //     //xoa Nhan Vien
-    //     Route::get('/NhanVien_Xoa/{id}', 'NhanVienController@getXoa')->name('NhanVien_Xoa');
+    //     //xoa User
+        Route::get('/User_Xoa/{id}', 'UserController@getXoa')->name('User_Xoa');
     //     //Tim kiem nhan vien
     //     Route::get('/NhanVien_Timkiem', 'NhanVienController@postTimkiem')->name('NhanVien_Timkiem');
-
-  //     #Danh sach Admin
-        Route::get('/User_DS','UserController@getDanhSach')->name('User_DS');
-    //     //Form Thêm Admin
-    //     Route::get('/Admin_FormThem', 'AdminController@getThem')->name('Admin_Them');
-    //     Route::post('/Admin_ThemAdmin', 'AdminController@postThem')->name('Admin_XLThem');
-
-    //     //xoa Admin
-    //     Route::get('/Admin_Xoa/{id}', 'AdminController@getXoa')->name('Admin_Xoa');
 
 
 

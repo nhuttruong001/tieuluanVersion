@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class giay extends Model
+class Giay extends Model
 {
     protected $table = "Giay";
     protected $primaryKey = 'giay_id';
@@ -28,7 +28,7 @@ class giay extends Model
         return $this->belongsto('App\NhaCungCap','ncc_id','ncc_id');
     }
 
-    public function  binhluan(){
-        return $this->hasMany('App\binhluan','bl_id','bl_id');
+    public function  BinhLuan(){
+        return $this->hasMany('App\BinhLuan','bl_id','bl_id');
     }
 }

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class nhacungcap extends Model
+class NhaCungCap extends Model
 {
     protected $table = "NhaCungCap";
     protected $primaryKey = 'ncc_id';

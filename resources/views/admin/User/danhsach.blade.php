@@ -38,7 +38,7 @@
 <div class="panel panel-default">
   {{-- <div id = demo> --}}
     <div class="panel-heading">
-      Danh Sách Nhân Viên
+      Danh Sách User
     </div>
     @extends('admin.layout.partials.error-message')
     <div class="panel-body">
@@ -49,7 +49,7 @@
         <form  id="content-form" class="form-inline" role="form" action="" method="get">
             {{ csrf_field() }}
             <button type="submit" class="btn btn-primary" title="Tìm" id="search"><i class=" glyphicon glyphicon-search" style="color: aliceblue"></i></button>
-                  <a href=""><button title="Thêm" type="button"  class="btn btn-primary"><i class="glyphicon glyphicon-plus" style="color: aliceblue"></i></button></a>
+                  <a href="{{route('User_Them')}}"><button title="Thêm" type="button"  class="btn btn-primary"><i class="glyphicon glyphicon-plus" style="color: aliceblue"></i></button></a>
         </form>
       </div>
     </div>
@@ -86,10 +86,10 @@
                     <td>{{$user->user_hoten}}</td>
                     @if($user->user_gioitinh == 1 )
                     <td>Nam</td>
-                    @if($user->user_gioitinh == 0)
+                    @else
                     <td>Nữ</td>
                     @endif
-                    @endif
+                  
                     <td>{{$user->user_ngaysinh}}</td>
                     <td>{{$user->user_diachi}}</td>
                     <td>{{$user->user_sdt}}</td>
@@ -100,8 +100,8 @@
                     @endif
                 <!-- <td><a  title="Chi tiết" class="glyphicon glyphicon-eye-open" href="#"></a></td> -->
                 <td>
-                  <i class='fas fa-pencil-alt'></i><a  title="Sửa" class="glyphicon glyphicon-edit" href=""></a>
-                  <i class='fas fa-trash-alt'></i><a   title="Xóa" class="glyphicon glyphicon-trash" href="" onclick="return confirm('Bạn có chắc muốn xóa không?');"></a>
+                  <i class='fas fa-pencil-alt'></i><a  title="Sửa" class="glyphicon glyphicon-edit" href="{{route('User_Sua',['id'=>$user->user_id])}}"></a>
+                  <i class='fas fa-trash-alt'></i><a   title="Xóa" class="glyphicon glyphicon-trash" href="{{route('User_Xoa',['id'=>$user->user_id])}}" onclick="return confirm('Bạn có chắc muốn xóa không?');"></a>
                 </td>
             </tr>
             @endif

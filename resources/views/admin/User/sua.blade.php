@@ -13,13 +13,13 @@
   <div class="col-lg-12">
 
       <section class="panel">
-          <header class="panel-heading"  id="nv_id">
-              Thông Tin Nhân viên : {{$NhanVien->nv_hoten}}
+          <header class="panel-heading"  id="user_id">
+              Thông Tin User : {{$User->user_hoten}}
           </header>
           <div class="panel-body">
 
               <div class="form" >
-              <form class="cmxform form-horizontal"method="post" action="{{route('NhanVien_XLSua',['id'=>$NhanVien->nv_id])}}" enctype="multipart/form-data" id="formDemo1" novalidate="novalidate">
+              <form class="cmxform form-horizontal"method="post" action="{{route('User_XLSua',['id'=>$User->user_id])}}" enctype="multipart/form-data" id="formDemo1" novalidate="novalidate">
                 @csrf
 
                 {{-- username --}}
@@ -27,10 +27,10 @@
                     <div class="form-group " >
                       <label for="firstname" class="control-label col-lg-3">Tên tài khoản</label>
                       <div class="col-lg-6">
-                          <input class=" form-control"  value="{{$NhanVien->nv_username}}" name="nv_username" type="text" id="nv_username">
+                          <input class=" form-control"  value="{{$User->user_username}}" name="user_username" type="text" id="user_username">
 
-                        @if($errors->has('nv_username'))
-                        <div style="color:red">{{ $errors->first('nv_username')}}</div>
+                        @if($errors->has('user_username'))
+                        <div style="color:red">{{ $errors->first('user_username')}}</div>
                         @endif
                       </div>
                     </div>
@@ -41,10 +41,10 @@
                 <div class="form-group " >
                   <label for="firstname" class="control-label col-lg-3"> Họ tên</label>
                   <div class="col-lg-6">
-                      <input class=" form-control"  value="{{$NhanVien->nv_hoten}}" name="nv_hoten" type="text" id="nv_hoten">
+                      <input class=" form-control"  value="{{$User->user_hoten}}" name="user_hoten" type="text" id="user_hoten">
 
-                    @if($errors->has('nv_hoten'))
-                    <div style="color:red">{{ $errors->first('nv_hoten')}}</div>
+                    @if($errors->has('user_hoten'))
+                    <div style="color:red">{{ $errors->first('user_hoten')}}</div>
                     @endif
                   </div>
                 </div>
@@ -56,9 +56,9 @@
                       <label for="firstname" class="control-label col-lg-3">Mật khẩu</label>
                       <div class="col-lg-6">
 
-                      <input class=" form-control" id="nv_password" value="{{$NhanVien->nv_password}}" name="nv_password" type="password" disabled="">
-                      @if($errors->has('nv_password'))
-                          <div style="color:red">{{ $errors->first('nv_password')}}</div>
+                      <input class=" form-control" id="user_password" value="{{$User->user_password}}" name="user_password" type="password" disabled="">
+                      @if($errors->has('user_password'))
+                          <div style="color:red">{{ $errors->first('user_password')}}</div>
                           @endif
                         </div>
                     </div>
@@ -68,9 +68,9 @@
                       <div class="form-group ">
                           <label for="confirm_password" class="control-label col-lg-3">Xác nhận mật khẩu</label>
                           <div class="col-lg-6">
-                              <input class="form-control " id="nv_confirmpassword" name="nv_confirmpassword" type="password" disabled="">
-                              @if($errors->has('nv_confirmpassword'))
-                              <div style="color:red">{{ $errors->first('nv_confirmpassword')}}</div>
+                              <input class="form-control " id="user_confirmpassword" name="user_confirmpassword" type="password" disabled="">
+                              @if($errors->has('user_confirmpassword'))
+                              <div style="color:red">{{ $errors->first('user_confirmpassword')}}</div>
                               @endif
                           </div>
                       </div>
@@ -85,17 +85,17 @@
                       <label class="col-sm-3 control-label col-lg-3" for="inputSuccess">Giới tính</label>
                       <div class="col-lg-6">
                           <label class="radio-inline">
-                              <input type="radio" id="nv_gioitinh" name="nv_gioitinh" value="1" @if($NhanVien->nv_gioitinh == 1)
+                              <input type="radio" id="user_gioitinh" name="user_gioitinh" value="1" @if($User->user_gioitinh == 1)
                               checked
                              @endif> Nam
                           </label>
                           <label class="radio-inline">
-                              <input type="radio" id="nv_gioitinh" name="nv_gioitinh" value="0"  @if($NhanVien->nv_gioitinh == 0)
+                              <input type="radio" id="user_gioitinh" name="user_gioitinh" value="0"  @if($User->user_gioitinh == 0)
                               checked
                              @endif> Nữ
                           </label>
-                          @if($errors->has('nv_gioitinh'))
-                          <div style="color:red">{{ $errors->first('nv_gioitinh')}}</div>
+                          @if($errors->has('user_gioitinh'))
+                          <div style="color:red">{{ $errors->first('user_gioitinh')}}</div>
                           @endif
 
                       </div>
@@ -106,9 +106,9 @@
                     <div class="form-group " >
                       <label for="firstname" class="control-label col-lg-3">Ngày sinh</label>
                       <div class="col-lg-6">
-                      <input class=" form-control" id="nv_ngaysinh" value="{{$NhanVien->nv_ngaysinh}}" name="nv_ngaysinh" type="date">
-                          @if($errors->has('nv_ngaysinh'))
-                          <div style="color:red">{{ $errors->first('nv_ngaysinh')}}</div>
+                      <input class=" form-control" id="user_ngaysinh" value="{{$User->user_ngaysinh}}" name="user_ngaysinh" type="date">
+                          @if($errors->has('user_ngaysinh'))
+                          <div style="color:red">{{ $errors->first('user_ngaysinh')}}</div>
                           @endif
                         </div>
                     </div>
@@ -121,9 +121,9 @@
                     <div class="form-group " >
                       <label for="firstname" class="control-label col-lg-3">Địa Chỉ</label>
                       <div class="col-lg-6">
-                      <input class=" form-control" id="nv_diachi" value="{{$NhanVien->nv_diachi}}" name="nv_diachi" type="text">
-                          @if($errors->has('nv_diachi'))
-                          <div style="color:red">{{ $errors->first('nv_diachi')}}</div>
+                      <input class=" form-control" id="user_diachi" value="{{$User->user_diachi}}" name="user_diachi" type="text">
+                          @if($errors->has('user_diachi'))
+                          <div style="color:red">{{ $errors->first('user_diachi')}}</div>
                           @endif
                         </div>
                     </div>
@@ -134,9 +134,9 @@
                     <div class="form-group " >
                       <label for="firstname" class="control-label col-lg-3">SĐT</label>
                       <div class="col-lg-6">
-                      <input class=" form-control" id="nv_sdt" value="{{$NhanVien->nv_sdt}}" name="nv_sdt" type="text">
-                          @if($errors->has('nv_sdt'))
-                          <div style="color:red">{{ $errors->first('nv_sdt')}}</div>
+                      <input class=" form-control" id="user_sdt" value="{{$User->user_sdt}}" name="user_sdt" type="text">
+                          @if($errors->has('user_sdt'))
+                          <div style="color:red">{{ $errors->first('user_sdt')}}</div>
                           @endif
                       </div>
                     </div>
@@ -146,7 +146,7 @@
                       <div class="form-group">
                           <div class="col-lg-offset-3 col-lg-6">
                               <button class="btn btn-primary" type="submit" onclick="return confirm('Bạn có chắc muốn cập nhật không?');">Cập nhật</button>
-                          <a href="{{route('NhanVien_DS')}}"><button class="btn btn-default" type="button">Trở về</button></a>
+                          <a href="{{route('User_DS')}}"><button class="btn btn-default" type="button">Trở về</button></a>
                           </div>
                       </div>
                   </form>
@@ -172,7 +172,7 @@
         rules: {
             dv_id: "required",
             cv_id: "required",
-            lnv_id: "required",
+            luser_id: "required",
             // mht_id: "required",
             cdv_ten: "required",
             cdv_ngaysinh: "required",
@@ -197,7 +197,7 @@
         messages: {
             dv_id: "Vui lòng chọn đơn vị",
             cv_id: "Vui lòng chọn chức vụ",
-            lnv_id: "Vui lòng chọn loại nhân viên",
+            luser_id: "Vui lòng chọn loại nhân viên",
             // mht_id: "Vui lòng nhâp",
             cdv_ten: "Vui lòng nhập tên công đoàn viên",
             cdv_ngaysinh: "Vui lòng nhập ngày sinh",

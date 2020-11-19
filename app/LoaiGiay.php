@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class loaigiay extends Model
+class LoaiGiay extends Model
 {
     protected $table = "LoaiGiay";
     protected $primaryKey = 'loai_id';

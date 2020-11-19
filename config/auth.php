@@ -72,7 +72,7 @@ return [
         ],
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\khachhang::class,
+            'model' => App\User::class,
         ],
      
 

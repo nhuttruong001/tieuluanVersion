@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Middleware;
-
+use Illuminate\Support\Facades\Auth;
 use Closure;
 
 class AdminLoginMiddleware
@@ -15,6 +15,16 @@ class AdminLoginMiddleware
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+      
+        if(Auth::check()){
+            $User = Auth::User();
+            if($User->user_quyen == 0){
+                return $next($request); 
+            }else{
+                return redirect()->route('trangchu');
+            }
+        }else{
+            return redirect()->route('formLogin');
+        }
     }
 }

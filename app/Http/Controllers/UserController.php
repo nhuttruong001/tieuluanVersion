@@ -58,7 +58,7 @@ class UserController extends Controller
             $User->user_ngaysinh = $request->user_ngaysinh;
             $User->user_diachi = $request->user_diachi;
             $User->user_sdt = $request->user_sdt;
-            $User->user_sdt = $request->user_quyen;
+            $User->user_quyen = $request->user_quyen;
             $User->user_trangthai = 1;
             $User->save();
             Session::flash('alert-1', 'Thêm thành công!!!');

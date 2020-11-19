@@ -18,7 +18,7 @@ class CreateUserTable extends Migration
             $table->engine = "InnoDB";
             $table->increments('user_id');
             $table->string('user_username');
-            $table->string('user_password');
+            $table->string('password');
             $table->string('user_hoten');
             $table->date('user_ngaysinh');
             $table->tinyInteger('user_gioitinh')->comment('1 la Nam 0 la Nữ');

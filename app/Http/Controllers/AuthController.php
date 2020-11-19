@@ -6,36 +6,36 @@ use Illuminate\Http\Request;
 
 use Redirect;
 use Session;
-use App\KhachHang;
+use App\User;
 
 
 class AuthController extends Controller
 {
-    public function kh_username(){
-        return 'kh_username';
-    }
-
-    public function ad_username(){
-        return 'ad_username';
+    public function user_username(){
+        return 'user_username';
     }
 
     public function getLogin(){
-        return view('frontend.login1');
+       return view('frontend.login'); //return ra trang login để đăng nhập
     }
 
     public function postLogin(Request $request)
     {
-        
-        $username = $request['username'];
-        $password = $request['password'];
+        $arr = [
+            'user_username' => $request->user_username,
+            'password' => $request->password
+        ];
 
-        // var_dump($username);
-
-        if (Auth::attempt(['kh_username' => $username,'kh_password' =>$password])) {
-            return redirect()->route("trangchu"); 
+        if (Auth::attempt($arr)) {
+            return redirect()->route("User_DS"); 
         } else {
             return redirect()->back()
             ->withInput()->with("error", "Sai tài khoản hoặc mật khẩu");
         }
     }
+
+    public function getSignup(){
+        return view('frontend.signup'); //return ra trang login để đăng nhập
+     }
+
 }
