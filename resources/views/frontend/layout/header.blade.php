@@ -24,22 +24,36 @@
 				</div>
 			</div>		
 		</div>
-	<a href="{{route('formlogin')}}"><button class="button" style="position:absolute;top:28px;right:90px;">Đăng nhập</button><a/>
-	<a href="{{route('formsignup')}}"><button class="button" style="position:absolute;top:28px;right:10px;">Đăng ký</button><a/>
-<!-- 
+	<!-- <a href="{{route('formlogin')}}"><button class="button" style="position:absolute;top:28px;right:90px;">Đăng nhập</button><a/>
+	<a href="{{route('formsignup')}}"><button class="button" style="position:absolute;top:28px;right:10px;">Đăng ký</button><a/> -->
+
+
+
 
 	<div class="dropdown" style="position:absolute;top:28px;right:10px;">
 	<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-	<a href="{{route('login')}}" style="color:white">Đăng nhập</a>
+
+	<a href="" style="color:white"></a>
+	@if (!isset($auth))
+	<a href="" style="color:white">Đăng nhập</a>
+	@else
+    <li><a href="#">{{$auth->user_username}}</a>
+	@endif
   </button> 
   <div class="dropdown-menu">
-    <a class="dropdown-item" href="#">Link 1</a>
-    <a class="dropdown-item" href="#">Link 2</a>
-    <a class="dropdown-item" href="#">Link 3</a>
+    <a class="dropdown-item" href="{{route('formlogin')}}">Đăng nhập</a>
+    <a class="dropdown-item" href="{{route('formsignup')}}">Đăng ký</a>
+    <a class="dropdown-item" href="#">Đổi mật khẩu</a>
+	<a class="dropdown-item" href="{{route('logout')}}">Đăng xuất</a>
   </div>
-</div> -->
+</div>
 
 
 	
-	</header><!-- /header -->
+	</header>
+	
+	<!-- /header -->
 	<!-- endheader -->
+
+
+                              

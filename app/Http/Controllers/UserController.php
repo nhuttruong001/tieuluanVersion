@@ -30,7 +30,7 @@ class UserController extends Controller
     public function postThem(Request $request){
        $this->validate($request, [
             'user_username' => 'required',
-            'user_password' => 'required',
+            'password' => 'required',
             'user_hoten' => 'required',
             'user_gioitinh' => 'required',
             'user_ngaysinh' => 'required',
@@ -41,7 +41,7 @@ class UserController extends Controller
             ,
             [
                 'user_username.required' => 'Vui lòng không được để trống username',
-                'user_password.required' => 'Vui lòng không được để trống password',
+                'password.required' => 'Vui lòng không được để trống password',
                 'user_hoten.required' => 'Vui lòng không được để trống họ tên',
                 'user_gioitinh.required' => 'Vui lòng không được để trống giới tính',
                 'user_ngaysinh.required' => 'Vui lòng không được để trống ngày sinh',
@@ -52,7 +52,7 @@ class UserController extends Controller
 
             $User = new User();
             $User->user_username = $request->user_username;
-            $User->user_password = bcrypt($request->user_password);
+            $User->password = bcrypt($request->password);
             $User->user_hoten = $request->user_hoten;
             $User->user_gioitinh = $request->user_gioitinh;
             $User->user_ngaysinh = $request->user_ngaysinh;

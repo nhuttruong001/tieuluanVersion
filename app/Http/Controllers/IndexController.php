@@ -46,14 +46,20 @@ class IndexController extends Controller
          ->orderBy('Giay.giay_id','desc')
          ->limit(8)->get();
 
+         $binhluan = DB::table('BinhLuan')
+         ->join('User','User.user_id','=','BinhLuan.user_id')
+         ->join('Giay','Giay.giay_id','=','BinhLuan.giay_id')
+         ->orderBy('BinhLuan.bl_id','desc')
+         ->limit(5)->get();
 
+         view()->share('binhluan',$binhluan);
+      
 
          view() ->share('giaymoi',$giaymoi);
       
          view() ->share('now',$now);
      
          view()->share('BinhLuan',$BinhLuan);
-
          view()->share('ChiTietHoaDon',$ChiTietHoaDon);
          view()->share('Giay',$Giay);
          view()->share('HoaDon',$HoaDon);
@@ -105,6 +111,16 @@ class IndexController extends Controller
 
     public function getLogin(){
         return view('frontend.login');
+    }
+
+    public function getBinhLuan(){
+
+   
+   
+        
+            
+        return view('details');
+  
     }
 
 

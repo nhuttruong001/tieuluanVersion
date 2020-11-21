@@ -9,8 +9,18 @@
     }
 
 </style>
+@if(Session::has('alert-1'))
+  @section('script')
+  <script>
+    window.onload =  function()
+      {
+      alert('Đăng ký thành công');
+      };
+</script>
+  @endsection
+ 
 <head>
-	<title>Đăng Nhập</title>
+	<title>Đăng Ký</title>
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 

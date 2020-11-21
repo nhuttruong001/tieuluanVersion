@@ -22,8 +22,6 @@ Route::get('/', function () {
 //trang chu
 Route::get('/home','IndexController@getIndex')->name('trangchu');
 
-
-
 //cart
 
 Route::get('/cart','IndexController@getCart')->name('cart');
@@ -67,10 +65,16 @@ Route::post('/dangnhap-xl','AuthController@postLogin')->name('login');
 Route::get('/dangky','AuthController@getSignup')->name('formsignup');
 Route::post('/dangky-xl','AuthController@postSignup')->name('signup');
 
-// Route::get('/dangxuat','AuthController@logOut')->name('logout');
+Route::get('/dangxuat','AuthController@logOut')->name('logout');
 // Route::get('/doimatkhau/{id}','AuthController@getChangePass')->name('formChange');
 // Route::post('/changpass/{id}','AuthController@postChangePass')->name('changePass');
 
+
+//comment
+
+
+//Route::delete('admin/binhluan/delete/{id_tt}/{id_bl}', 'Backend\BinhLuanController@destroy')->name('Backend.binhluan.delete');
+Route::post('/binhluan','BinhLuanController@postBinhLuan')->name('binhluan-xl');
 
 
 
@@ -171,6 +175,10 @@ Route::group(['prefix' => 'admin','middleware'=>'adminLogin'],function(){
     
 
 });
+
+
+
+
 
 
 
