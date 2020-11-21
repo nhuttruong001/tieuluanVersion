@@ -7,7 +7,7 @@
   <script>
     window.onload =  function()
       {
-      alert('Thêm thành công');
+      alert('Đổi mật khẩu thành công');
       };
 </script>
   @endsection
@@ -17,23 +17,13 @@
   <script>
     window.onload =  function()
       {
-      alert('Sửa thành công');
+      alert('Đổi mật khẩu thất bại');
       };
 </script>
   @endsection
     <a class="close" data-dismiss="alert" aria-label="close">&times;</a></p>
   @endif
-  @if(Session::has('alert-3'))
-  @section('script')
-  <script>
-    window.onload =  function()
-      {
-      alert('Xóa thành công');
-      };
-</script>
-  @endsection
-    <a class="close" data-dismiss="alert" aria-label="close">&times;</a></p>
-  @endif
+
 
 <div class="panel panel-default">
   {{-- <div id = demo> --}}

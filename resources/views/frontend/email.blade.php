@@ -99,19 +99,19 @@
 							<h3>Thông tin khách hàng</h3>
 							<p>
 								<span class="info">Khách hàng: </span>
-								Vietpro
+								{{isset($auth) ? $auth->user_hoten : null}}
 							</p>
 							<p>
-								<span class="info">Email: </span>
-								vietpro@gmail.com
+								<span class="info">Ngày sinh: </span>
+								{{isset($auth) ? $auth->user_ngaysinh : null}}
 							</p>
 							<p>
 								<span class="info">Điện thoại: </span>
-								01234567988
+								{{isset($auth) ? $auth->user_sdt : null}}
 							</p>
 							<p>
 								<span class="info">Địa chỉ: </span>
-								Hà Nội
+								{{isset($auth) ? $auth->user_diachi : null}}
 							</p>
 						</div>						
 						<div id="hoa-don">

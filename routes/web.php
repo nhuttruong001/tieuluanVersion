@@ -43,7 +43,7 @@ Route::get('/category','IndexController@getCategory')->name('category');
 
 Route::get('/complete','IndexController@getComplete')->name('complete');
 
-//email
+//Thong tin ca nhan
 
 Route::get('/email','IndexController@getEmail')->name('email');
 
@@ -51,10 +51,6 @@ Route::get('/email','IndexController@getEmail')->name('email');
 
 Route::get('/signup','IndexController@getSignup')->name('signup');
 
-//login
-
-// Route::get('/home/login','AuthController@getLogin')->name('formlogin');
-// Route::post('/login-xl','AuthController@postLogin')->name('login');
 
 // //xác thực tài khoảng
 Route::get('/dangnhap','AuthController@getLogin')->name('formlogin');
@@ -64,10 +60,12 @@ Route::post('/dangnhap-xl','AuthController@postLogin')->name('login');
 
 Route::get('/dangky','AuthController@getSignup')->name('formsignup');
 Route::post('/dangky-xl','AuthController@postSignup')->name('signup');
-
+//dang xuat
 Route::get('/dangxuat','AuthController@logOut')->name('logout');
-// Route::get('/doimatkhau/{id}','AuthController@getChangePass')->name('formChange');
-// Route::post('/changpass/{id}','AuthController@postChangePass')->name('changePass');
+//doi mat khau
+Route::get('/doimatkhau/{id}','AuthController@getChangePass')->name('formChange');
+
+Route::post('/changpass/{id}','AuthController@postChangePass')->name('changePass');
 
 
 //comment

@@ -1,4 +1,6 @@
 <!-- header -->
+
+
 <header id="header">
 		<div class="container">
 			<div class="row">
@@ -30,21 +32,36 @@
 
 
 
-	<div class="dropdown" style="position:absolute;top:28px;right:10px;">
+	<div class="dropdown" style="position:absolute;top:28px;right:30px;">
 	<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
 
 	<a href="" style="color:white"></a>
 	@if (!isset($auth))
 	<a href="" style="color:white">Đăng nhập</a>
 	@else
-    <li><a href="#">{{$auth->user_username}}</a>
+    <a href="#" style="color:white; padding: 10px;">{{$auth->user_username}}</a>
 	@endif
   </button> 
   <div class="dropdown-menu">
-    <a class="dropdown-item" href="{{route('formlogin')}}">Đăng nhập</a>
-    <a class="dropdown-item" href="{{route('formsignup')}}">Đăng ký</a>
-    <a class="dropdown-item" href="#">Đổi mật khẩu</a>
-	<a class="dropdown-item" href="{{route('logout')}}">Đăng xuất</a>
+
+    <a class="dropdown-item" href="{{route('formlogin')}}">Đăng Nhập</a>
+    <a class="dropdown-item" href="{{route('formsignup')}}">Đăng Ký</a>
+	@if (isset($auth))
+	<a class="dropdown-item" href="{{route('email')}}" title="Thông tin khách hàng">Thông Tin Cá Nhân</a>
+	@else
+	@endif
+	@if (isset($auth) && $auth->user_quyen == 0)
+	<a class="dropdown-item" href="{{route('admin')}}">Về Trang Admin</a>
+	@else
+	@endif
+	@if (isset($auth))
+    <a class="dropdown-item" href="{{route('formChange',['id'=>$auth->user_id])}}">Đổi Mật Khẩu</a>
+	@else
+	@endif
+	@if (isset($auth))
+	<a class="dropdown-item" href="{{route('logout')}}">Đăng Xuất</a>
+	@else
+	@endif
   </div>
 </div>
 
@@ -56,4 +73,9 @@
 	<!-- endheader -->
 
 
-                              
+
+
+
+
+
+                      

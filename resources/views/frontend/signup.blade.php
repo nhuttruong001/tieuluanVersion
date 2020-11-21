@@ -17,7 +17,9 @@
       alert('Đăng ký thành công');
       };
 </script>
+
   @endsection
+  @endif
  
 <head>
 	<title>Đăng Ký</title>

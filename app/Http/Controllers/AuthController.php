@@ -86,11 +86,46 @@ class AuthController extends Controller
         return redirect()->route("trangchu");
     }
 
-    public function getComments(){
+ 
 
-    }
+    public function getChangePass($id){
+        $change = User::find($id);
+        return view('frontend.formChange')->with('change',$change);
+    } 
 
-    public function postComments(){
+    public function postChangePass(Request $request, $id){
+        $user = User::find($id);
+
+
+                $arrr = [
+                        'user_username'  => $user->user_username,
+                        'password'      => $request->old_password
+                ];
+
+           if (Auth::attempt($arrr)) {
+                    $this->validate($request, [
+                        'new_password'=>'min:8|max:50',
+                        'confirm_password'=>'same:new_password',
+                        ],[
+                            'new_password.min'=>'Mật khẩu phải ít nhất 8 kí tự',
+                            'new_password.max' => 'Mật khẩu không được quá 50 kí tự',
+                            'confirm_password.same' => 'Mật khẩu không trùng khớp',
+                        ]);
+
+
+                    $user->password =bcrypt($request->new_password);
+
+                    $user->save();
+
+                    Session::flash('alert-1', 'Đổi mật khẩu thành công!!');
+                    return redirect::back();
+           }else{
+                    Session::flash('alert-2', 'Đổi Mật Khẩu Thất Bại!!');
+                    return redirect::back();
+           }
+
+
+
 
     }
 

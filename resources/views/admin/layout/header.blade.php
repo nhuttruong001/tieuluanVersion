@@ -24,7 +24,7 @@
                 @if (isset($auth))
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                 <img alt="" src="upload/cdv/{{$auth->cdv_hinhanh}}">
-                <span class="username">{{$auth->cdv_username}}</span>
+                <span class="username">{{$auth->user_username}}</span>
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu extended logout">
