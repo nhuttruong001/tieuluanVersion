@@ -104,7 +104,7 @@ class AuthController extends Controller
 
            if (Auth::attempt($arrr)) {
                     $this->validate($request, [
-                        'new_password'=>'min:8|max:50',
+                        'new_password'=>'min:4|max:50',
                         'confirm_password'=>'same:new_password',
                         ],[
                             'new_password.min'=>'Mật khẩu phải ít nhất 8 kí tự',
@@ -117,10 +117,10 @@ class AuthController extends Controller
 
                     $user->save();
 
-                    Session::flash('alert-1', 'Đổi mật khẩu thành công!!');
+                    Session::flash('alert-success', 'Đổi mật khẩu thành công!!');
                     return redirect::back();
            }else{
-                    Session::flash('alert-2', 'Đổi Mật Khẩu Thất Bại!!');
+                    Session::flash('alert-warning', 'Đổi Mật Khẩu Thất Bại!!');
                     return redirect::back();
            }
 

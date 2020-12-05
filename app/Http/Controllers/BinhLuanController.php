@@ -20,4 +20,15 @@ class BinhLuanController extends Controller
         $BinhLuan->save();
         return redirect()->route('details', ['id' => $request->giay_id]);
     }
+
+
+   
+
+    public function destroy($id){
+        $BinhLuan = BinhLuan::find($id);
+        $BinhLuan->bl_trangthai = 0;
+        $BinhLuan->save();
+        Session::flash('alert-3', 'Xóa bình luận thành công!!!');
+        return redirect()->back();
+}
 }

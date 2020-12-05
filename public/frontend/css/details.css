@@ -344,6 +344,7 @@ nav a#pull {
 #comment-list ul{
 	border-bottom: 1px dotted #cdcdcd;
 	padding-bottom: 10px;
+	border: 1px solid gray;
 }
 #comment-list li{
 	list-style: none;
@@ -364,4 +365,6 @@ li.com-title span{
 	margin-top: 25px;
 	text-align: justify;
 }
+
+
 /* end details */

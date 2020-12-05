@@ -28,6 +28,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="backend/js/morris.js"></script>
 <script type="text/javascript" language="javascript" src="ckeditor/ckeditor.js"></script>
 <script type="text/javascript" language="javascript" src="ckfinder/ckfinder.js"></script>
+<script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 

@@ -12,6 +12,7 @@ use App\User;
 use App\KhuyenMai;
 use App\LoaiGiay;
 use App\NhaCungCap;
+Use Alert;
 
 
 use Illuminate\Support\Facades\Auth;
@@ -21,6 +22,8 @@ use Session;
 use Illuminate\Support\Facades\Redirect;
 use Validate;
 use Carbon\Carbon;
+
+use Cart;
 
 class IndexController extends Controller
 {
@@ -69,6 +72,8 @@ class IndexController extends Controller
          view()->share('NhaCungCap',$NhaCungCap);
    
          view()->share('User',$User);
+
+
     }
     public function getIndex(){
        
@@ -80,8 +85,53 @@ class IndexController extends Controller
     }
 
     public function getCart(){
-        $details =Giay::find($id);
+        // $details =Giay::find($id);
         return view('frontend.cart');
+    }
+
+    public function getAddCart($id){
+     
+        $product = Giay::select('giay_id','giay_ten','giay_gia','giay_hinhanh')->find($id);
+        $product = Giay::find($id);
+          Cart::session(auth()->id())->add(array(         
+         'id'           => $id,
+         'name'         => $product->giay_ten, 
+         'quantity'      => 1, 
+         'price'        => $product->giay_gia, 
+         'attributes'   => array('avatar' => $product-> giay_hinhanh)));
+         $cart = Cart::getcontent();
+        
+        // Cart::remove($id);
+        // return redirect()->route('frontend.cart');
+       return view('frontend.cart')->with('cart',$cart);
+
+    }
+
+    // add the product to cart
+
+
+
+    public function getDestroy($id){
+     
+        Cart::session(auth()->id())->remove($id);
+        $cart = Cart::getcontent();
+       return view('frontend.cart')->with('cart',$cart);
+
+    }
+
+    public function getUpdate($id){
+        Cart::session(auth()->id())->update($id,
+        [
+            'quantity' => array(
+               'relative' => false,
+               'value' => request('quantity'),
+            )
+           
+        ]);
+        $cart = Cart::getcontent();
+       return view('frontend.cart')->with('cart',$cart);
+    // return back();
+        
     }
 
     public function getDetails($id){
@@ -89,8 +139,20 @@ class IndexController extends Controller
         return view('frontend.details')->with('details',$details);
     }
 
-    public function getSearch(){
-        return view('frontend.search');
+    // public function getSearch(){
+        
+    //     return view('frontend.search');
+    // }
+
+        // Tìm kiếm
+    public function getSearch(Request $request){
+            $tu_khoa = ($request->tu_khoa);
+            $giay1 = DB::table('giay')
+            ->whereRaw('giay_trangthai = 1 and lower(giay_ten) LIKE (?)',["%{$tu_khoa}%"])
+            ->paginate(4);
+            return view('frontend.index')->with('giay1',$giay1);
+
+
     }
 
     public function getCategory(){

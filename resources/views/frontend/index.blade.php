@@ -106,11 +106,15 @@
 									<p class="price">{{$g->giay_gia}}</p>	  
 									<div class="marsk">
 										<a href="{{route('details',['id'=>$g->giay_id])}}">Xem chi tiết</a>
-									</div>                                    
+									</div>    
+								                             
 								</div>
+							
+							
 								@endif
 								@endforeach
-							</div>                	                	
+							</div>  
+								<!-- <button>add to cart</button>                 	                	 -->
 						</div>
 
 						<!-- <div id="wrap-inner">

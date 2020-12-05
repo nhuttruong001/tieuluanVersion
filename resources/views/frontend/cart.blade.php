@@ -108,39 +108,48 @@
 										<td width="16.6665%">Thành tiền</td>
 										<td width="11.112%">Xóa</td>
 									</tr>
+					
+									@foreach($cart as $key => $value)
 									<tr>
-										<td><img class="img-responsive" src="img/home/product-1.png"></td>
-										<td>Galaxy S6 Edge (Quốc tế) hàng Like new 32GB</td>
+								
+										<td><img class="img-responsive" src="{{ asset('upload/giay/' . $value->attributes->avatar) }}"></td>
+										<td>{{$value->name}}</td>
+										
 										<td>
+											<form action="{{route('updatecart',$value->id)}}">
 											<div class="form-group">
-												<input class="form-control" type="number">
+											<input class="form-control" name="quantity" value="{{$value->quantity}}" type="number">
+												<input  value="save" type="submit">
+
 											</div>
+											</form>
+												
 										</td>
-										<td><span class="price">6.590.000 đ</span></td>
-										<td><span class="price">6.590.000 đ</span></td>
-										<td><a href="#">Xóa</a></td>
+									
+										<!-- <td>
+											<span class="price">{{Cart::session(auth()->id())->get($value->id)->getPriceSum()}} </span>
+										
+										</td> -->
+										<td>{{$value->price}}</td>
+
+										<td><span class="price">{{$value->quantity * $value->price}}</span></td>
+										<td><a href="{{route('destroycart',$value->id)}}">Xóa</a></td>
+									
 									</tr>
-									<tr>
-										<td><img class="img-responsive" src="img/home/product-2.png"></td>
-										<td>Galaxy S6 Edge (Quốc tế) hàng Like new 32GB</td>
-										<td>
-											<div class="form-group">
-												<input class="form-control" type="number">
-											</div>
-										</td>
-										<td><span class="price">6.590.000 đ</span></td>
-										<td><span class="price">6.590.000 đ</span></td>
-										<td><a href="#">Xóa</a></td>
-									</tr>
+								
+								@endforeach
+						
 								</table>
 								<div class="row" id="total-price">
 									<div class="col-md-6 col-sm-12 col-xs-12">										
-											Tổng thanh toán: <span class="total-price">50.000.000 đ</span>
+											Tổng thanh toán:
+									
+											 <span class="total-price"></span>
 																													
 									</div>
 									<div class="col-md-6 col-sm-12 col-xs-12">
-										<a href="#" class="my-btn btn">Mua tiếp</a>
-										<a href="#" class="my-btn btn">Cập nhật</a>
+										<a href="{{route('trangchu')}}" class="my-btn btn">Mua tiếp</a>
+										<!-- <a href="#" class="my-btn btn">Cập nhật</a> -->
 										<a href="#" class="my-btn btn">Xóa giỏ hàng</a>
 									</div>
 								</div>
@@ -185,3 +194,4 @@
 
 
 @endsection
+

@@ -1,7 +1,22 @@
 @extends('frontend.layout.master')
 @section('frontend_content')
+@include('sweetalert::alert')
 
 
+
+  
+  @if(Session::has('alert-3'))
+  @section('script')
+  <script>
+    window.onload =  function()
+      {
+      alert('Xóa bình luận thành công');
+      };
+</script>
+  @endsection
+    <a class="close" data-dismiss="alert" aria-label="close">&times;</a></p>
+  @endif
+  
 <!-- main -->
 <section id="body">
 		<div class="container">
@@ -110,7 +125,11 @@
 									<p>Tình trạng: mới 100%</p>
 									<p>Hỗ trợ thanh toán : Paypal,...</p>
 									<p>Còn hàng: Còn hàng</p>
-									<p class="add-cart text-center"><a href="{{route('cart')}}">Đặt hàng online</a></p>
+									@if(auth())
+									<p class="add-cart text-center"><a href="{{route('addcart',$details->giay_id)}}">Đặt hàng online</a></p>
+									@else
+									{{Alert::warning('Warning Title', 'Warning Message')}}
+									@endif
 								</div>
 							</div>							
 						</div>
@@ -135,8 +154,9 @@
 								</form>
 							</div>
 						</div>
-						<div id="comment-list">
+						<div id="comment-list" border: 1px solid gray;>
 						@foreach($binhluan as $bl)
+						@if($bl->bl_trangthai == 1)
 							<ul>
 								<li class="com-title">
 									{{$bl->user_hoten}}
@@ -146,8 +166,11 @@
 								<li class="com-details">
 									{{$bl->bl_noidung}}
 								</li>
+								<i class='fas fa-trash-alt' style="margin-left:800px"></i><a   title="Xóa" class="glyphicon glyphicon-trash" href="{{route('xoabinhluan',['id'=>$bl->bl_id])}}"  onclick="return confirm('Bạn có chắc muốn xóa không?');"></a>
 							</ul>
+							@endif
 						@endforeach
+						
 						</div>
 					</div>					
 					
@@ -158,6 +181,11 @@
 	</section>
 	<!-- endmain -->
 
-
-
+@endsection
+@section('script')
+<script>
+    function timkiem(){
+      document.getElementById('search').click();
+    }
+</script>
 @endsection

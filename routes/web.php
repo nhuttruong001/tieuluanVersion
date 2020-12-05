@@ -26,6 +26,11 @@ Route::get('/home','IndexController@getIndex')->name('trangchu');
 
 Route::get('/cart','IndexController@getCart')->name('cart');
 
+Route::get('/add-to-cart/{id}','IndexController@getAddCart')->name('addcart')->middleware('auth');
+Route::get('/cart/destroy/{id}','IndexController@getDestroy')->name('destroycart')->middleware('auth');
+Route::get('/cart/update/{id}','IndexController@getUpdate')->name('updatecart')->middleware('auth');
+
+
 //details
 
 Route::get('/details/{id}','IndexController@getDetails')->name('details');
@@ -71,8 +76,13 @@ Route::post('/changpass/{id}','AuthController@postChangePass')->name('changePass
 //comment
 
 
-//Route::delete('admin/binhluan/delete/{id_tt}/{id_bl}', 'Backend\BinhLuanController@destroy')->name('Backend.binhluan.delete');
+Route::get('xoabinhluan/{id}', 'BinhLuanController@destroy')->name('xoabinhluan');
 Route::post('/binhluan','BinhLuanController@postBinhLuan')->name('binhluan-xl');
+
+
+// Tìm kiếm tour
+Route::get('/timkiemgiay','IndexController@getSearch')->name('timkiemgiay');
+
 
 
 
