@@ -80,8 +80,10 @@ Route::get('xoabinhluan/{id}', 'BinhLuanController@destroy')->name('xoabinhluan'
 Route::post('/binhluan','BinhLuanController@postBinhLuan')->name('binhluan-xl');
 
 
-// Tìm kiếm tour
+// Tìm kiếm giay frontend
 Route::get('/timkiemgiay','IndexController@getSearch')->name('timkiemgiay');
+
+
 
 
 
@@ -108,8 +110,8 @@ Route::group(['prefix' => 'admin','middleware'=>'adminLogin'],function(){
 
     //     //xoa User
         Route::get('/User_Xoa/{id}', 'UserController@getXoa')->name('User_Xoa');
-    //     //Tim kiem nhan vien
-    //     Route::get('/NhanVien_Timkiem', 'NhanVienController@postTimkiem')->name('NhanVien_Timkiem');
+    //     //Tim kiem user
+         Route::get('/User_Timkiem', 'UserController@postTimkiem')->name('User_Timkiem');
 
 
 

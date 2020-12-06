@@ -97,17 +97,15 @@ class UserController extends Controller
     }
 
     public function postTimkiem(Request $request){
-        $tukhoa = $request->tukhoa;
-        $user_id = $request->user_id;
-    
-        // nhập đầy đủ
-        if((!empty($tukhoa)) && (!empty($user_id))){
-            $User = User::where([['user_id','=',$user_id],['user_hoten','like',"%$tukhoa%"],['user_trangthai',1],])->paginate(10);
-        }// nhập tên nhan vien
-        else {
-            $User = User::where([['user_hoten','like',"%$tukhoa%"],['user_trangthai',1],])->paginate(10);
-        }
-        return view('admin.User.danhsach')->with('User',$User)->with('user_id',$user_id)->with('tukhoa',$tukhoa);
+       
+            $tukhoa = $request->tukhoa;
+            $User = DB::table('User')
+            ->select('User.*')
+            ->where('User.user_hoten','like',"%$tukhoa%")
+            ->get();
+            //dd($DonVi);
+            return view('admin.User.danhsach')->with('User',$User)->with('tukhoa',$tukhoa);
+        
     
 
 }
