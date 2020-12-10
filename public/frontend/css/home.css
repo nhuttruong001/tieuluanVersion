@@ -150,8 +150,11 @@ padding-left: 12px;
 	padding: 0;
 	border-radius: 0;
 }
-.product-item:hover .marsk{
-	display: block;
+.mask-custom {
+	height:100%;width:100%;top:0;left:0; position:absolute; display:none; flex-direction:column; justify-content:center; align-items:center; background-color:#000000e3
+}
+.product-item:hover .mask-custom{
+	display: flex;
 }
 .product-item img{
 	margin-bottom: 15px;

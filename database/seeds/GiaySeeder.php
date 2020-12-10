@@ -19,6 +19,7 @@ class GiaySeeder extends Seeder
                 'ncc_id' => 1,
                 'giay_ten' => 'JORDAN 1',
                 'giay_gia' => 3500000,
+                'giay_soluong' => 100,
                 'giay_hinhanh' => 'jordan_1.jpg',
                 'giay_mota' => 'Mẫu giày thể thao luôn hot trong nhiều năm nay',
                 'giay_trangthai' => 1
@@ -30,6 +31,7 @@ class GiaySeeder extends Seeder
                 'ncc_id' => 1,
                 'giay_ten' => 'JORDAN 4',
                 'giay_gia' => 4500000,
+                'giay_soluong' => 50,
                 'giay_hinhanh' => 'jordan_4.jpg',
                 'giay_mota' => 'Mẫu giày thể thao được ưa chuộng nhất',
                 'giay_trangthai' => 1
@@ -41,6 +43,7 @@ class GiaySeeder extends Seeder
                 'ncc_id' => 2,
                 'giay_ten' => 'STAN SMITH',
                 'giay_gia' => 2400000,
+                'giay_soluong' => 10,
                 'giay_hinhanh' => 'stanmith_1.jpg',
                 'giay_mota' => 'Mẫu giày thể thao luôn hot trong nhiều năm nay',
                 'giay_trangthai' => 1
@@ -51,7 +54,8 @@ class GiaySeeder extends Seeder
                 'km_id' => 2,
                 'ncc_id' => 2,
                 'giay_ten' => 'ULTRABOOST 20',
-                'giay_gia' => 5000000,
+                'giay_gia' => 200,
+                'giay_soluong' => 60,
                 'giay_hinhanh' => 'ultraboost_1.jpg',
                 'giay_mota' => 'Mẫu giày thể thao luôn hot trong nhiều năm nay',
                 'giay_trangthai' => 1
@@ -63,6 +67,7 @@ class GiaySeeder extends Seeder
                 'ncc_id' => 3,
                 'giay_ten' => 'BITIS HUNTER X 2020',
                 'giay_gia' => 2400000,
+                'giay_soluong' => 150,
                 'giay_hinhanh' => 'bitishunterx2020_1.jpg',
                 'giay_mota' => 'Mẫu giày thể thao luôn hot trong nhiều năm nay',
                 'giay_trangthai' => 1

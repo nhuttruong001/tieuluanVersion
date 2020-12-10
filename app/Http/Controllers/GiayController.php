@@ -8,11 +8,13 @@ use App\LoaiGiay;
 use App\KhuyenMai;
 use App\NhaCungCap;
 use Validator;
-use Session;
-use DB;
-use Image;
+
+
 use Response;
 use Redirect;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
+use Intervention\Image\Facades\Image;
 
 class GiayController extends Controller
 {
@@ -32,7 +34,7 @@ class GiayController extends Controller
         view()->share('ncc_id',$ncc_id);
 	}
     public function getDanhSach(){
-        $Giay = Giay::where('giay_trangthai','=',1)->paginate(10);
+        $Giay = Giay::where('giay_trangthai','=',1)->paginate(8);
         return view('admin.Giay.danhsach')->with('Giay',$Giay);
     }
 
@@ -48,12 +50,14 @@ class GiayController extends Controller
             $Giay->ncc_id = $request->ncc_id;
             $Giay->giay_ten = $request->giay_ten;
             $Giay->giay_gia = $request->giay_gia;
+            $Giay->giay_soluong = $request->giay_soluong;
             if($request->hasFile('giay_hinhanh')){
                 $dataTime = date('Ymd_His');
                 $file = $request->file('giay_hinhanh');
                 $duoi = $file->getClientOriginalExtension();
                 if($duoi != 'jpg' && $duoi != 'jpeg' && $duoi != 'png'){
                     Session::flash('alert-warning', 'Bạn chỉ được chọn file ảnh có đuôi png, jpg, jpeg!!!');
+                    // $request->session()->flash('status', 'Task was successful!');
                     return redirect()->route('Giay_Them');
                 }
                 $fileName = $dataTime . '-' . $file->getClientOriginalName();
@@ -92,6 +96,7 @@ public function postSua(Request $request, $id){
     $Giay->ncc_id = $request->ncc_id;
     $Giay->giay_ten = $request->giay_ten;
     $Giay->giay_gia = $request->giay_gia;
+    $Giay->giay_soluong = $request->giay_soluong;
     if($request->hasFile('giay_hinhanh')){
         $dataTime = date('Ymd_His');
         $file = $request->file('giay_hinhanh');

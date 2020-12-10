@@ -24,15 +24,11 @@
 				<div id="sidebar" class="col-md-3">
 					<nav id="menu">
 						<ul>
-							<li class="menu-item">danh mục sản phẩm</li>
-							<li class="menu-item"><a href="#" title="">Giày nam</a></li>
-							<li class="menu-item"><a href="#" title="">Giày nữ</a></li>
-							<li class="menu-item"><a href="#" title="">Sneaker</a></li>	
-							<li class="menu-item"><a href="#" title="">Sandal</a></li>
-							<li class="menu-item"><a href="#" title="">Giầy tây</a></li>
-							<li class="menu-item"><a href="#" title="">Giày mọi</a></li>
-							<li class="menu-item"><a href="#" title="">Bóng đá</a></li>
-											
+						<li class="menu-item">danh mục sản phẩm</li>
+						@foreach($LoaiGiay as $loai)
+						<li class="menu-item"><a href="#" title="">{{$loai->loai_ten}}</a></li>
+					
+						@endforeach
 						</ul>
 						<!-- <a href="#" id="pull">Danh mục</a> -->
 					</nav>
@@ -125,11 +121,10 @@
 									<p>Tình trạng: mới 100%</p>
 									<p>Hỗ trợ thanh toán : Paypal,...</p>
 									<p>Còn hàng: Còn hàng</p>
-									@if(auth())
+									
 									<p class="add-cart text-center"><a href="{{route('addcart',$details->giay_id)}}">Đặt hàng online</a></p>
-									@else
-									{{Alert::warning('Warning Title', 'Warning Message')}}
-									@endif
+								
+									
 								</div>
 							</div>							
 						</div>
@@ -154,7 +149,8 @@
 								</form>
 							</div>
 						</div>
-						<div id="comment-list" border: 1px solid gray;>
+						<div >
+						<h3>Ý kiến khách hàng</h3><hr>
 						@foreach($binhluan as $bl)
 						@if($bl->bl_trangthai == 1)
 							<ul>
@@ -166,7 +162,7 @@
 								<li class="com-details">
 									{{$bl->bl_noidung}}
 								</li>
-								<i class='fas fa-trash-alt' style="margin-left:800px"></i><a   title="Xóa" class="glyphicon glyphicon-trash" href="{{route('xoabinhluan',['id'=>$bl->bl_id])}}"  onclick="return confirm('Bạn có chắc muốn xóa không?');"></a>
+								
 							</ul>
 							@endif
 						@endforeach

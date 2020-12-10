@@ -21,15 +21,20 @@ Route::get('/', function () {
 
 //trang chu
 Route::get('/home','IndexController@getIndex')->name('trangchu');
-
+Route::get('/ajax/cart','AjaxController@getAjax')->name('ajaxcart');
 //cart
 
 Route::get('/cart','IndexController@getCart')->name('cart');
 
-Route::get('/add-to-cart/{id}','IndexController@getAddCart')->name('addcart')->middleware('auth');
-Route::get('/cart/destroy/{id}','IndexController@getDestroy')->name('destroycart')->middleware('auth');
-Route::get('/cart/update/{id}','IndexController@getUpdate')->name('updatecart')->middleware('auth');
+Route::get('/add-to-cart/{id}','IndexController@getAddCart')->name('addcart');
+Route::get('/cart/destroy/{id}','IndexController@getDestroy')->name('destroycart');
+//Route::get('/cart/update/{id}','IndexController@getUpdate')->name('updatecart');
+Route::get('/cart/update','IndexController@getUpdate')->name('updatecart');
 
+
+// //test
+
+// Route::get('/test','IndexController@getTest')->name('test');
 
 //details
 
@@ -76,7 +81,7 @@ Route::post('/changpass/{id}','AuthController@postChangePass')->name('changePass
 //comment
 
 
-Route::get('xoabinhluan/{id}', 'BinhLuanController@destroy')->name('xoabinhluan');
+// Route::get('xoabinhluan/{id}', 'BinhLuanController@destroy')->name('xoabinhluan');
 Route::post('/binhluan','BinhLuanController@postBinhLuan')->name('binhluan-xl');
 
 

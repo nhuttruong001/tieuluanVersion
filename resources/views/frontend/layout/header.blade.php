@@ -24,8 +24,8 @@
 
 
 				<div id="cart" class="col-md-2 col-sm-12 col-xs-12">
-					<a class="display" href="">Giỏ hàng</a>
-					<a href="#">{{Cart::getTotalQuantity()}}</a>
+					<a class="display" href="{{route('cart')}}">Giỏ hàng</a>
+					<a href="{{route('cart')}}">{{Cart::getTotalQuantity()}}</a>
 
 			
 			
@@ -49,11 +49,15 @@
     <a href="#" style="color:white; padding: 10px;">{{$auth->user_username}}</a>
 	@endif
   </button> 
+  @if (!isset($auth))
   <div class="dropdown-menu">
 
     <a class="dropdown-item" href="{{route('formlogin')}}">Đăng Nhập</a>
-    <a class="dropdown-item" href="{{route('formsignup')}}">Đăng Ký</a>
+	<a class="dropdown-item" href="{{route('formsignup')}}">Đăng Ký</a>
+	@else
+	@endif
 	@if (isset($auth))
+	<div class="dropdown-menu">
 	<a class="dropdown-item" href="{{route('email')}}" title="Thông tin khách hàng">Thông Tin Cá Nhân</a>
 	@else
 	@endif
@@ -69,6 +73,7 @@
 	<a class="dropdown-item" href="{{route('logout')}}">Đăng Xuất</a>
 	@else
 	@endif
+	</div>
   </div>
 </div>
 

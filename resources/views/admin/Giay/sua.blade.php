@@ -116,6 +116,18 @@
                     </div>
                   {{-- giay gia --}}
 
+                  {{-- Giay soluong--}}
+                    <div class="form-group ">
+                      <label for="firstname" class="control-label col-lg-3">Giá</label>
+                      <div class="col-lg-6">
+                          <input class=" form-control" value="{{$Giay->giay_soluong}}" id="giay_soluong"  name="giay_soluong" type="number">
+                          @if($errors->has('giay_soluong'))
+                          <div style="color:red">{{ $errors->first('giay_soluong')}}</div>
+                          @endif
+                        </div>
+                    </div>
+                  {{-- giay soluong--}}
+
                   {{-- ảnh đại diện --}}
                   <div class="form-group ">
                     <label for="confirm_password" class="control-label col-lg-3">Ảnh Đại Diện</label>

@@ -14,11 +14,12 @@ use App\LoaiGiay;
 use App\NhaCungCap;
 Use Alert;
 
-
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
+use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Auth;
-use DB;
 
-use Session;
+
 use Illuminate\Support\Facades\Redirect;
 use Validate;
 use Carbon\Carbon;
@@ -55,6 +56,8 @@ class IndexController extends Controller
          ->orderBy('BinhLuan.bl_id','desc')
          ->limit(5)->get();
 
+         
+
          view()->share('binhluan',$binhluan);
       
 
@@ -85,15 +88,15 @@ class IndexController extends Controller
     }
 
     public function getCart(){
-        // $details =Giay::find($id);
-        return view('frontend.cart');
+        $cart = Cart::getcontent();
+        return view('frontend.cart',compact('cart'));
     }
 
     public function getAddCart($id){
      
         $product = Giay::select('giay_id','giay_ten','giay_gia','giay_hinhanh')->find($id);
         $product = Giay::find($id);
-          Cart::session(auth()->id())->add(array(         
+          Cart::add(array(         
          'id'           => $id,
          'name'         => $product->giay_ten, 
          'quantity'      => 1, 
@@ -102,8 +105,8 @@ class IndexController extends Controller
          $cart = Cart::getcontent();
         
         // Cart::remove($id);
-        // return redirect()->route('frontend.cart');
-       return view('frontend.cart')->with('cart',$cart);
+        return redirect()->route('cart');
+     // return view('frontend.cart')->with('cart',$cart);
 
     }
 
@@ -113,26 +116,37 @@ class IndexController extends Controller
 
     public function getDestroy($id){
      
-        Cart::session(auth()->id())->remove($id);
+        Cart::remove($id);
         $cart = Cart::getcontent();
        return view('frontend.cart')->with('cart',$cart);
 
     }
 
-    public function getUpdate($id){
-        Cart::session(auth()->id())->update($id,
-        [
+    public function getUpdate(Request $request){
+        
+       // dd($request ->id);
+        
+        $id = $request->id ;
+        $qty = $request->qty ;
+        // Cart::update($id, array(
+        //     'quantity' => $request->qty, 
+        //   ));
+
+          Cart::update($id , array(
             'quantity' => array(
-               'relative' => false,
-               'value' => request('quantity'),
-            )
-           
-        ]);
-        $cart = Cart::getcontent();
-       return view('frontend.cart')->with('cart',$cart);
+                'relative' => false,
+                'value' =>   $qty, 
+            ),
+          ));
+         return response (['mess' => 'thanh cong']); 
+       // $cart = Cart::getcontent();
+      //  return redirect()->route('cart');
+     //  return view('frontend.cart')->with('cart',$cart);
     // return back();
         
     }
+
+
 
     public function getDetails($id){
         $details =Giay::find($id);
@@ -175,15 +189,17 @@ class IndexController extends Controller
         return view('frontend.login');
     }
 
-    public function getBinhLuan(){
-
-   
-   
-        
-            
+    public function getBinhLuan(){      
         return view('details');
   
     }
+
+    
+    // public function getTest(){  
+
+    //     return view('frontend.test');
+  
+    // }
 
 
 }

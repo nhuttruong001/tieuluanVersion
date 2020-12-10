@@ -7,17 +7,27 @@
   <script>
     window.onload =  function()
       {
-      alert('Đổi mật khẩu thành công');
+      alert('Thêm thành công');
       };
 </script>
   @endsection
-  @endif
   @if(Session::has('alert-2'))
   @section('script')
   <script>
     window.onload =  function()
       {
-      alert('Đổi mật khẩu thất bại');
+      alert('Cập nhật thành công');
+      };
+</script>
+  @endsection
+  @endif
+  @endif
+  @if(Session::has('alert-3'))
+  @section('script')
+  <script>
+    window.onload =  function()
+      {
+      alert('Xóa thành công');
       };
 </script>
   @endsection
@@ -61,6 +71,7 @@
             <th>Nhà cung cấp mã</th>
             <th>Tên giày</th>
             <th>Giá</th>
+            <th>Số lượng</th>
             <th>Hình ảnh</th>
             <th>Mô tả</th>
           </tr>
@@ -75,6 +86,7 @@
                     <td>{{$giay->Nhacungcap->ncc_ten}}</td>
                     <td>{{$giay->giay_ten}}</td>
                     <td>{{$giay->giay_gia}}</td>
+                    <td>{{$giay->giay_soluong}}</td>
                     <td>{{$giay->giay_hinhanh}}</td>
                     <td>{{$giay->giay_mota}}</td>
                    

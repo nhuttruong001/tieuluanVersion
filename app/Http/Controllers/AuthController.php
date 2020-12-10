@@ -5,12 +5,14 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 use Validator;
-use DB;
-use Image;
-use Redirect;
-use Session;
-use App\User;
 
+use Illuminate\Support\Facades\Redirect;
+
+use App\User;
+use Cart;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
+use Intervention\Image\Facades\Image;
 
 class AuthController extends Controller
 {
@@ -83,6 +85,7 @@ class AuthController extends Controller
 
      public function logOut(){
         Auth::logout();
+        Cart::clear();
         return redirect()->route("trangchu");
     }
 

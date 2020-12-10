@@ -15,6 +15,7 @@ class Giay extends Model
         'ncc_id',
         'giay_ten',
         'giay_gia',
+        'giay_soluong',
         'giay_hinhanh',
         'giay_mota',
         'giay_trangthai'
