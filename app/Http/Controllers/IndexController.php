@@ -119,6 +119,9 @@ class IndexController extends Controller
     public function getDestroy($id){
      
         Cart::remove($id);
+        // if (Cart::isEmpty()) {
+        //     return redirect('/');
+        // }
         $cart = Cart::getcontent();
        return view('frontend.cart')->with('cart',$cart);
 
@@ -199,9 +202,11 @@ class IndexController extends Controller
     
   
 
-    public function getThanhtoan(){  
+    public function getThanhtoan(Request $request){  
 
-       
+     if (Cart::isEmpty()) {
+            return redirect('cart');
+        }
      
         $HoaDon = new HoaDon();
         $HoaDon->user_id = Auth::user()->user_id;
@@ -215,9 +220,12 @@ class IndexController extends Controller
             $ChiTietHoaDon->soluong = $value->quantity;
             $ChiTietHoaDon->save();
         }
-       Session::flash('alert-4', 'Thanh toán thành công!!!');
        
+       Session::flash('alert-4', 'Thanh toán thành công!!!');
+       $request->session()->flush('cart');
+    // session()->forget('cart');
        return redirect()->route('complete');
+  
 
 
     

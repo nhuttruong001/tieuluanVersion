@@ -189,9 +189,10 @@
 							<div class="form-group text-right">
 								<button onclick="display()" type="submit" class="btn btn-default">Thanh toán</button>
 							@else
+							@if(Cart::isEmpty())
 							<div class="form-group text-right">
-								<a href="{{route('thanhtoan-xl')}}"><button type="submit" class="btn btn-default" >Thanh toán</button></a>
-
+								<a href="{{route('thanhtoan-xl')}}"><button onclick="Empty()" type="submit" class="btn btn-default" >Thanh toán</button></a>
+							@endif
 
 
 							
@@ -225,6 +226,10 @@
 
 function display() {
  confirm("Bạn cần đăng nhập để Thanh toán");
+
+}
+function Empty() {
+ alert("Bạn chưa có sản phẩm trong giỏ hàng");
 
 }
 
