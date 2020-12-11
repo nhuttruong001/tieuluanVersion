@@ -10,7 +10,7 @@ class HoaDon extends Model
     protected $primaryKey = 'hd_id';
     protected $guarded      = ['hd_id'];
     protected $fillable = [
-        'kh_id',
+        'hd_id',
         'user_id',
         'hd_ngaylap',
         'hd_trangthai'

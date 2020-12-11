@@ -1,7 +1,16 @@
 @extends('frontend.layout.master')
 @section('frontend_content')
 
-
+@if(Session::has('alert-4'))
+  @section('script')
+  <script>
+    window.onload =  function()
+      {
+      alert('Thanh toán thành công');
+      };
+</script>
+  @endsection
+  @endif
 <!-- main -->
 <section id="body">
 		<div class="container">
@@ -103,7 +112,7 @@
 							<p>• Trụ sở chính: B8A Võ Văn Dũng - Hoàng Cầu Đống Đa - Hà Nội</p>
 							<p>Cám ơn Quý khách đã sử dụng Sản phẩm của Công ty chúng Tôi!</p>
 						</div>
-						<p class="text-right return"><a href="#">Quay lại trang chủ</a></p>
+						<p class="text-right return"><a href="{{route('trangchu')}}">Quay lại trang chủ</a></p>
 					</div>					
 					<!-- end main -->
 				</div>

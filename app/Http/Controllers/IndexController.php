@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 
 use App\BinhLuan;
@@ -25,6 +26,7 @@ use Validate;
 use Carbon\Carbon;
 
 use Cart;
+use Cacbon;
 
 class IndexController extends Controller
 {
@@ -195,11 +197,61 @@ class IndexController extends Controller
     }
 
     
-    // public function getTest(){  
-
-    //     return view('frontend.test');
   
+
+    public function getThanhtoan(){  
+
+       
+     
+        $HoaDon = new HoaDon();
+        $HoaDon->user_id = Auth::user()->user_id;
+        $HoaDon->hd_ngaylap = date('y-m-d h:i:s');
+        $HoaDon->hd_trangthai = 1;
+        $HoaDon->save();
+        foreach(Cart::getContent() as $value){
+            $ChiTietHoaDon = new ChiTietHoaDon();
+            $ChiTietHoaDon->hd_id = $HoaDon->hd_id;
+            $ChiTietHoaDon->giay_id = $value->id;
+            $ChiTietHoaDon->soluong = $value->quantity;
+            $ChiTietHoaDon->save();
+        }
+       Session::flash('alert-4', 'Thanh toán thành công!!!');
+       
+       return redirect()->route('complete');
+
+
+    
+  
+    }
+
+
+    
+    // public function getXacnhan(){  
+    //      return view('frontend.xacnhandonhang');
+    //  }
+
+    //  public function postXacnhan(){  
+    //     $this->validate($request, [
+    //         'name' => 'required',
+    //         'phone' => 'required',
+    //         'add' => 'required',
+    //         'ngaysinh' => 'required',
+            
+    //         ]
+    //         ,
+    //         [
+    //             'name.required' => 'Vui lòng không được để trống Họ tên',
+    //             'phone.required' => 'Vui lòng không được để trống Số điện thoại',
+    //             'add.required' => 'Vui lòng không được để trống Địa chỉ',
+    //             'ngaysinh.required' => 'Vui lòng không được để trống ngày sinh',
+             
+    //         ]);
+
+
     // }
+
+
+
 
 
 }

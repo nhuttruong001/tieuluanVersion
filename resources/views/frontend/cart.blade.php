@@ -139,7 +139,7 @@
 							</div>
 							<div class="col-md-6 col-sm-12 col-xs-12">
 								<a href="{{route('trangchu')}}" class="my-btn btn">Mua tiếp</a>
-								<!-- <a href="#" class="my-btn btn">Cập nhật</a> -->
+								<a href="{{route('cart')}}" class="my-btn btn">Cập nhật</a>
 								<a href="#" class="my-btn btn">Xóa giỏ hàng</a>
 							</div>
 						</div>
@@ -153,7 +153,7 @@
 									<label for="email">Email address:</label>
 									<input required type="email" class="form-control" id="email" name="email">
 								</div> -->
-							<div class="form-group">
+							<!-- <div class="form-group">
 								<label for="name">Họ và tên:</label>
 								<input required type="text" class="form-control" id="name" name="name">
 							</div>
@@ -164,7 +164,7 @@
 							<div class="form-group">
 								<label for="add">Địa chỉ:</label>
 								<input required type="text" class="form-control" id="add" name="add">
-							</div>
+							</div> -->
 
 
 							<form>
@@ -183,8 +183,19 @@
 								</div>
 							</form>
 
+							@if (!isset($auth))
+					
+
 							<div class="form-group text-right">
-								<button type="submit" class="btn btn-default">Thực hiện đơn hàng</button>
+								<button onclick="display()" type="submit" class="btn btn-default">Thanh toán</button>
+							@else
+							<div class="form-group text-right">
+								<a href="{{route('thanhtoan-xl')}}"><button type="submit" class="btn btn-default" >Thanh toán</button></a>
+
+
+
+							
+							@endif
 							</div>
 						</form>
 					</div>
@@ -212,9 +223,24 @@
 	// })
 
 
+function display() {
+ confirm("Bạn cần đăng nhập để Thanh toán");
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 	function loadDoc() {
-		console.log("sdkjfhsdkjhfjkdsfhkj")
+	
 		var url = "http://localhost/tieuluanVersion/public/ajax/cart";
 		let cardom = "";
 		var xhttp = new XMLHttpRequest();

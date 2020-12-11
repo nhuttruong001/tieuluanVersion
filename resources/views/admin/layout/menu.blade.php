@@ -49,6 +49,15 @@
                     <li><a href="{{route('Giay_DS')}}">Danh Sách Giày</a></li>
                     </ul>
                 </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-car"></i>
+                        <span>Quản Lý Đơn Hàng</span>
+                    </a>
+                    <ul class="sub">
+                    <li><a href="{{route('DonHang_DS')}}">Danh Sách Đơn Hàng</a></li>
+                    </ul>
+                </li>
                 
             </ul>
         </div>

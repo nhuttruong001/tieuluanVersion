@@ -88,6 +88,16 @@ Route::post('/binhluan','BinhLuanController@postBinhLuan')->name('binhluan-xl');
 // Tìm kiếm giay frontend
 Route::get('/timkiemgiay','IndexController@getSearch')->name('timkiemgiay');
 
+//thanh toán
+// Route::get('/thanhtoan','IndexController@getThanhtoan')->name('thanhtoan');
+Route::get('/thanhtoan-xl','IndexController@getThanhtoan')->name('thanhtoan-xl');
+
+
+//xac nhan mua hang
+
+// Route::get('/xacnhan','IndexController@getXacnhan')->name('xacnhan');
+// Route::post('/xacnhan-xl','IndexController@getXacnhan')->name('xacnhan-xl');
+
 
 
 
@@ -184,6 +194,21 @@ Route::group(['prefix' => 'admin','middleware'=>'adminLogin'],function(){
 
         //xoa Nha Cung Cap
         Route::get('/NhaCungCap_Xoa/{id}', 'NhaCungCapController@getXoa')->name('NhaCungCap_Xoa');
+    });
+
+    Route::group(['prefix' => 'HoaDon'],function(){
+        // #Danh sach Nha cung cap
+        Route::get('/DonHang_DS','DonHangController@getDanhSach')->name('DonHang_DS');
+        //Form Thêm Nha cuNg cap
+        // Route::get('/NhaCungCap_FormThem', 'NhaCungCapController@getThem')->name('NhaCungCap_Them');
+        // Route::post('/NhaCungCap_ThemNhanVien', 'NhaCungCapController@postThem')->name('NhaCungCap_XLThem');
+
+        // //From sua Nha Cung Cap
+        // Route::get('/NhaCungCap_FormSua/{id}', 'NhaCungCapController@getSua')->name('NhaCungCap_Sua');
+        // Route::post('/NhaCungCap_SuaNhaCungCap/{id}', 'NhaCungCapController@postSua')->name('NhaCungCap_XLSua');
+
+        // //xoa Nha Cung Cap
+        // Route::get('/NhaCungCap_Xoa/{id}', 'NhaCungCapController@getXoa')->name('NhaCungCap_Xoa');
     });
 
 
