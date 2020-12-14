@@ -4,51 +4,70 @@
   <div class="col-lg-12">
       <section class="panel">
           <header class="panel-heading">
-              Thông Tin 
+             Chi Tiết Đơn Hàng
           </header>
-          <div class="panel-body">
+        
 
-              <div class="form" >
-              <form class="cmxform form-horizontal" enctype="multipart/form-data" id="signupForm" method="post" action="" novalidate="novalidate">
-                @csrf
+                  <div id="wrap-inner" style="margin-left:2%">
+						<div id="khach-hang">
+							<h3>Thông tin khách hàng</h3>
+							
+							<p>
+								<span class="info">Khách hàng: </span>
+								{{$HoaDon->User->user_hoten}}
+              </p>
+              <p>
+								<span class="info">Ngày sinh: </span>
+                {{$HoaDon->User->user_ngaysinh}}
+							</p>
+							<p>
+								<span class="info">Điện thoại: </span>
+								{{$HoaDon->User->user_sdt}}
+							</p>
+							<p>
+								<span class="info">Địa chỉ: </span>
+                {{$HoaDon->User->user_diachi}}
+							</p>
+						</div>						
+						<div id="hoa-don" >
+							<h3>Hóa đơn mua hàng</h3>	
+										
+							<table class="table-bordered table-responsive" style="width:70%">
+								<tr class="bold">
+									<td width="20%">Tên sản phẩm</td>
+									<td width="25%">Giá</td>
+									<td width="15%">Số lượng</td>
+									<td width="20%">Thành tiền</td>
+									<td width="15%">Ngày mua</td>
+                </tr>
+                @foreach ($ChiTietHoaDon as $key => $cthd)
+								<tr>
+									<td>{{$cthd->Giay[0]->giay_ten}}</td>
+									<td class="price">{{$cthd->Giay[0]->giay_gia}} VNĐ</td>
+									<td>{{$cthd->soluong}}</td>
+									<td class="price">{{($cthd->Giay[0]->giay_gia) * ($cthd->soluong) }}VNĐ</td>
+									<td>{{$cthd->HoaDon->hd_ngaylap}}</td>
+								</tr>
+	
+									
+           
+				  @endforeach
+				
+								</tr>
+							</table>
+							<br>
+							<td class="total-price"></td>
+				  <td colspan="3">Tổng tiền: {{number_format(\Cart::getSubTotal(),0,',','.')}}VNĐ</td>
+						</div>
+					</div>					
+            
 
-               
-
-                
-
-                
-                {{-- Họ tên --}}
-                  @csrf
-                    <div class="form-group ">
-                      <label for="firstname" class="control-label col-lg-3">Họ Tên Khách Hàng</label>
-                      <div class="col-lg-6">
-                          <input class=" form-control" id="" value="" name="" type="text" disabled>
-
-                        @if($errors->has(''))
-                        <div style="color:red">{{ $errors->first('')}}</div>
-                        @endif
-                      </div>
-                    </div>
-                  {{-- Họ tên --}}
-
-                  {{-- San pham--}}
-                    <div class="form-group ">
-                      <label for="firstname" class="control-label col-lg-3">Sanpham</label>
-                      <div class="col-lg-6">
-                      <input class=" form-control" id="" value="" name="" type="date" disabled>
-
-
-                      @if($errors->has(''))
-                          <div style="color:red">{{ $errors->first('')}}</div>
-                          @endif
-                        </div>
-                    </div>
-                  {{-- San pham --}}
-
+           
                  
 
-                
+                  <a href="{{route('DonHang_DS')}}"><button class="btn btn-primary" type="button" style="margin-left:1235px;">Trở về</button></a>
                   </form>
+                
               </div>
           </div>
       </section>

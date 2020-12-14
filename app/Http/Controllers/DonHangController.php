@@ -8,8 +8,9 @@ use Illuminate\Http\Request;
 use App\Giay;
 use App\User;
 use App\HoaDon;
+use App\ChiTietHoaDon;
 use Validator;
-
+use Cart;
 
 use Response;
 use Redirect;
@@ -33,7 +34,28 @@ class DonHangController extends Controller
   
 	}
     public function getDanhSach(){
+        // $HoaDon = HoaDon::select()->paginate(8);
         $HoaDon = HoaDon::where('hd_trangthai','=',1)->paginate(8);
         return view('admin.DonHang.danhsach')->with('HoaDon',$HoaDon);
+    }
+
+    public function getChiTiet($id){
+        $HoaDon =  HoaDon::find($id);
+        
+        $cart = Cart::getcontent();
+        $ChiTietHoaDon = ChiTietHoaDon::select()->where('hd_id',$id)->get();
+        return view('admin.DonHang.chitiet')->with('HoaDon',$HoaDon)->with('ChiTietHoaDon',$ChiTietHoaDon)->with('cart',$cart);
+    }
+
+    public function xulytt($id){
+
+        $HoaDon =  HoaDon::find($id);
+        $HoaDon->hd_trangthaidh = 1;
+        $HoaDon->save();
+       // $user = HoaDon::where('hd_id',$id)->update('hd_trangthaidh', 1);
+       Session::flash('alert-4', 'Cap nhat trang thai thanh cong');
+       
+       return redirect()->route('DonHang_DS');
+
     }
 }

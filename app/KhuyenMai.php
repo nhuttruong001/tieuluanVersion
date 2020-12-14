@@ -17,6 +17,6 @@ class KhuyenMai extends Model
     ];
 
     public function KhuyenMai(){
-        $this->belongsto('App\KhuyenMai','giay_id','giay_id');
+        return $this->belongsto('App\KhuyenMai','giay_id','giay_id');
     }
 }

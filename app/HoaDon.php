@@ -13,14 +13,18 @@ class HoaDon extends Model
         'hd_id',
         'user_id',
         'hd_ngaylap',
+        'hd_trangthaidh',
         'hd_trangthai'
     ];
 
     public function Giay(){
-        $this->hasMany('App\Giay','giay_id','giay_id');
+        return  $this->hasMany('App\Giay','giay_id','giay_id');
+    }
+    public function ChiTietHoaDon(){
+        return  $this->hasMany('App\ChiTietHoaDon','hd_id','hd_id');
     }
 
     public function User(){
-        $this->belongsto('App\User','user_id','user_id');
+        return $this->belongsto('App\User','user_id','user_id');
     }
 }

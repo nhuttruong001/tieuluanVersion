@@ -25,11 +25,11 @@ class User extends Authenticatable
     ];
 
     public function HoaDon(){
-        $this->hasMany('App\HoaDon','hd_id','hd_id');
+        return $this->hasMany('App\HoaDon','hd_id','hd_id');
     }
 
     public function BinhLuan(){
-        $this->hasMany('App\BinhLuan','hd_id','hd_id');
+        return  $this->hasMany('App\BinhLuan','hd_id','hd_id');
     }
 
     public function getAuthPassword()

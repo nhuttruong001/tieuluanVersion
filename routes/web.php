@@ -100,6 +100,10 @@ Route::get('/thanhtoan-xl','IndexController@getThanhtoan')->name('thanhtoan-xl')
 
 
 
+//quan ly gio hang
+
+Route::get('/quanlyCart','IndexController@getQLCart')->name('quanlyCart');
+  // From sua User
 
 
 
@@ -202,9 +206,9 @@ Route::group(['prefix' => 'admin','middleware'=>'adminLogin'],function(){
         //Form Thêm Nha cuNg cap
         // Route::get('/NhaCungCap_FormThem', 'NhaCungCapController@getThem')->name('NhaCungCap_Them');
         // Route::post('/NhaCungCap_ThemNhanVien', 'NhaCungCapController@postThem')->name('NhaCungCap_XLThem');
-
-        // //From sua Nha Cung Cap
-        // Route::get('/NhaCungCap_FormSua/{id}', 'NhaCungCapController@getSua')->name('NhaCungCap_Sua');
+        Route::get('/xulytt/{id}','DonHangController@xulytt')->name('xuly_trangthai');
+        // //From chitietdonhag
+        Route::get('/Chitietdonhang_FormSua/{id}', 'DonHangController@getChiTiet')->name('TrangThai_Sua');
         // Route::post('/NhaCungCap_SuaNhaCungCap/{id}', 'NhaCungCapController@postSua')->name('NhaCungCap_XLSua');
 
         // //xoa Nha Cung Cap

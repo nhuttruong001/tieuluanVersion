@@ -15,6 +15,6 @@ class LoaiGiay extends Model
     ];
 
     public function Giay(){
-        $this->hasMany('App\Giay','giay_id','giay_id');
+        return  $this->hasMany('App\Giay','giay_id','giay_id');
     }
 }

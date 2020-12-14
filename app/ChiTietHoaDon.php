@@ -15,9 +15,9 @@ class ChiTietHoaDon extends Model
     ];
 
     public function Giay(){
-        $this->belongsto('App\Giay');
+        return  $this->hasMany('App\Giay','giay_id','giay_id');
     }
     public function HoaDon(){
-        $this->belongsto('App\HoaDon');
+        return $this->belongsto('App\HoaDon','hd_id','hd_id');
     }
 }

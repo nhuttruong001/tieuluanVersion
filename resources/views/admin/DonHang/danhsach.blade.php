@@ -2,12 +2,12 @@
 @section('admin_content')
 <!--main content start-->
 
-  @if(Session::has('alert-1'))
+  @if(Session::has('alert-4'))
   @section('script')
   <script>
     window.onload =  function()
       {
-      alert('Thêm thành công');
+      alert('Cap nhat trang thai thanh cong');
       };
 </script>
   @endsection
@@ -71,22 +71,26 @@
             <!-- <th>Mua các sản phẩm</th>
             <th>Số lượng</th> -->
             <th>Ngày lập</th>
+            <th>Trạng thái</th>
           </tr>
         </thead>
         
         <tbody>
+
             @foreach ($HoaDon as $key => $hd)
             @if (($hd->hd_trangthai == 1))
                 <tr data-expanded="true">
                     <td>{{$key + 1}}</td>
-                    <!-- <td>{{$hd->user_id}}</td>
-                    <td>{{$hd->user_id}}</td> -->
-                    <td>{{$hd->user_id->User->user_hoten}}</td>
+        
+                    <td>{{$hd->User->user_hoten}}</td>
                     <td>{{$hd->hd_ngaylap}}</td>
-              
-                   
-                   
-                <td><a  title="Chi tiết" class="glyphicon glyphicon-eye-open" href="#"></a></td>
+                    @if (($hd->hd_trangthaidh == 0))
+                    <td><a href="{{route('xuly_trangthai',['id'=>$hd->hd_id])}}"> <button style="width:40%"> Đang xử lý</button> </a></td>
+                    @else
+                    <td><button style="width:40%">Đã hoàn thành</button></td>
+                    @endif
+
+                <td><a  title="Chi tiết" class="glyphicon glyphicon-eye-open" href="{{route('TrangThai_Sua',['id'=>$hd->hd_id])}}"></a></td>
                 <td>
                   <!-- <i class='fas fa-pencil-alt'></i><a  title="Sửa" class="glyphicon glyphicon-edit" href=""></a> -->
                   <i class='fas fa-trash-alt'></i><a   title="Xóa" class="glyphicon glyphicon-trash" href="" onclick="return confirm('Bạn có chắc muốn xóa không?');"></a>

@@ -59,6 +59,9 @@
 	@if (isset($auth))
 	<div class="dropdown-menu">
 	<a class="dropdown-item" href="{{route('email')}}" title="Thông tin khách hàng">Thông Tin Cá Nhân</a>
+	@if (isset($auth) && $auth->user_quyen == 1)
+	<a class="dropdown-item" href="{{route('quanlyCart')}}" title="Quản lý giỏ hàng">Lịch Sử Giỏ Hàng</a>
+	@endif
 	@else
 	@endif
 	@if (isset($auth) && $auth->user_quyen == 0)

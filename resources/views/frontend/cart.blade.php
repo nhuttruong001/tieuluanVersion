@@ -192,6 +192,9 @@
 							@if(Cart::isEmpty())
 							<div class="form-group text-right">
 								<a href="{{route('thanhtoan-xl')}}"><button onclick="Empty()" type="submit" class="btn btn-default" >Thanh toán</button></a>
+							@else
+							<div class="form-group text-right">
+								<a href="{{route('thanhtoan-xl')}}"><button  type="submit" class="btn btn-default" >Thanh toán</button></a>
 							@endif
 
 

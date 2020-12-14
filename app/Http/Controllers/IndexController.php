@@ -199,6 +199,15 @@ class IndexController extends Controller
   
     }
 
+    public function getQLCart(){
+        $user = Auth::user()->user_id; 
+       $HoaDon = HoaDon::select()->where('user_id',$user)->get();
+        $tong = number_format(\Cart::getSubTotal(),0,',','.');
+        return view('frontend.quanlyCart')->with('chitiethd',$HoaDon)->with('tong',$tong);
+    }
+
+
+
     
   
 
@@ -207,10 +216,11 @@ class IndexController extends Controller
      if (Cart::isEmpty()) {
             return redirect('cart');
         }
-     
+     else{
         $HoaDon = new HoaDon();
         $HoaDon->user_id = Auth::user()->user_id;
         $HoaDon->hd_ngaylap = date('y-m-d h:i:s');
+        $HoaDon->hd_trangthaidh = 0;
         $HoaDon->hd_trangthai = 1;
         $HoaDon->save();
         foreach(Cart::getContent() as $value){
@@ -220,9 +230,9 @@ class IndexController extends Controller
             $ChiTietHoaDon->soluong = $value->quantity;
             $ChiTietHoaDon->save();
         }
-       
+    }
        Session::flash('alert-4', 'Thanh toán thành công!!!');
-       $request->session()->flush('cart');
+       Cart::clear();
     // session()->forget('cart');
        return redirect()->route('complete');
   
@@ -233,31 +243,9 @@ class IndexController extends Controller
     }
 
 
-    
-    // public function getXacnhan(){  
-    //      return view('frontend.xacnhandonhang');
-    //  }
-
-    //  public function postXacnhan(){  
-    //     $this->validate($request, [
-    //         'name' => 'required',
-    //         'phone' => 'required',
-    //         'add' => 'required',
-    //         'ngaysinh' => 'required',
-            
-    //         ]
-    //         ,
-    //         [
-    //             'name.required' => 'Vui lòng không được để trống Họ tên',
-    //             'phone.required' => 'Vui lòng không được để trống Số điện thoại',
-    //             'add.required' => 'Vui lòng không được để trống Địa chỉ',
-    //             'ngaysinh.required' => 'Vui lòng không được để trống ngày sinh',
-             
-    //         ]);
 
 
-    // }
-
+  
 
 
 
