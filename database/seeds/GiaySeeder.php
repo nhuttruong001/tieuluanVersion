@@ -14,7 +14,7 @@ class GiaySeeder extends Seeder
         $arr = [
             [
                 'giay_id' => 1,
-                'loai_id' => 1,
+                'loai_id' => 3,
                 'km_id' => 1,
                 'ncc_id' => 1,
                 'giay_ten' => 'JORDAN 1',
@@ -26,7 +26,7 @@ class GiaySeeder extends Seeder
             ],
             [
                 'giay_id' => 2,
-                'loai_id' => 1,
+                'loai_id' => 3,
                 'km_id' => 1,
                 'ncc_id' => 1,
                 'giay_ten' => 'JORDAN 4',
@@ -38,7 +38,7 @@ class GiaySeeder extends Seeder
             ],
             [
                 'giay_id' => 3,
-                'loai_id' => 2,
+                'loai_id' => 3,
                 'km_id' => 2,
                 'ncc_id' => 2,
                 'giay_ten' => 'STAN SMITH',
@@ -50,7 +50,7 @@ class GiaySeeder extends Seeder
             ],
             [
                 'giay_id' => 4,
-                'loai_id' => 2,
+                'loai_id' => 3,
                 'km_id' => 2,
                 'ncc_id' => 2,
                 'giay_ten' => 'ULTRABOOST 20',
@@ -71,7 +71,58 @@ class GiaySeeder extends Seeder
                 'giay_hinhanh' => 'bitishunterx2020_1.jpg',
                 'giay_mota' => 'Mẫu giày thể thao luôn hot trong nhiều năm nay',
                 'giay_trangthai' => 1
+            ],
+            [
+                'giay_id' => 6,
+                'loai_id' => 1,
+                'km_id' => 1,
+                'ncc_id' => 3,
+                'giay_ten' => 'CR7 Sport 1',
+                'giay_gia' => 2400000,
+                'giay_soluong' => 150,
+                'giay_hinhanh' => 'bongda_9.png',
+                'giay_mota' => 'Mẫu giày thể thao luôn hot trong nhiều năm nay',
+                'giay_trangthai' => 1
+            ],
+            [
+                'giay_id' => 7,
+                'loai_id' => 2,
+                'km_id' => 1,
+                'ncc_id' => 3,
+                'giay_ten' => 'Sandal nữ 1',
+                'giay_gia' => 2400000,
+                'giay_soluong' => 150,
+                'giay_hinhanh' => 'sandal_1.jpg',
+                'giay_mota' => 'Mẫu giày Sandal luôn hot trong nhiều năm nay',
+                'giay_trangthai' => 1
+            ],
+            [
+                'giay_id' => 8,
+                'loai_id' => 4,
+                'km_id' => 1,
+                'ncc_id' => 3,
+                'giay_ten' => 'Giầy Tây 1',
+                'giay_gia' => 2400000,
+                'giay_soluong' => 150,
+                'giay_hinhanh' => 'giaytay_1.jpg',
+                'giay_mota' => 'Mẫu giày tây luôn hot trong nhiều năm nay',
+                'giay_trangthai' => 1
+            ],
+            [
+                'giay_id' => 9,
+                'loai_id' => 5,
+                'km_id' => 1,
+                'ncc_id' => 3,
+                'giay_ten' => 'Dép 1',
+                'giay_gia' => 180000,
+                'giay_soluong' => 150,
+                'giay_hinhanh' => 'dep_1.jpg',
+                'giay_mota' => 'Mẫu dép luôn hot trong nhiều năm nay',
+                'giay_trangthai' => 1
             ]
+
+
+
 
 
             ];

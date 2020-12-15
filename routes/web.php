@@ -45,9 +45,9 @@ Route::get('/details/{id}','IndexController@getDetails')->name('details');
 
 Route::get('/search','IndexController@getSearch')->name('search');
 
-//category
+//category (danh muc index)
 
-Route::get('/category','IndexController@getCategory')->name('category');
+Route::get('/category/{id}','IndexController@getCategory')->name('category');
 
 //complete
 
@@ -103,7 +103,10 @@ Route::get('/thanhtoan-xl','IndexController@getThanhtoan')->name('thanhtoan-xl')
 //quan ly gio hang
 
 Route::get('/quanlyCart','IndexController@getQLCart')->name('quanlyCart');
-  // From sua User
+
+
+//danh muc index
+// Route::get('/bongda','IndexController@getBongda')->name('bongda');
 
 
 

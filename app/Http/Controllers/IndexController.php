@@ -174,8 +174,11 @@ class IndexController extends Controller
 
     }
 
-    public function getCategory(){
-        return view('frontend.category');
+    public function getCategory($id){
+        $LoaiGiay = LoaiGiay::all();
+        $LoaiGiay1 = LoaiGiay::find($id);
+        $giay = Giay::select()->where('loai_id',$id)->get();
+        return view('frontend.category')->with('LoaiGiay',$LoaiGiay)->with('LoaiGiay1',$LoaiGiay1)->with('giay',$giay);
     }
 
     public function getComplete(){
@@ -236,11 +239,13 @@ class IndexController extends Controller
     // session()->forget('cart');
        return redirect()->route('complete');
   
-
-
-    
-  
     }
+
+
+    // public function getBongda($id){
+    //     // dd($id);
+    //      return view('frontend.category');
+    // }
 
 
 

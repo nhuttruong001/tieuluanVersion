@@ -10,11 +10,13 @@
 				<div id="sidebar" class="col-md-3">
 					<nav id="menu">
 						<ul>
+					
 						<li class="menu-item">danh mục sản phẩm</li>
 						@foreach($LoaiGiay as $loai)
-						<li class="menu-item"><a href="#" title="">{{$loai->loai_ten}}</a></li>
+						<li class="menu-item"><a href="{{route('category',['id'=>$loai->loai_id])}}" title="">{{$loai->loai_ten}}</a></li>
 					
 						@endforeach
+
 											
 						</ul>
 						<!-- <a href="#" id="pull">Danh mục</a> -->

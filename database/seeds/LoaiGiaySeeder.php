@@ -15,19 +15,30 @@ class LoaiGiaySeeder extends Seeder
          
             [
                 'loai_id' => 1,
-                'loai_ten' => 'bóng đá',
+                'loai_ten' => 'Bóng đá',
                 'loai_trangthai' => 1
             ],
             [
                 'loai_id' => 2,
-                'loai_ten' => 'sandal',
+                'loai_ten' => 'Sandal',
                 'loai_trangthai' => 1
             ],
             [
                 'loai_id' => 3,
-                'loai_ten' => 'thể thao',
+                'loai_ten' => 'Sneaker',
+                'loai_trangthai' => 1
+            ],
+            [
+                'loai_id' => 4,
+                'loai_ten' => 'Giày Tây',
+                'loai_trangthai' => 1
+            ],
+            [
+                'loai_id' => 5,
+                'loai_ten' => 'Dép',
                 'loai_trangthai' => 1
             ]
+
 
 
             ];

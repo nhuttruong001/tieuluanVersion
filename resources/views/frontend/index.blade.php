@@ -12,7 +12,7 @@
 				
 						<li class="menu-item">danh mục sản phẩm</li>
 						@foreach($LoaiGiay as $loai)
-						<li class="menu-item"><a href="#" title="">{{$loai->loai_ten}}</a></li>
+						<li class="menu-item"><a href="{{route('category',['id'=>$loai->loai_id])}}" title="">{{$loai->loai_ten}}</a></li>
 					
 						@endforeach
 
@@ -110,7 +110,7 @@
 										<a href="{{route('addcart',['id'=>$g->giay_id])}}">Add to cart</a>
 									</div>
 									<div>
-										<a href="">Buy now</a>
+										<a href="{{route('addcart',['id'=>$g->giay_id])}}">Buy now</a>
 									</div>
 								</div>
 							</div>
@@ -137,7 +137,7 @@
 											</div>                	                	
 										</div> -->
 
-					<div class="products">
+					<!-- <div class="products">
 						<h3>sản phẩm mới</h3>
 						<div class="product-list row">
 							<div class="product-item col-md-3 col-sm-6 col-xs-12">
@@ -206,7 +206,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 
 				<!-- <div class="products">
 							<h3>sản phẩm mới</h3>
