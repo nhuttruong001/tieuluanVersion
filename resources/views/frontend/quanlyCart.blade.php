@@ -146,7 +146,10 @@
 									
 									
 								</tr>				
-				  <?php $tong +=  $value->ChiTietHoaDon[0]->soluong * $value->ChiTietHoaDon[0]->Giay[0]->giay_gia  ?>
+				  <?php 
+				  $tong = 0;
+				  $tong +=  $value->ChiTietHoaDon[0]->soluong * $value->ChiTietHoaDon[0]->Giay[0]->giay_gia  
+				  ?>
 				  @endforeach
 				  <td class="total-price"></td>
 				  <td class="total-price"></td>

@@ -48,7 +48,7 @@
 									<td class="price">{{($cthd->Giay[0]->giay_gia) * ($cthd->soluong) }}VNĐ</td>
 									<td>{{$cthd->HoaDon->hd_ngaylap}}</td>
 								</tr>
-	
+					<?php $tong += ($cthd->Giay[0]->giay_gia) * ($cthd->soluong) ; ?>
 									
            
 				  @endforeach
@@ -57,7 +57,7 @@
 							</table>
 							<br>
 							<td class="total-price"></td>
-				  <td colspan="3">Tổng tiền: {{number_format(\Cart::getSubTotal(),0,',','.')}}VNĐ</td>
+				  <td colspan="3">Tổng tiền: {{number_format($tong,0,',','.')}}VNĐ</td>
 						</div>
 					</div>					
             

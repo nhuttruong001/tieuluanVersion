@@ -13,7 +13,7 @@ use Redirect;
 class NhaCungCapController extends Controller
 {
     public function getDanhSach(){
-        $NhaCungCap = NhaCungCap::where('ncc_trangthai','=',1)->paginate(10);
+        $NhaCungCap = NhaCungCap::where('ncc_trangthai','=',1)->paginate(8);
         return view('admin.NhaCungCap.danhsach')->with('NhaCungCap',$NhaCungCap);
     }
 
@@ -62,5 +62,16 @@ class NhaCungCapController extends Controller
         Session::flash('alert-3', 'Xóa thành công!!!');
         return redirect()->route('NhaCungCap_DS');
     }
+
+    public function postTimkiem(Request $request){
+       
+        $tukhoa = $request->tukhoa;
+        $NhaCungCap = DB::table('NhaCungCap')
+        ->select()
+        ->where('NhaCungCap.ncc_ten','like',"%$tukhoa%")
+        ->get();
+        return view('admin.NhaCungCap.danhsach')->with('NhaCungCap',$NhaCungCap)->with('tukhoa',$tukhoa);
+
+}
 
 }

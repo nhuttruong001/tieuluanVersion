@@ -7,6 +7,7 @@ use App\User;
 use Validator;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Pagination\Paginator;
 use Image;
 use Response;
 use Redirect;
@@ -99,12 +100,38 @@ class UserController extends Controller
     public function postTimkiem(Request $request){
        
             $tukhoa = $request->tukhoa;
-            $User = DB::table('User')->where('User.user_hoten','like',"%$tukhoa%")->get();
+            $User = DB::table('User')
+            ->select()
+            ->where('User.user_hoten','like',"%$tukhoa%")
+            ->get();
+
+            // dd($tukhoa);
+
+            // dd($User);
             return view('admin.User.danhsach')->with('User',$User)->with('tukhoa',$tukhoa);
-        
-    
 
 }
 
+// public function postTimkiem(Request $request){
+//     $tukhoa = $request->tukhoa;
+//     $user_gioitinh = $request->user_gioitinh;
+
+//       // nhập đầy đủ
+//       if((!empty($tukhoa)) && (!empty($user_gioitinh))){
+//         $User = User::where([['user_gioitinh','=',$user_gioitinh],['user_hoten','like',"%$tukhoa%"],['user_trangthai',1],])->paginate(10);
+//     }
+
+//        // Chọn gioitinh
+//        else if ((!empty($user_gioitinh))){
+//         $User = User::where([['user_gioitinh','=',$user_gioitinh],['user_trangthai',1],])->paginate(10);
+//     }
+
+//     // nhập tên user
+//     else {
+//         $User = User::where([['user_hoten','like',"%$tukhoa%"],['user_trangthai',1],])->paginate(10);
+//     }
+
+//     return view('admin.User.danhsach')->with('User',$User)->with('tukhoa',$tukhoa)->with('user_gioitinh',$user_gioitinh);
+// }
 
 }

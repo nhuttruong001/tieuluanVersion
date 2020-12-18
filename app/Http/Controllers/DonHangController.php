@@ -41,10 +41,10 @@ class DonHangController extends Controller
 
     public function getChiTiet($id){
         $HoaDon =  HoaDon::find($id);
-        
         $cart = Cart::getcontent();
+        $tong = number_format(\Cart::getSubTotal(),0,',','.');
         $ChiTietHoaDon = ChiTietHoaDon::select()->where('hd_id',$id)->get();
-        return view('admin.DonHang.chitiet')->with('HoaDon',$HoaDon)->with('ChiTietHoaDon',$ChiTietHoaDon)->with('cart',$cart);
+        return view('admin.DonHang.chitiet')->with('HoaDon',$HoaDon)->with('ChiTietHoaDon',$ChiTietHoaDon)->with('cart',$cart)->with('tong',$tong);
     }
 
     public function xulytt($id){

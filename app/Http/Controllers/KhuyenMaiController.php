@@ -13,7 +13,7 @@ use Redirect;
 class KhuyenMaiController extends Controller
 {
     public function getDanhSach(){
-        $KhuyenMai = KhuyenMai::where('km_trangthai','=',1)->paginate(10);
+        $KhuyenMai = KhuyenMai::where('km_trangthai','=',1)->paginate(8);
         return view('admin.KhuyenMai.danhsach')->with('KhuyenMai',$KhuyenMai);
     }
 
@@ -72,4 +72,15 @@ class KhuyenMaiController extends Controller
         Session::flash('alert-3', 'Xóa thành công!!!');
         return redirect()->route('KhuyenMai_DS');
     }
+
+    public function postTimkiem(Request $request){
+       
+        $tukhoa = $request->tukhoa;
+        $KhuyenMai = DB::table('KhuyenMai')
+        ->select()
+        ->where('KhuyenMai.km_phantram','like',"%$tukhoa%")
+        ->get();
+        return view('admin.KhuyenMai.danhsach')->with('KhuyenMai',$KhuyenMai)->with('tukhoa',$tukhoa);
+
+}
 }

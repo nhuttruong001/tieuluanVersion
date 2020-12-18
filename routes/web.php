@@ -137,6 +137,8 @@ Route::group(['prefix' => 'admin','middleware'=>'adminLogin'],function(){
 
 
 
+
+
     });
 
 
@@ -153,6 +155,9 @@ Route::group(['prefix' => 'admin','middleware'=>'adminLogin'],function(){
 
         //xoa loai giay
         Route::get('/LoaiGiay_Xoa/{id}', 'LoaiGiayController@getXoa')->name('LoaiGiay_Xoa');
+
+         //     //Tim kiem LoaiGiay
+         Route::get('/LoaiGiay_Timkiem', 'LoaiGiayController@postTimkiem')->name('LoaiGiay_Timkiem');
     });
 
     Route::group(['prefix' => 'Giay'],function(){
@@ -166,8 +171,13 @@ Route::group(['prefix' => 'admin','middleware'=>'adminLogin'],function(){
         Route::get('/Giay_FormSua/{id}', 'GiayController@getSua')->name('Giay_Sua');
         Route::post('/Giay_SuaGiay/{id}', 'GiayController@postSua')->name('Giay_XLSua');
 
-        //xoa Nhan Vien
+        //xoa giay
         Route::get('/Giay_Xoa/{id}', 'GiayController@getXoa')->name('Giay_Xoa');
+
+        
+         //     //Tim kiem Giay
+         Route::get('/Giay_Timkiem', 'GiayController@postTimkiem')->name('Giay_Timkiem');
+      
     });
 
 
@@ -201,6 +211,9 @@ Route::group(['prefix' => 'admin','middleware'=>'adminLogin'],function(){
 
         //xoa Nha Cung Cap
         Route::get('/NhaCungCap_Xoa/{id}', 'NhaCungCapController@getXoa')->name('NhaCungCap_Xoa');
+
+         //     //Tim kiem Nha cungcap
+         Route::get('/NhaCungCap_Timkiem', 'NhaCungCapController@postTimkiem')->name('NhaCungCap_Timkiem');
     });
 
     Route::group(['prefix' => 'HoaDon'],function(){

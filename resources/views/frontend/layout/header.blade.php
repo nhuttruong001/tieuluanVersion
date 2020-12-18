@@ -9,21 +9,28 @@
 						<a href="{{route('trangchu')}}"><img src="{{asset('frontend/img/home/logo2.jpg')}}" style="border-radius:50%"></a>						
 						<nav><a id="pull" class="btn btn-danger" href="#">
 							<i class="fa fa-bars"></i>
-						</a></nav>			
+						</a></nav>	
+						
 					</h1>
+			
 				</div>
 
-			
+		
 
 				<div id="search" class="col-md-7 col-sm-12 col-xs-12">
+			
 				<form action="{{route('timkiemgiay')}}" method="get">
 					<input type="text" name="tu_khoa" id="searchFormInput" placeholder="Điền từ khóa...">
 					<input type="submit" name="submit" value="Tìm Kiếm">
 					</form>
 				</div>
 
+				<!-- <div id="trangchu" class="col-md-2 col-sm-12 col-xs-12">
+				<a class="display" href="">Trang chủ</a>	 
+				</div> -->
 
 				<div id="cart" class="col-md-2 col-sm-12 col-xs-12">
+				
 					<a class="display" href="{{route('cart')}}">Giỏ hàng</a>
 					<a href="{{route('cart')}}">{{Cart::getTotalQuantity()}}</a>
 

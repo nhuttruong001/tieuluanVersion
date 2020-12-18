@@ -43,15 +43,19 @@
     @extends('admin.layout.partials.error-message')
     <div class="panel-body">
         <div class="position-left">
-        <div class="form-group">
-                <input type="text" class="form-control" id="tukhoa" name="tukhoa" style="width:500px;">
-            </div>
-        <form  id="content-form" class="form-inline" role="form" action="" method="get">
+    
+        <form class="form-inline" role="form" action="{{route('User_Timkiem')}}" method="get">
             {{ csrf_field() }}
-            <button type="submit" class="btn btn-primary" title="Tìm" id="search"><i class=" glyphicon glyphicon-search" style="color: aliceblue"></i></button>
-                  <a href="{{route('User_Them')}}"><button title="Thêm" type="button"  class="btn btn-primary"><i class="glyphicon glyphicon-plus" style="color: aliceblue"></i></button></a>
+
+     
+            <div class="form-group">
+                <input type="text" class="form-control" id="tukhoa" placeholder="từ khóa tìm kiếm" name="tukhoa" style="width: 550px;">
+            </div>
+            <button type="submit" class="btn btn-primary" title="Tìm kiếm" id="search"><i class=" glyphicon glyphicon-search" style="color: aliceblue"></i></button>
+            <a href="{{route('User_Them')}}"><button title="Thêm" type="button"  class="btn btn-primary"><i class="glyphicon glyphicon-plus" style="color: aliceblue"></i></button></a>
         </form>
-      </div>
+
+
     </div>
     <div>
       <table class="table" ui-jq="footable" ui-options='{
@@ -108,11 +112,7 @@
           @endforeach
         </tbody>
       </table>
-      <div class="panel-body">
-          <div class="form-group">
-            <center>{!! $User->links() !!}</center>
-        </div>
-      </div>
+   
     </div>
   </div>
 </div>

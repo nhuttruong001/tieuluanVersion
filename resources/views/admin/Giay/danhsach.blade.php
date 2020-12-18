@@ -43,15 +43,51 @@
     @extends('admin.layout.partials.error-message')
     <div class="panel-body">
         <div class="position-left">
-        <div class="form-group">
-                <input type="text" class="form-control" id="tukhoa" name="tukhoa" style="width:500px;">
-            </div>
-        <form  id="content-form" class="form-inline" role="form" action="" method="get">
+
+      <form class="form-inline" role="form" action="{{route('Giay_Timkiem')}}" method="get">
             {{ csrf_field() }}
-            <button type="submit" class="btn btn-primary" title="Tìm" id="search"><i class=" glyphicon glyphicon-search" style="color: aliceblue"></i></button>
-                  <a href="{{route('Giay_Them')}}"><button title="Thêm" type="button"  class="btn btn-primary"><i class="glyphicon glyphicon-plus" style="color: aliceblue"></i></button></a>
+
+            <div class="form-group">
+              <select id="dv" onchange="timkiem()" class="form-control m-bot15" name="loai_id">
+                <option  value="">Chọn loại...</option>
+                @foreach($LoaiGiay as $loai)
+                @if ($loai->loai_trangthai == 1)
+                  @if($loai->loai_id == $loai_id)
+                  <option selected value='{{$loai->loai_id}}'>{{$loai->loai_ten}}</option>
+                  @else
+                  <option value='{{$loai->loai_id}}'>{{$loai->loai_ten}}</option>
+                  @endif
+                @endif
+
+                @endforeach
+              </select>
+            </div>
+
+            <div class="form-group">
+              <select id="dv" onchange="timkiem()" class="form-control m-bot15" name="ncc_id">
+                <option  value="">Chọn Nhà cung cấp...</option>
+                @foreach($NhaCungCap as $ncc)
+                @if ($ncc->ncc_trangthai == 1)
+                  @if($ncc->ncc_id == $ncc_id)
+                  <option selected value='{{$ncc->ncc_id}}'>{{$ncc->ncc_ten}}</option>
+                  @else
+                  <option value='{{$ncc->ncc_id}}'>{{$ncc->ncc_ten}}</option>
+                  @endif
+                @endif
+
+                @endforeach
+              </select>
+            </div>
+
+         
+
+
+            <div class="form-group">
+                <input type="text" class="form-control" id="tukhoa" placeholder="từ khóa tìm kiếm" name="tukhoa" style="width: 550px;">
+            </div>
+            <button type="submit" class="btn btn-primary" title="Tìm kiếm" id="search"><i class=" glyphicon glyphicon-search" style="color: aliceblue"></i></button>
+            <a href="{{route('Giay_Them')}}"><button title="Thêm" type="button"  class="btn btn-primary"><i class="glyphicon glyphicon-plus" style="color: aliceblue"></i></button></a>
         </form>
-      </div>
     </div>
     <div>
       <table class="table" ui-jq="footable" ui-options='{
@@ -67,8 +103,8 @@
         <thead>
           <tr>
             <th data-breakpoints="xs">STT</th>
-            <th>Loại mã</th>
-            <th>Nhà cung cấp mã</th>
+            <th>Loại</th>
+            <th>Nhà cung cấp</th>
             <th>Tên giày</th>
             <th>Giá</th>
             <th>Số lượng</th>
@@ -79,7 +115,7 @@
         
         <tbody>
             @foreach ($Giay as $key => $giay)
-            @if (($giay->giay_trangthai == 1) && ($giay->loaigiay->loai_trangthai == 1))
+            @if (($giay->giay_trangthai == 1) && ($giay->LoaiGiay->loai_trangthai == 1))
                 <tr data-expanded="true">
                     <td>{{$key + 1}}</td>
                     <td>{{$giay->LoaiGiay->loai_ten}}</td>

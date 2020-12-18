@@ -15,7 +15,7 @@ use Redirect;
 class LoaiGiayController extends Controller
 {
     public function getDanhSach(){
-        $LoaiGiay = LoaiGiay::where('loai_trangthai','=',1)->paginate(10);
+        $LoaiGiay = LoaiGiay::where('loai_trangthai','=',1)->paginate(8);
         return view('admin.LoaiGiay.danhsach')->with('LoaiGiay',$LoaiGiay);
     }
 
@@ -63,6 +63,20 @@ class LoaiGiayController extends Controller
         Session::flash('alert-3', 'Xóa thành công!!!');
         return redirect()->route('LoaiGiay_DS');
     }
+
+    
+    public function postTimkiem(Request $request){
+       
+        $tukhoa = $request->tukhoa;
+        $LoaiGiay = DB::table('LoaiGiay')
+        ->select()
+        ->where('LoaiGiay.loai_ten','like',"%$tukhoa%")
+        ->get();
+        return view('admin.LoaiGiay.danhsach')->with('LoaiGiay',$LoaiGiay)->with('tukhoa',$tukhoa);
+
+}
+
+
 
 
 }

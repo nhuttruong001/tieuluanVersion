@@ -84,7 +84,7 @@ class IndexController extends Controller
        
         $giay1 = DB::table('Giay')
             ->orderBy('Giay.giay_id','desc')
-            ->paginate(8);
+            ->paginate(12);
             
         return view('frontend.index')->with('giay1',$giay1);
     }
