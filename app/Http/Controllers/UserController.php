@@ -11,7 +11,7 @@ use Illuminate\Pagination\Paginator;
 use Image;
 use Response;
 use Redirect;
-
+use Illuminate\Support\Collection;
 class UserController extends Controller
 {
     function __construct(){
@@ -102,12 +102,11 @@ class UserController extends Controller
     }
 
     public function postTimkiem(Request $request){
-       
             $tukhoa = $request->tukhoa;
             $User = DB::table('User')
             ->select()
             ->where('User.user_hoten','like',"%$tukhoa%")
-            ->get();
+            ->paginate(8);
 
             // dd($tukhoa);
 

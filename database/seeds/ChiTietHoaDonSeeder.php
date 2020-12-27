@@ -21,6 +21,11 @@ class ChiTietHoaDonSeeder extends Seeder
                 'giay_id' => 2,
                 'hd_id' => 2,
                 'soluong' => 1 
+            ],
+            [
+                'giay_id' => 10,
+                'hd_id' => 3,
+                'soluong' => 2
             ]
 
             ];

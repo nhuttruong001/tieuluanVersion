@@ -17,6 +17,7 @@ class HoaDonSeeder extends Seeder
                 'user_id' => 1,
                 'hd_ngaylap' => '2020-05-07',
                 'hd_trangthaidh' => 1,
+                'hd_hinhthuctt' => 0,
                 'hd_trangthai' => 1
             ],
             [
@@ -24,6 +25,7 @@ class HoaDonSeeder extends Seeder
                 'kh_id' => 2,
                 'hd_ngaylap' => '2020-06-09',
                 'hd_trangthaidh' => 0,
+                'hd_hinhthuctt' => 1,
                 'hd_trangthai' => 1
             ],
             [
@@ -31,6 +33,7 @@ class HoaDonSeeder extends Seeder
                 'kh_id' => 2,
                 'hd_ngaylap' => '2020-10-07',
                 'hd_trangthaidh' => 0,
+                'hd_hinhthuctt' => 0,
                 'hd_trangthai' => 1
             ]
 

@@ -196,6 +196,9 @@ Route::group(['prefix' => 'admin','middleware'=>'adminLogin'],function(){
 
         //xoa Khuyen mai
         Route::get('/KhuyenMai_Xoa/{id}', 'KhuyenMaiController@getXoa')->name('KhuyenMai_Xoa');
+
+          //     //khuyen mai tim kiem
+          Route::get('/KhuyenMai_Timkiem', 'KhuyenMaiController@postTimkiem')->name('KhuyenMai_Timkiem');
     });
 
     Route::group(['prefix' => 'NhaCungCap'],function(){
@@ -227,8 +230,11 @@ Route::group(['prefix' => 'admin','middleware'=>'adminLogin'],function(){
         Route::get('/Chitietdonhang_FormSua/{id}', 'DonHangController@getChiTiet')->name('TrangThai_Sua');
         // Route::post('/NhaCungCap_SuaNhaCungCap/{id}', 'NhaCungCapController@postSua')->name('NhaCungCap_XLSua');
 
-        // //xoa Nha Cung Cap
-        // Route::get('/NhaCungCap_Xoa/{id}', 'NhaCungCapController@getXoa')->name('NhaCungCap_Xoa');
+        // //xoa Don Hang
+        Route::get('/DonHang_Xoa/{id}', 'DonHangController@getXoa')->name('DonHang_Xoa');
+
+         //     //Don hang tim kiem
+        //  Route::get('/DonHang_Timkiem', 'DonHangController@postTimkiem')->name('DonHang_TimKiem');
     });
 
 

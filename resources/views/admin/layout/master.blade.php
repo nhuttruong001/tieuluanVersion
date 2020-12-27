@@ -21,6 +21,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link rel="stylesheet" href="backend/css/morris.css" type="text/css"/>
 <!-- calendar -->
 <link rel="stylesheet" href="backend/css/monthly.css">
+
 <!-- //calendar -->
 <!-- //font-awesome icons -->
 <script src="backend/js/jquery2.0.3.min.js"></script>
@@ -28,6 +29,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="backend/js/morris.js"></script>
 
 <!-- <script type="text/javascript" language="javascript" src="ckfinder/ckfinder.js"></script> -->
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>

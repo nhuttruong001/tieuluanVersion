@@ -3,7 +3,8 @@
             <ul class="sidebar-menu" id="nav-accordion">
                 <li class="sub-menu">
                     <a class="" href="index.html">
-                        <i class="icon-sitemap"></i>
+                    <i class="icon-user"></i>
+                        <!-- <i class="icon-sitemap"></i> -->
                         <span >User</span>
                     </a>
                         <ul class="sub">
@@ -13,7 +14,8 @@
                
                 <li class="sub-menu">
                     <a href="javascript:;">
-                        <i class="icon-user"></i>
+                    <i class="far fa-clock"></i>
+                        <i class="bi bi-hourglass-split"></i>
                         <span>Khuyến Mãi</span>
                     </a>
                     <ul class="sub">
@@ -23,7 +25,8 @@
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;">
-                        <i class="icon-user"></i>
+                        <!-- <i class="icon-user"></i> -->
+                        <i  class='fas'>&#xf19c;</i>
                         <span>Nhà Cung Cấp</span>
                     </a>
                     <ul class="sub">
@@ -42,7 +45,7 @@
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;">
-                        <i class="fa fa-car"></i>
+                    <i  class='fas'>&#xf696;</i>
                         <span>Quản lý Giày</span>
                     </a>
                     <ul class="sub">
@@ -51,7 +54,7 @@
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;">
-                        <i class="fa fa-car"></i>
+                        <i class="fa fa-truck"></i>
                         <span>Quản Lý Đơn Hàng</span>
                     </a>
                     <ul class="sub">

@@ -58,4 +58,25 @@ class DonHangController extends Controller
        return redirect()->route('DonHang_DS');
 
     }
+
+    public function getXoa($id){
+        $HoaDon = HoaDon::find($id);
+        $HoaDon->hd_trangthai = 0;
+        $HoaDon->save();
+        Session::flash('alert-3', 'Xóa thành công!!!');
+        return redirect()->route('DonHang_DS');
+    }
+
+//     public function postTimkiem(Request $request){
+//         $tukhoa = $request->tukhoa;
+//         $HoaDon = DB::table('HoaDon')
+//         ->join('User','HoaDon.user_id','=','User.user_id')
+//         ->select('*')
+//         ->where('User.user_hoten','like',"%$tukhoa%")
+//         ->paginate(8);
+//         return view('admin.DonHang.danhsach')->with('HoaDon',$HoaDon)->with('tukhoa',$tukhoa);
+
+       
+
+// }
 }

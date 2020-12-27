@@ -160,6 +160,7 @@ public function getPaymentStatus(Request $request)
          $HoaDon->user_id = Auth::user()->user_id;
          $HoaDon->hd_ngaylap = date('y-m-d h:i:s');
          $HoaDon->hd_trangthaidh = 0;
+         $HoaDon->hd_hinhthuctt = 1;
          $HoaDon->hd_trangthai = 1;
          $HoaDon->save();
          foreach(Cart::getContent() as $value){

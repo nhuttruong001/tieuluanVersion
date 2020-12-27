@@ -87,8 +87,8 @@
                    
                 <!-- <td><a  title="Chi tiết" class="glyphicon glyphicon-eye-open" href="#"></a></td> -->
                 <td>
-                  <i class='fas fa-pencil-alt'></i><a  title="Sửa" class="glyphicon glyphicon-edit" href="{{route('KhuyenMai_Sua',['id'=>$km->km_id])}}"></a>
-                  <i class='fas fa-trash-alt'></i><a   title="Xóa" class="glyphicon glyphicon-trash" href="{{route('KhuyenMai_Xoa',['id'=>$km->km_id])}}" onclick="return confirm('Bạn có chắc muốn xóa không?');"></a>
+                 <a  title="Sửa" class="glyphicon glyphicon-edit" href="{{route('KhuyenMai_Sua',['id'=>$km->km_id])}}"></a>
+                 <a   title="Xóa" class="glyphicon glyphicon-trash" href="{{route('KhuyenMai_Xoa',['id'=>$km->km_id])}}" onclick="return confirm('Bạn có chắc muốn xóa không?');"></a>
                 </td>
             </tr>
             @endif

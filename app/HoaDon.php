@@ -14,6 +14,7 @@ class HoaDon extends Model
         'user_id',
         'hd_ngaylap',
         'hd_trangthaidh',
+        'hd_hinhthuctt',
         'hd_trangthai'
     ];
 

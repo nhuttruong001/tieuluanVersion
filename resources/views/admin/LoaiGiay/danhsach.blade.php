@@ -81,8 +81,8 @@
                    
                 <!-- <td><a  title="Chi tiết" class="glyphicon glyphicon-eye-open" href="#"></a></td> -->
                 <td>
-                  <i class='fas fa-pencil-alt'></i><a  title="Sửa" class="glyphicon glyphicon-edit" href="{{route('LoaiGiay_Sua',['id'=>$loai->loai_id])}}"></a>
-                  <i class='fas fa-trash-alt'></i><a   title="Xóa" class="glyphicon glyphicon-trash" href="{{route('LoaiGiay_Xoa',['id'=>$loai->loai_id])}}" onclick="return confirm('Bạn có chắc muốn xóa không?');"></a>
+                  <a  title="Sửa" class="glyphicon glyphicon-edit" href="{{route('LoaiGiay_Sua',['id'=>$loai->loai_id])}}"></a>
+                <a   title="Xóa" class="glyphicon glyphicon-trash" href="{{route('LoaiGiay_Xoa',['id'=>$loai->loai_id])}}" onclick="return confirm('Bạn có chắc muốn xóa không?');"></a>
                 </td>
             </tr>
             @endif

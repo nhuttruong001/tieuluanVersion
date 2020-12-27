@@ -50,7 +50,7 @@
                 <input type="text" class="form-control" id="tukhoa" placeholder="từ khóa tìm kiếm" name="tukhoa" style="width: 550px;">
             </div>
             <button type="submit" class="btn btn-primary" title="Tìm kiếm" id="search"><i class=" glyphicon glyphicon-search" style="color: aliceblue"></i></button>
-            <a href=""><button title="Thêm" type="button"  class="btn btn-primary"><i class="glyphicon glyphicon-plus" style="color: aliceblue"></i></button></a>
+            <!-- <a href=""><button title="Thêm" type="button"  class="btn btn-primary"><i class="glyphicon glyphicon-plus" style="color: aliceblue"></i></button></a> -->
         </form>
     </div>
     <div>
@@ -72,6 +72,7 @@
             <th>Số lượng</th> -->
             <th>Ngày lập</th>
             <th>Trạng thái</th>
+            <th>Hình thức thanh toán</th>
           </tr>
         </thead>
         
@@ -90,10 +91,16 @@
                     <td><button style="width:40%">Đã hoàn thành</button></td>
                     @endif
 
+                    @if (($hd->hd_hinhthuctt == 0))
+                    <td> Sau khi nhận hàng</td>
+                    @else
+                    <td>Paypal</td>
+                    @endif
+
                 <td><a  title="Chi tiết" class="glyphicon glyphicon-eye-open" href="{{route('TrangThai_Sua',['id'=>$hd->hd_id])}}"></a></td>
                 <td>
                   <!-- <i class='fas fa-pencil-alt'></i><a  title="Sửa" class="glyphicon glyphicon-edit" href=""></a> -->
-                  <i class='fas fa-trash-alt'></i><a   title="Xóa" class="glyphicon glyphicon-trash" href="" onclick="return confirm('Bạn có chắc muốn xóa không?');"></a>
+                  <a   title="Xóa" class="glyphicon glyphicon-trash" href="{{route('DonHang_Xoa',['id'=>$hd->hd_id])}}" onclick="return confirm('Bạn có chắc muốn xóa không?');"></a>
                 </td>
             </tr>
             @endif

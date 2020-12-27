@@ -11,7 +11,8 @@ class ChiTietHoaDon extends Model
     protected $fillable = [
         'giay_id',
         'hd_id',
-        'soluong'
+        'soluong',
+    
     ];
 
     public function Giay(){

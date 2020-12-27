@@ -19,6 +19,7 @@ class CreateHoadonTable extends Migration
             $table->unsignedInteger('user_id');
             $table->date('hd_ngaylap');
             $table->tinyInteger('hd_trangthaidh')->comment('0 la dang xu ly 1 la da hoan thanh');
+            $table->tinyInteger('hd_hinhthuctt')->comment('0 la thanh toan sau khi nhan 1 thanh toan paypal');
             $table->tinyInteger('hd_trangthai')->comment('1 la hien thi 0 la an thong tin');
          
             $table->timestamps();
