@@ -36,6 +36,7 @@ class UserController extends Controller
             'user_gioitinh' => 'required',
             'user_ngaysinh' => 'required',
             'user_diachi' => 'required',
+            'user_email' => 'unique:User',
             'user_sdt' => 'required',
             'user_quyen' => 'required',
             ]
@@ -47,6 +48,7 @@ class UserController extends Controller
                 'user_gioitinh.required' => 'Vui lòng không được để trống giới tính',
                 'user_ngaysinh.required' => 'Vui lòng không được để trống ngày sinh',
                 'user_diachi.required' => 'Vui lòng không được để trống địa chỉ',
+                'user_email.unique' => 'Email đã tồn tại',
                 'user_sdt.required' => 'Vui lòng không được để trống sđt',
                 'user_quyen.required' => 'Vui lòng chọn quyền',
             ]);
@@ -58,6 +60,7 @@ class UserController extends Controller
             $User->user_gioitinh = $request->user_gioitinh;
             $User->user_ngaysinh = $request->user_ngaysinh;
             $User->user_diachi = $request->user_diachi;
+            $User->user_email = $request->user_email;
             $User->user_sdt = $request->user_sdt;
             $User->user_quyen = $request->user_quyen;
             $User->user_trangthai = 1;
@@ -80,6 +83,7 @@ class UserController extends Controller
         $User->user_gioitinh = $request->user_gioitinh;
         $User->user_ngaysinh = $request->user_ngaysinh;
         $User->user_diachi = $request->user_diachi;
+        $User->user_email = $request->user_email;
         $User->user_sdt = $request->user_sdt;
         $User->user_trangthai = 1;
         $User->save();

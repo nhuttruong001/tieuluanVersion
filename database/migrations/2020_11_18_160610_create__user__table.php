@@ -23,6 +23,7 @@ class CreateUserTable extends Migration
             $table->date('user_ngaysinh');
             $table->tinyInteger('user_gioitinh')->comment('1 la Nam 0 la Nữ');
             $table->string('user_diachi');
+            $table->string('user_email')->unique();
             $table->string('user_sdt');
             $table->tinyInteger('user_quyen')->comment('0 la admin 1 la nguoi dung bt');
             $table->tinyInteger('user_trangthai')->comment('1 la hien thi 0 la an thong tin');

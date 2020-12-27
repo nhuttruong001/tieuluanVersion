@@ -148,8 +148,8 @@
 					</div>
 
 					<div id="xac-nhan">
-						<h3>Xác nhận mua hàng</h3>
-						<form>
+						<!-- <h3>Xác nhận mua hàng</h3> -->
+					
 							<!-- <div class="form-group">
 									<label for="email">Email address:</label>
 									<input required type="email" class="form-control" id="email" name="email">
@@ -168,21 +168,43 @@
 							</div> -->
 
 
-							<form>
+							<!-- <form>
 								<div class="form-group">
 									<label class="col-sm-6 control-label col-lg-6" for="inputSuccess">
 										<h4>Phương thức thanh toán</h4>
 									</label>
 									<div class="col-lg-6">
 										<div class="radio">
-											<label><input type="radio" name="optradio" checked>Thanh toán sau khi nhận hàng</label>
+											<label><input type="radio" name="saukhinhan" checked value="1">Thanh toán sau khi nhận hàng</label>
 										</div>
 										<div class="radio">
-											<label><input type="radio" name="optradio">Paypal</label>
+											<label><input type="radio" name="paypal" value="0">Paypal</label>
 										</div>
 									</div>
 								</div>
-							</form>
+							</form> -->
+
+							<form >
+							<h3>Phương thức thanh toán</h3>
+							<!-- <input type="radio" id="saukhinhan" name="gender" value="1">
+							<label for="saukhinhan">Thanh toán sau khi nhận hàng</label><br>
+							<input type="radio" id="paypal" name="gender" value="0">
+							<label for="paypal">Thanh toán Paypal</label><br> -->
+						</form>
+  
+<!-- 
+							<div class="form-group">
+                      <label class="col-sm-3 control-label col-lg-3" for="inputSuccess"><h3>Phương thức thanh toán</h3></label>
+                      <div class="col-lg-6">
+                        <label class="radio-inline">
+                              <input type="radio" name="saukhinhan" checked value="1"> Thanh toán sau khi nhận hàng
+                          </label>
+                          <label class="radio-inline">
+                              <input type="radio" name="paypal" value="0"> Paypal
+                          </label>
+                      </div>
+                    </div> -->
+
 
 							@if (!isset($auth))
 					
@@ -194,15 +216,34 @@
 							<div class="form-group text-right">
 								<a href="{{route('thanhtoan-xl')}}"><button onclick="Empty()" type="submit" class="btn btn-default" >Thanh toán</button></a>
 							@else
+							<form action="{{route('thanhtoan-xl')}}" method="POST">
+							@csrf
 							<div class="form-group text-right">
-								<a href="{{route('thanhtoan-xl')}}"><button  type="submit" class="btn btn-default" >Thanh toán</button></a>
+								<button  type="submit" class="btn btn-default" name="saukhinhan" value="0" >Thanh toán</button>
+								</form>
 							@endif
-
-
-							
 							@endif
+						
 							</div>
-						</form>
+							@if (!isset($auth))
+							<div class="form-group text-right">
+								<button onclick="display()" type="submit" class="btn btn-default">Thanh toán Paypal</button>
+							@else
+							@if(Cart::isEmpty())
+							<div class="form-group text-right" >
+								<a href="{{route('paypal')}}"><button onclick="Empty()"  type="submit" class="btn btn-default" >Thanh toán Paypal</button></a>
+							@else
+						<form action="{{route('paypal')}}" method="POST">
+						
+						@csrf
+							<div class="form-group text-right" >
+								<button  type="submit" class="btn btn-default" name="paypal" value="1">Thanh toán Paypal</button>
+							</div>
+							</form>
+							@endif
+							@endif
+							
+							</form>
 					</div>
 				</div>
 

@@ -135,20 +135,23 @@
 							<p class="text-justify">{{$details->giay_mota}}</p>
 						</div>
 						<div id="comment">
+						
 							<h3>Bình luận</h3>
 							<div class="col-md-9 comment">
+						
 								<form action="{{route('binhluan-xl')}}" method="POST">
 									@csrf
 									<div class="form-group">
 										<!-- <label for="cm">Bình luận:</label> -->
 										<textarea required rows="5" id="cm" class="form-control" name="bl_noidung"></textarea>
-										<input type="hidden" name="user_id" value="{{isset($auth) ? $auth->user_id : null}}"  />
+										<input type="hidden" name="user_id" id="id_nguoidung" value="{{isset($auth) ? $auth->user_id : null}}"  />
 										<input type="hidden" name="giay_id" value="{{isset($details) ? $details->giay_id : null}}" />
 									</div>
 									<div class="form-group text-right">
-										<button class="btn btn-default">Gửi</button>
+										<button class="btn btn-default" type="button" id="submit" >Gửi</button>
 									</div>
 								</form>
+							
 							</div>
 						</div>
 						<div >
@@ -185,5 +188,29 @@
     function timkiem(){
       document.getElementById('search').click();
     }
+
+	// function display(e,id) {
+	// 	console.log({id})
+	// 	e.preventDefault();
+	// 	// if(!confirm("Bạn phải đăng nhập mới bình luận được!")){
+	// 	// 	return false;
+	// 	// }
+	// 	// this.form.submit();
+
+		$("#submit").click(function(e){
+			alert("Bạn cần đăng nhập để bình luận!")
+			e.preventDefault();
+                // var check;
+                // if($("#id_nguoidung").val() == ""){;
+                //     var check = confirm("Bạn phải đăng nhập mới có thể bình luận");
+                //     if(check){
+                //         window.location = "/login";
+                //     }
+                // }
+            });
+	// 	})
+	// }
 </script>
+
+
 @endsection

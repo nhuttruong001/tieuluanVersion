@@ -47,7 +47,7 @@
 
 
 	<div class="dropdown" style="position:absolute;top:28px;right:30px;">
-	<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+	<button type="button" class="btn btn-white dropdown-toggle" data-toggle="dropdown">
 
 	<a href="" style="color:white"></a>
 	@if (!isset($auth))

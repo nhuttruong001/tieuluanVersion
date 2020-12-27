@@ -51,6 +51,7 @@ class AuthController extends Controller
              'user_gioitinh' => 'required',
              'user_ngaysinh' => 'required',
              'user_diachi' => 'required',
+             'user_email' => 'required|unique:user',
              'user_sdt' => 'required',
             
              ]
@@ -62,6 +63,10 @@ class AuthController extends Controller
                  'user_gioitinh.required' => 'Vui lòng không được để trống giới tính',
                  'user_ngaysinh.required' => 'Vui lòng không được để trống ngày sinh',
                  'user_diachi.required' => 'Vui lòng không được để trống địa chỉ',
+                 [
+                 'user_email.required' => "Vui lòng nhập email",
+                 'user_email.unique' => "Email đã tồn tại"
+                 ],
                  'user_sdt.required' => 'Vui lòng không được để trống sđt',
                 
              ]);
@@ -73,11 +78,11 @@ class AuthController extends Controller
              $User->user_gioitinh = $request->user_gioitinh;
              $User->user_ngaysinh = $request->user_ngaysinh;
              $User->user_diachi = $request->user_diachi;
+             $User->user_email = $request->user_email;
              $User->user_sdt = $request->user_sdt;
              $User->user_quyen = 1;
              $User->user_trangthai = 1;
              $User->save();
-             Session::flash('alert-success', 'Bạn đã đăng ký thành công!!!');
              return view('frontend.login');
             
  

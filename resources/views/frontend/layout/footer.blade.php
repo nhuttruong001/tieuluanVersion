@@ -8,17 +8,20 @@
 					</div>
 					<div id="about" class="col-md-3 col-sm-12 col-xs-12">
 						<h3>About us</h3>
-						<p class="text-justify">Vietpro Academy thành lập năm 2009. Chúng tôi đào tạo chuyên sâu trong 2 lĩnh vực là Lập trình Website & Mobile nhằm cung cấp cho thị trường CNTT Việt Nam những lập trình viên thực sự chất lượng, có khả năng làm việc độc lập, cũng như Team Work ở mọi môi trường đòi hỏi sự chuyên nghiệp cao.</p>
+						<p class="text-justify">Tiểu luận CNTT
+												<p>SV : Nguyễn Nhựt Trường</p>
+												<p>GVHD : Thái Minh Tuấn</p>
+												<p>Đề Tài : Xây Dựng Website Bán Giày Dép</p></p>
 					</div>
 					<div id="hotline" class="col-md-3 col-sm-12 col-xs-12">
 						<h3>Hotline</h3>
-						<p>Phone Sale: (+84) 0988 550 553</p>
-						<p>Email: sirtuanhoang@gmail.com</p>
+						<p>Phone Sale: (+84) 0395620066</p>
+						<p>Email: nntruongit1998@gmail.com</p>
 					</div>
 					<div id="contact" class="col-md-3 col-sm-12 col-xs-12">
 						<h3>Contact Us</h3>
-						<p>Address 1: B8A Võ Văn Dũng - Hoàng Cầu Đống Đa - Hà Nội</p>
-						<p>Address 2: Số 25 Ngõ 178/71 - Tây Sơn Đống Đa - Hà Nội</p>
+						<p>Address 1: Trần Hoàng Na - Ninh Kiều - Cần Thơ</p>
+						<p>Address 2: Mỹ Phước - Mang Thít - Vĩnh Long</p>
 					</div>
 				</div>				
 			</div>
@@ -26,10 +29,10 @@
 				<div class="container">
 					<div class="row">
 						<div id="footer-b-l" class="col-md-6 col-sm-12 col-xs-12 text-center">
-							<p>Học viện Công nghệ Vietpro - www.vietpro.edu.vn</p>
+							<p>Đại Học Cần Thơ</p>
 						</div>
 						<div id="footer-b-r" class="col-md-6 col-sm-12 col-xs-12 text-center">
-							<p>© 2017 Vietpro Academy. All Rights Reserved</p>
+							<p>Năm 2020</p>
 						</div>
 					</div>
 				</div>

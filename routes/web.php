@@ -90,7 +90,7 @@ Route::get('/timkiemgiay','IndexController@getSearch')->name('timkiemgiay');
 
 //thanh toán
 // Route::get('/thanhtoan','IndexController@getThanhtoan')->name('thanhtoan');
-Route::get('/thanhtoan-xl','IndexController@getThanhtoan')->name('thanhtoan-xl');
+Route::post('/thanhtoan-xl','IndexController@getThanhtoan')->name('thanhtoan-xl');
 
 
 //xac nhan mua hang
@@ -236,6 +236,13 @@ Route::group(['prefix' => 'admin','middleware'=>'adminLogin'],function(){
 
 });
 
+//paypal
+
+// route for processing payment
+Route::post('paypal', 'PayPaymentController@payWithpaypal')->name('paypal');
+
+// route for check status of the payment
+Route::get('status', 'PayPaymentController@getPaymentStatus')->name('status');
 
 
 

@@ -127,7 +127,7 @@
 
 					
 
-						<div id="pagination">
+						<!-- <div id="pagination">
 							<ul class="pagination pagination-lg justify-content-center">
 								<li class="page-item">
 									<a class="page-link" href="#" aria-label="Previous">
@@ -145,7 +145,7 @@
 									</a>
 								</li>
 							</ul>
-						</div>
+						</div> -->
 					</div>
 					<!-- end main -->
 				</div>
@@ -153,6 +153,7 @@
 		</div>
 	</section>
 	<!-- endmain -->
+
 
 
 

@@ -80,12 +80,18 @@ class IndexController extends Controller
 
 
     }
-    public function getIndex(){
-       
+    public function getIndex(Request $request){
+        
         $giay1 = DB::table('Giay')
             ->orderBy('Giay.giay_id','desc')
             ->paginate(12);
-            
+        
+        if($request['page'] == 1){
+            $giay1[0]->status = 1;
+            $giay1[1]->status = 1;
+            $giay1[2]->status = 1;
+            $giay1[3]->status = 1;
+        }
         return view('frontend.index')->with('giay1',$giay1);
     }
 

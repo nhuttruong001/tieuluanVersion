@@ -103,6 +103,17 @@
                     </div>
 
                     <div class="form-group ">
+                      <label for="firstname" class="control-label col-lg-3">Email</label>
+                      <div class="col-lg-6">
+                          <input class=" form-control" id="user_email"  name="user_email" type="text">
+
+                        @if($errors->has('user_email'))
+                        <div style="color:red">{{ $errors->first('user_email')}}</div>
+                        @endif
+                      </div>
+                    </div>
+
+                    <div class="form-group ">
                       <label for="firstname" class="control-label col-lg-3">SĐT</label>
                       <div class="col-lg-6">
                           <input class=" form-control" id="user_sdt"  name="user_sdt" type="number">
@@ -165,6 +176,10 @@
             user_gioitinh: "required",
             user_ngaysinh: "required",
             user_diachi: "required",
+            user_email: {
+              required: true,
+              email: true
+            },
             user_sdt: {
               required: true,
               digits:true,
@@ -190,6 +205,10 @@
             user_gioitinh: "Vui lòng chọn giới tính",
             user_ngaysinh: "Vui lòng nhập ngày sinh",
             user_diachi: "Vui lòng nhập địa chỉ",
+            cdv_email: {
+              required: "Vui lòng nhập Email",
+              email: "Email sai định dạng"
+            },
             user_sdt: {
               required: "Vui lòng nhập SĐT",
               digits: "SĐT không được âm",

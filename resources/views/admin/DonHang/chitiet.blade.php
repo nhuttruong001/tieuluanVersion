@@ -26,7 +26,11 @@
 							</p>
 							<p>
 								<span class="info">Địa chỉ: </span>
-                {{$HoaDon->User->user_diachi}}
+                {{$HoaDon->User->user_diachi}}	</p>
+							<p>
+								<span class="info">Email: </span>
+								{{$HoaDon->User->user_email}}
+						
 							</p>
 						</div>						
 						<div id="hoa-don" >

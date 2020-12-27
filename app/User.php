@@ -20,6 +20,7 @@ class User extends Authenticatable
         'user_ngaysinh',
         'user_gioitinh',
         'user_diachi',
+        'user_email',
         'user_sdt',
         'user_trangthai'
     ];

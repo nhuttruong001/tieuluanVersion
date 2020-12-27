@@ -118,6 +118,10 @@
 								<span class="info">Địa chỉ:</span> {{$auth-> user_diachi}}
                
 							</p>
+							<p>
+								<span class="info">Email:</span> {{$auth-> user_email}}
+               
+							</p>
 						</div>						
 						<div id="hoa-don">
 							<h3>Hóa đơn mua hàng</h3>							

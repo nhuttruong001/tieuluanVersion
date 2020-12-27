@@ -130,6 +130,20 @@
 
                   {{-- Địa Chỉ --}}
 
+                  {{-- email--}}
+                    <div class="form-group " >
+                      <label for="firstname" class="control-label col-lg-3">Email</label>
+                      <div class="col-lg-6">
+                      <input class=" form-control" id="user_email" value="{{$User->user_email}}" name="user_email" type="text">
+                          @if($errors->has('user_email'))
+                          <div style="color:red">{{ $errors->first('user_email')}}</div>
+                          @endif
+                        </div>
+                    </div>
+
+                  {{-- email --}}
+
+
                   {{-- Số điện thoại --}}
                     <div class="form-group " >
                       <label for="firstname" class="control-label col-lg-3">SĐT</label>

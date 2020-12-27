@@ -76,6 +76,7 @@
             <th>Giới tính</th>
             <th>Ngày sinh</th>
             <th>Địa chỉ</th>
+            <th>Email</th>
             <th>Sđt</th>
             <th>Quyền</th>
           </tr>
@@ -96,6 +97,7 @@
                   
                     <td>{{$user->user_ngaysinh}}</td>
                     <td>{{$user->user_diachi}}</td>
+                    <td>{{$user->user_email}}</td>
                     <td>{{$user->user_sdt}}</td>
                     @if($user->user_quyen == 1 )
                     <td>Khách Hàng</td>
@@ -112,7 +114,11 @@
           @endforeach
         </tbody>
       </table>
-   
+      <div class="panel-body">
+          <div class="form-group">
+            <center>{!! $User->links() !!}</center>
+        </div>
+      </div>
     </div>
   </div>
 </div>

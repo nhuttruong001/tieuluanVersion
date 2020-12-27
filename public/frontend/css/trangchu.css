@@ -3,3 +3,15 @@
     float: left;
     margin-left:60%;
 }
+
+.lastest{
+    color : white;
+    position: absolute;
+    top : 0px;
+    right: -30px;
+    background : #3db4a0;
+    padding : 5px 39px;
+    transform: rotate(45deg);
+    overflow: hidden;
+
+}

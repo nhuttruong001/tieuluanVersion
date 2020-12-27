@@ -20,6 +20,7 @@ class UserSeeder extends Seeder
                 'user_ngaysinh' => '1998-02-01',
                 'user_gioitinh' => 1,#1 là nam 0 là nữ
                 'user_diachi' => 'Mỹ Xuyên, Sóc Trăng',
+                'user_email' => 'ngoclinh@gmail.com',
                 'user_sdt' => '09881234561',
                 'user_quyen' => 1, #1 la khach hang 0 la admin
                 'user_trangthai' => 1
@@ -33,6 +34,7 @@ class UserSeeder extends Seeder
                 'user_ngaysinh' => '1998-07-03',
                 'user_gioitinh' => 1,#1 là nam 0 là nữ
                 'user_diachi' => 'Mỹ Xuyên, Sóc Trăng',
+                'user_email' => 'hongtien@gmail.com',
                 'user_sdt' => '0998897302',
                 'user_quyen' => 1, #1 la khach hang 0 la admin
                 'user_trangthai' => 1
@@ -46,6 +48,7 @@ class UserSeeder extends Seeder
                 'user_ngaysinh' => '1998-04-24',
                 'user_gioitinh' => 1,#1 là nam 0 là nữ
                 'user_diachi' => 'Mang Thít,Vĩnh Long',
+                'user_email' => 'nhuttruong@gmail.com',
                 'user_sdt' => '0395620066',
                 'user_quyen' => 0, #1 la khach hang 0 la admin
                 'user_trangthai' => 1
@@ -59,6 +62,7 @@ class UserSeeder extends Seeder
                 'user_ngaysinh' => '1998-01-25',
                 'user_gioitinh' => 1,#1 là nam 0 là nữ
                 'user_diachi' => 'Thốt nốt, Cần Thơ',
+                'user_email' => 'haisang@gmail.com',
                 'user_sdt' => '0395621234',
                 'user_quyen' => 0, #1 la khach hang 0 la admin
                 'user_trangthai' => 1
@@ -72,6 +76,7 @@ class UserSeeder extends Seeder
                 'user_ngaysinh' => '1998-07-23',
                 'user_gioitinh' => 1,#1 là nam 0 là nữ
                 'user_diachi' => 'Phường 5,Vĩnh Long',
+                'user_email' => 'giakiet@gmail.com',
                 'user_sdt' => '0397896543',
                 'user_quyen' => 1, #1 la khach hang 0 la admin
                 'user_trangthai' => 1
@@ -85,6 +90,7 @@ class UserSeeder extends Seeder
                 'user_ngaysinh' => '2003-06-19',
                 'user_gioitinh' => 0,#1 là nam 0 là nữ
                 'user_diachi' => 'Thốt nốt, Cần Thơ',
+                'user_email' => 'thuyduong@gmail.com',
                 'user_sdt' => '0120987654',
                 'user_quyen' => 1, #1 la khach hang 0 la admin
                 'user_trangthai' => 1
@@ -98,6 +104,7 @@ class UserSeeder extends Seeder
                 'user_ngaysinh' => '1998-03-07',
                 'user_gioitinh' => 1,#1 là nam 0 là nữ
                 'user_diachi' => 'Tân Phú,An Giang',
+                'user_email' => 'siliem@gmail.com',
                 'user_sdt' => '0385674321',
                 'user_quyen' => 1, #1 la khach hang 0 la admin
                 'user_trangthai' => 1
@@ -111,6 +118,7 @@ class UserSeeder extends Seeder
                 'user_ngaysinh' => '1998-05-24',
                 'user_gioitinh' => 1,#1 là nam 0 là nữ
                 'user_diachi' => 'Phú Tân, An Giang',
+                'user_email' => 'thanhphan@gmail.com',
                 'user_sdt' => '0395621111',
                 'user_quyen' => 1, #1 la khach hang 0 la admin
                 'user_trangthai' => 1
@@ -124,6 +132,7 @@ class UserSeeder extends Seeder
                 'user_ngaysinh' => '1998-01-20',
                 'user_gioitinh' => 1,#1 là nam 0 là nữ
                 'user_diachi' => 'Tịnh Biên,An Giang',
+                'user_email' => 'sockha@gmail.com',
                 'user_sdt' => '0349081143',
                 'user_quyen' => 1, #1 la khach hang 0 la admin
                 'user_trangthai' => 1

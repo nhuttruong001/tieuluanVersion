@@ -9,18 +9,16 @@
     }
 
 </style>
-@if(Session::has('alert-1'))
-  @section('script')
+
   <script>
-    window.onload =  function()
-      {
-      alert('Đăng ký thành công');
-      };
+ 
+
+	  function success(){
+		  alert('Đăng ký thành công')
+	  }
 </script>
 
-  @endsection
-  @endif
- 
+
 <head>
 	<title>Đăng Ký</title>
 	<meta charset="UTF-8">
@@ -64,32 +62,44 @@
 
                  
 					<div class="wrap-input100 validate-input">
-					<input class="input100" type="text"  required name="user_username" placeholder="Nhập tên đăng nhập.....">
+					<input class="input100" type="text"  required name="user_username" id="user_username" placeholder="Nhập tên đăng nhập.....">
 					<span class="focus-input100-1"></span>
 						<span class="focus-input100-2"></span>
 					</div>
+					@if($errors->has('user_username'))
+                    <div style="color:red">{{ $errors->first('user_username')}}</div>
+                    @endif
 
 
 					<div class="wrap-input100 rs1 validate-input">
-						<input class="input100" type="password" name="password" required placeholder="Nhập mật khẩu.....">
+						<input class="input100" type="password" name="password" id="password" required placeholder="Nhập mật khẩu.....">
 						<span class="focus-input100-1"></span>
 						<span class="focus-input100-2"></span>
 					</div>
+					@if($errors->has('password'))
+                    <div style="color:red">{{ $errors->first('password')}}</div>
+                    @endif
 
 
                     <div class="wrap-input100 rs1 validate-input">
-						<input class="input100" type="text" name="user_hoten" required placeholder="Nhập họ tên.....">
+						<input class="input100" type="text" name="user_hoten" id="user_hoten" required placeholder="Nhập họ tên.....">
 						<span class="focus-input100-1"></span>
 						<span class="focus-input100-2"></span>
 					</div>
+					@if($errors->has('user_hoten'))
+                    <div style="color:red">{{ $errors->first('user_hoten')}}</div>
+                    @endif
 
 
                     <div class="wrap-input100 rs1 validate-input">
 						<!-- <input class="input100" required placeholder="Chọn ngày sinh....."> -->
-                        <input class="input100" type="date" name="user_ngaysinh" title="Ngày sinh">
+                        <input class="input100" type="date" name="user_ngaysinh" id="user_ngaysinh" title="Ngày sinh">
 						<span class="focus-input100-1"></span>
 						<span class="focus-input100-2"></span>
 					</div>
+					@if($errors->has('user_ngaysinh'))
+                    <div style="color:red">{{ $errors->first('user_ngaysinh')}}</div>
+                    @endif
 
 
                     <div class="wrap-input100 rs1 validate-input">
@@ -103,29 +113,42 @@
 						<span class="focus-input100-1"></span>
 						<span class="focus-input100-2"></span>
 					</div>
+					@if($errors->has('user_gioitinh'))
+                    <div style="color:red">{{ $errors->first('user_gioitinh')}}</div>
+                    @endif
 
                     <div class="wrap-input100 rs1 validate-input">
-						<input class="input100" type="text" name="user_diachi" required placeholder="Nhập địa chỉ.....">
+						<input class="input100" type="text" name="user_diachi" id="user_diachi" required placeholder="Nhập địa chỉ.....">
 						<span class="focus-input100-1"></span>
 						<span class="focus-input100-2"></span>
 					</div>
+					@if($errors->has('user_diachi'))
+                    <div style="color:red">{{ $errors->first('user_diachi')}}</div>
+                    @endif
 
-                    <div class="wrap-input100 rs1 validate-input">
-						<input class="input100" type="number" name="user_sdt" required placeholder="Nhập số điện thoại.....">
+					<div class="wrap-input100 rs1 validate-input">
+						<input class="input100" type="email" name="user_email" id="user_email" required placeholder="Nhập Email.....">
 						<span class="focus-input100-1"></span>
 						<span class="focus-input100-2"></span>
 					</div>
+					@if($errors->has('user_email'))
+                    <div style="color:red">{{ $errors->first('user_email')}}</div>
+                    @endif
 
-
-					<p id="message"></p>
-					@if(session('error'))
-					<div style="color:red; padding: 20px;" role="alert">
-					<strong>{{session('error')}}</strong>
+                    <div class="wrap-input100 rs1 validate-input">
+						<input class="input100" type="number" name="user_sdt" id="user_sdt" required placeholder="Nhập số điện thoại.....">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
 					</div>
-				  	@endif
+					@if($errors->has('user_sdt'))
+                    <div style="color:red">{{ $errors->first('user_sdt')}}</div>
+                    @endif
+
+
+				
 
 					<div class="container-login100-form-btn m-t-20">
-						<button class="login100-form-btn">
+						<button class="login100-form-btn" onclick="sucsess()" >
 							Đăng ký
 						</button>
 					</div>
@@ -167,3 +190,44 @@
 </body>
 
 </html>
+
+@section('script')
+<script>
+    //Khi bàn phím được nhấn và thả ra thì sẽ chạy phương thức này
+    $("#formDemo1").validate({
+        rules: {
+            user_username: "required",
+            password: "required",
+            user_hoten: "required",
+            user_ngaysinh: "required",
+            user_gioitinh: "required",
+            user_diachi: "required",
+            user_email: {
+              required: true,
+              email: true,
+			  unique: true
+            },
+			user_sdt: "required"
+           
+        },
+        messages: {
+			user_username: "Vui lòng nhập Username",
+            password: "Vui lòng nhập password",
+            user_hoten: "Vui lòng nhập Họ tên",
+            user_ngaysinh: "Vui lòng nhập ngày sinh",
+            user_gioitinh: "Vui lòng chọn giới tính",
+            user_diachi: "Vui lòng nhập địa chỉ",
+			user_email: {
+              required: "Vui lòng nhập Email",
+              email: "Email sai định dạng",
+			  unique: "Email đã tồn tại"
+            },
+			user_sdt: "required"
+        }
+    });
+
+
+    </script>
+
+@endsection
+

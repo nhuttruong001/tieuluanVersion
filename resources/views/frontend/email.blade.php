@@ -112,8 +112,13 @@
 								<span class="info">Địa chỉ: </span>
 								{{isset($auth) ? $auth->user_diachi : null}}
 							</p>
+							<p>
+								<span class="info">Email: </span>
+								{{isset($auth) ? $auth->user_email : null}}
+							</p>
+
 						</div>						
-						<div id="hoa-don">
+						<!-- <div id="hoa-don">
 							<h3>Hóa đơn mua hàng</h3>							
 							<table class="table-bordered table-responsive">
 								<tr class="bold">
@@ -149,7 +154,7 @@
 								<b><br />Cám ơn Quý khách đã sử dụng Sản phẩm của Công ty chúng Tôi!</b>
 							</p>
 						</div>
-					</div>					
+					</div>					 -->
 					<!-- end main -->
 				</div>
 			</div>

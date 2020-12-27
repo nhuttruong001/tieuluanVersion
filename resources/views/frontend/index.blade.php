@@ -11,7 +11,9 @@
 					<ul>
 				
 						<li class="menu-item">danh mục sản phẩm</li>
+					
 						@foreach($LoaiGiay as $loai)
+					
 						<li class="menu-item"><a href="{{route('category',['id'=>$loai->loai_id])}}" title="">{{$loai->loai_ten}}</a></li>
 					
 						@endforeach
@@ -91,17 +93,19 @@
 						</div>
 					</div>
 				</div>
-
+{{--san pham moi nhat--}}
 				<div id="wrap-inner">
 					<div class="products">
-						<h3>sản phẩm nổi bật</h3>
+						<h3>sản phẩm mới nhất</h3>
+					
 						<div class="product-list row">
 							@foreach ($giay1 as $g)
 							@if($g->giay_trangthai == 1)
-							<div class="product-item col-md-3 col-sm-6 col-xs-12">
+							<div class="product-item hihi col-md-3 col-sm-6 col-xs-12 " style="overflow:hidden">
 								<a href="#"><img src="upload/giay/{{$g->giay_hinhanh}}" class="img-thumbnail"></a>
 								<p><a href="#">{{$g->giay_ten}}</a></p>
 								<p class="price">{{$g->giay_gia}}</p>
+								
 								<div class="mask-custom">
 									<div>
 										<a href="{{route('details',['id'=>$g->giay_id])}}">Xem chi tiết</a>
@@ -112,115 +116,28 @@
 									<div>
 										<a href="{{route('addcart',['id'=>$g->giay_id])}}">Buy now</a>
 									</div>
+								
 								</div>
+								
+
+									
 							</div>
 
-
+										@if(isset($g->status))
+										<div class="lastest">
+											new
+										</div>
+								
+										@endif
 							@endif
 							@endforeach
 						</div>
 						<!-- <button>add to cart</button>                 	                	 -->
 					</div>
 
-					<!-- <div id="wrap-inner">
-										<div class="products">
-											<h3>sản phẩm nổi bật</h3>
-											<div class="product-list row">
-												<div class="product-item col-md-3 col-sm-6 col-xs-12">
-													<a href="#"><img src="img/home/product-1.png" class="img-thumbnail"></a>
-													<p><a href="#">iPhone 6S Plus 64G</a></p>
-													<p class="price">10.000.000</p>	  
-													<div class="marsk">
-														<a href="#">Xem chi tiết</a>
-													</div>                                    
-												</div>
-											</div>                	                	
-										</div> -->
-
-					<!-- <div class="products">
-						<h3>sản phẩm mới</h3>
-						<div class="product-list row">
-							<div class="product-item col-md-3 col-sm-6 col-xs-12">
-								<a href="#"><img src="img/home/product-1.png" class="img-thumbnail"></a>
-								<p><a href="#">iPhone 6S Plus 64G</a></p>
-								<p class="price">10.000.000</p>
-								<div class="marsk">
-									<a href="#">Xem chi tiết</a>
-								</div>
-							</div>
-							<div class="product-item col-md-3 col-sm-6 col-xs-12">
-								<a href="#"><img src="img/home/product-2.png" class="img-thumbnail"></a>
-								<p><a href="#">iPhone 6S Plus 64G</a></p>
-								<p class="price">10.000.000</p>
-								<div class="marsk">
-									<a href="#">Xem chi tiết</a>
-								</div>
-							</div>
-							<div class="product-item col-md-3 col-sm-6 col-xs-12">
-								<a href="#"><img src="img/home/product-3.png" class="img-thumbnail"></a>
-								<p><a href="#">iPhone 6S Plus 64G</a></p>
-								<p class="price">10.000.000</p>
-								<div class="marsk">
-									<a href="#">Xem chi tiết</a>
-								</div>
-							</div>
-							<div class="product-item col-md-3 col-sm-6 col-xs-12">
-								<a href="#"><img src="img/home/product-4.png" class="img-thumbnail"></a>
-								<p><a href="#">iPhone 6S Plus 64G</a></p>
-								<p class="price">10.000.000</p>
-								<div class="marsk">
-									<a href="#">Xem chi tiết</a>
-								</div>
-							</div>
-							<div class="product-item col-md-3 col-sm-6 col-xs-12">
-								<a href="#"><img src="img/home/product-1.png" class="img-thumbnail"></a>
-								<p><a href="#">iPhone 6S Plus 64G</a></p>
-								<p class="price">10.000.000</p>
-								<div class="marsk">
-									<a href="#">Xem chi tiết</a>
-								</div>
-							</div>
-							<div class="product-item col-md-3 col-sm-6 col-xs-12">
-								<a href="#"><img src="img/home/product-2.png" class="img-thumbnail"></a>
-								<p><a href="#">iPhone 6S Plus 64G</a></p>
-								<p class="price">10.000.000</p>
-								<div class="marsk">
-									<a href="#">Xem chi tiết</a>
-								</div>
-							</div>
-							<div class="product-item col-md-3 col-sm-6 col-xs-12">
-								<a href="#"><img src="img/home/product-3.png" class="img-thumbnail"></a>
-								<p><a href="#">iPhone 6S Plus 64G</a></p>
-								<p class="price">10.000.000</p>
-								<div class="marsk">
-									<a href="#">Xem chi tiết</a>
-								</div>
-							</div>
-							<div class="product-item col-md-3 col-sm-6 col-xs-12">
-								<a href="#"><img src="img/home/product-4.png" class="img-thumbnail"></a>
-								<p><a href="#">iPhone 6S Plus 64G</a></p>
-								<p class="price">10.000.000</p>
-								<div class="marsk">
-									<a href="#">Xem chi tiết</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div> -->
-
-				<!-- <div class="products">
-							<h3>sản phẩm mới</h3>
-
-							<div class="product-list row">
-								<div class="product-item col-md-3 col-sm-6 col-xs-12">
-									<a href="#"><img src="{{asset('frontend/img/home/product-1.png')}}" class="img-thumbnail"></a>
-									<p><a href="#">iPhone 6S Plus 64G</a></p>
-									<p class="price">10.000.000</p>	  
-									<div class="marsk">
-										<a href="#">Xem chi tiết</a>
-									</div>                      	                        
-								</div> -->
-
+					{{--san pham moi nhat--}}			
+				
+					
 			</div>
 		</div>
 
@@ -231,6 +148,6 @@
 </section>
 <!-- endmain -->
 
-
+<div class="mb-5" style="margin-left: 50%">{!! $giay1->links() !!}</div>
 
 @endsection
