@@ -166,7 +166,7 @@
 									<td>{{$value->soluong}}</td>
 									<td>{{number_format($value->soluong * $value->Giay[0]->giay_gia,0,',','.')}} VNĐ</td>
 									<td>{{$value1->hd_ngaylap}}</td>
-									@if($value->hd_trangthaidh == 0)
+									@if($value1->hd_trangthaidh == 0)
 									<td>Đang xử lý</td>
 									@else
 									<td>Đã hoàn thành</td>

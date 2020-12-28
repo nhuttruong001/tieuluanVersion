@@ -86,9 +86,9 @@
                     <td>{{$hd->User->user_hoten}}</td>
                     <td>{{$hd->hd_ngaylap}}</td>
                     @if (($hd->hd_trangthaidh == 0))
-                    <td><a href="{{route('xuly_trangthai',['id'=>$hd->hd_id])}}"> <button style="width:40%"> Đang xử lý</button> </a></td>
+                    <td><a href="{{route('xuly_trangthai',['id'=>$hd->hd_id])}}"> <button style="width:58%"> Đang xử lý</button> </a></td>
                     @else
-                    <td><button style="width:40%">Đã hoàn thành</button></td>
+                    <td><button style="width:58%">Đã hoàn thành</button></td>
                     @endif
 
                     @if (($hd->hd_hinhthuctt == 0))
