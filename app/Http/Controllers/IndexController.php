@@ -15,6 +15,7 @@ use App\LoaiGiay;
 use App\NhaCungCap;
 Use Alert;
 
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
@@ -210,9 +211,8 @@ class IndexController extends Controller
 
     public function getQLCart(){
         $user = Auth::user()->user_id; 
-       $HoaDon = HoaDon::select()->where('user_id',$user)->get();
-        $tong = number_format(\Cart::getSubTotal(),0,',','.');
-        return view('frontend.quanlyCart')->with('chitiethd',$HoaDon)->with('tong',$tong);
+        $HoaDon = HoaDon::select()->where('user_id',$user)->get();
+        return view('frontend.quanlyCart')->with('chitietHD',$HoaDon);
     }
 
 

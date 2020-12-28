@@ -1,7 +1,30 @@
 @extends('frontend.layout.master')
 @section('frontend_content')
 
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
 
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
 
 <!-- main -->
 <section id="body">
@@ -97,35 +120,36 @@
 				
 					<div id="wrap-inner">
 						<div class="products">
-							<h2>Lịch Sử Giỏ Hàng</h2>
+							<h2><i style='font-size:24px' class='far'>&#xf044;</i>&nbsp;LỊCH SỬ GIỎ HÀNG&nbsp;<i style='font-size:24px' class='far'>&#xf044;</i>
+</h2>
 
 							<div id="wrap-inner" style="margin-left:2%">
 						<div id="khach-hang">
-							<h3>Thông tin khách hàng</h3>
+						<h3> <i style='font-size:24px' class='fas'>&#xf508;</i>&nbsp; Thông tin khách hàng</h3>
 							<p>
-								<span class="info">Khách hàng: </span> {{$auth-> user_hoten}}
+								<span class="info"> <i class='far'>&#xf2bb;</i>&nbsp; Khách hàng: </span> {{$auth-> user_hoten}}
 							
               </p>
               <p>
-								<span class="info">Ngày sinh: </span> {{$auth-> user_ngaysinh}}
+								<span class="info"><i  class='far'>&#xf017;</i>&nbsp;Ngày sinh: </span> {{$auth-> user_ngaysinh}}
                 
 							</p>
 							<p>
-								<span class="info">Điện thoại: </span>{{$auth-> user_sdt}}
+								<span class="info"><i  class='fas'>&#xf1e4;</i>&nbsp;Điện thoại: </span>{{$auth-> user_sdt}}
 								
 							</p>
 							<p>
-								<span class="info">Địa chỉ:</span> {{$auth-> user_diachi}}
+								<span class="info"><i  class='fas'>&#xf66f;</i>&nbsp;Địa chỉ:</span> {{$auth-> user_diachi}}
                
 							</p>
 							<p>
-								<span class="info">Email:</span> {{$auth-> user_email}}
+								<span class="info"><i  class='fas'>&#xf199;</i>&nbsp;Email:</span> {{$auth-> user_email}}
                
 							</p>
 						</div>						
 						<div id="hoa-don">
-							<h3>Hóa đơn mua hàng</h3>							
-							<table class="table-bordered table-responsive">
+							<h3><i style='font-size:24px' class='fas'>&#xf1c0;</i>&nbsp;&nbsp;Hóa đơn mua hàng</h3>							
+							<table class="table-bordered table-responsive " id="customers">
 								<tr class="bold">
 									<td width="25%">Tên sản phẩm</td>
 									<td width="15%">Giá</td>
@@ -134,27 +158,24 @@
 									<td width="15%">Ngày mua</td>
 									<td width="20%">Trạng thái</td>
                 </tr>
-                @foreach ($chitiethd as $value)
-								<tr>
-									
-									<td>{{$value->ChiTietHoaDon[0]->Giay[0]->giay_ten}}</td>
-									<td>{{$value->ChiTietHoaDon[0]->Giay[0]->giay_gia}}</td>
-									<td>{{$value->ChiTietHoaDon[0]->soluong}}</td>
-									<td>{{$value->ChiTietHoaDon[0]->soluong * $value->ChiTietHoaDon[0]->Giay[0]->giay_gia}}</td>
-									<td>{{$value->hd_ngaylap}}</td>
+				<?php $tong=0;?>
+                @foreach ($chitietHD as $value1)
+					@foreach ($value1->ChiTietHoaDon as $value)
+									<td>{{$value->Giay[0]->giay_ten}}</td>
+									<td>{{number_format($value->Giay[0]->giay_gia,0,',','.')}} VNĐ</td>
+									<td>{{$value->soluong}}</td>
+									<td>{{number_format($value->soluong * $value->Giay[0]->giay_gia,0,',','.')}} VNĐ</td>
+									<td>{{$value1->hd_ngaylap}}</td>
 									@if($value->hd_trangthaidh == 0)
 									<td>Đang xử lý</td>
 									@else
 									<td>Đã hoàn thành</td>
-									@endif
-									
-									
-								</tr>				
-				  <?php 
-				  $tong = 0;
-				  $tong +=  $value->ChiTietHoaDon[0]->soluong * $value->ChiTietHoaDon[0]->Giay[0]->giay_gia  
-				  ?>
-				  @endforeach
+									@endif	
+								</tr>	
+								<?php $tong += $value->soluong * $value->Giay[0]->giay_gia ?>
+					@endforeach
+
+				@endforeach
 				  <td class="total-price"></td>
 				  <td class="total-price"></td>
 				  <td class="total-price"></td>
