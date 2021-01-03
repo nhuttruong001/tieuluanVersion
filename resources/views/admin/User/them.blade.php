@@ -105,7 +105,7 @@
                     <div class="form-group ">
                       <label for="firstname" class="control-label col-lg-3">Email</label>
                       <div class="col-lg-6">
-                          <input class=" form-control" id="user_email"  name="user_email" type="text">
+                          <input class=" form-control" id="user_email"  name="user_email" type="email">
 
                         @if($errors->has('user_email'))
                         <div style="color:red">{{ $errors->first('user_email')}}</div>

@@ -10,12 +10,15 @@
 					<nav id="menu">
 						<ul>
 					
-						<li class="menu-item">danh mục sản phẩm</li>
+						<li class="menu-item"><b>danh mục sản phẩm</b></li>
+						
 						@foreach($LoaiGiay as $loai)
+						@if($loai->loai_trangthai == 1)
+					
 						<li class="menu-item"><a href="{{route('category',['id'=>$loai->loai_id])}}" title="">{{$loai->loai_ten}}</a></li>
 					
+						@endif
 						@endforeach
-
 											
 						</ul>
 						<!-- <a href="#" id="pull">Danh mục</a> -->
@@ -92,32 +95,29 @@
 							</div>
 						</div>					
 					</div>
-
-					<div id="wrap-inner">
+					<div id="wrap-inner" style="margin-left:2%">
 						<div id="khach-hang">
-							<h3>Thông tin khách hàng</h3>
+						<h3> <i style='font-size:24px' class='fas'>&#xf508;</i>&nbsp; Thông tin khách hàng</h3>
 							<p>
-								<span class="info">Khách hàng: </span>
-								{{isset($auth) ? $auth->user_hoten : null}}
+								<span class="info"> <i class='far'>&#xf2bb;</i>&nbsp; Khách hàng: </span> {{$auth-> user_hoten}}
+							
+              </p>
+              <p>
+								<span class="info"><i  class='far'>&#xf017;</i>&nbsp;Ngày sinh: </span> {{$auth-> user_ngaysinh}}
+                
 							</p>
 							<p>
-								<span class="info">Ngày sinh: </span>
-								{{isset($auth) ? $auth->user_ngaysinh : null}}
+								<span class="info"><i  class='fas'>&#xf1e4;</i>&nbsp;Điện thoại: </span>{{$auth-> user_sdt}}
+								
 							</p>
 							<p>
-								<span class="info">Điện thoại: </span>
-								{{isset($auth) ? $auth->user_sdt : null}}
+								<span class="info"><i  class='fas'>&#xf66f;</i>&nbsp;Địa chỉ:</span> {{$auth-> user_diachi}}
+               
 							</p>
 							<p>
-								<span class="info">Địa chỉ: </span>
-								{{isset($auth) ? $auth->user_diachi : null}}
+								<span class="info"><i  class='fas'>&#xf199;</i>&nbsp;Email:</span> {{$auth-> user_email}}
+               
 							</p>
-							<p>
-								<span class="info">Email: </span>
-								{{isset($auth) ? $auth->user_email : null}}
-							</p>
-
-						</div>						
 						<!-- <div id="hoa-don">
 							<h3>Hóa đơn mua hàng</h3>							
 							<table class="table-bordered table-responsive">

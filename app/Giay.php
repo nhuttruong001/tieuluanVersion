@@ -32,4 +32,8 @@ class Giay extends Model
     public function  BinhLuan(){
         return $this->hasMany('App\BinhLuan','bl_id','bl_id');
     }
+    
+    public function  KhuyenMai(){
+        return $this->belongsto('App\KhuyenMai','km_id','km_id');
+    }
 }

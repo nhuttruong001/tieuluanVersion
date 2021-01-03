@@ -44,14 +44,15 @@ class AuthController extends Controller
      }
 
      public function postSignup(Request $request){
+         
         $this->validate($request, [
              'user_username' => 'required',
              'password' => 'required',
-             'user_hoten' => 'required',
+             'user_hoten' => 'required|min:3|max:255',
              'user_gioitinh' => 'required',
              'user_ngaysinh' => 'required',
              'user_diachi' => 'required',
-             'user_email' => 'required|unique:user',
+             'user_email' => 'required|unique:User',             
              'user_sdt' => 'required',
             
              ]
@@ -60,17 +61,20 @@ class AuthController extends Controller
                  'user_username.required' => 'Vui lòng không được để trống username',
                  'password.required' => 'Vui lòng không được để trống password',
                  'user_hoten.required' => 'Vui lòng không được để trống họ tên',
+                 'user_hoten.min' => 'Họ tên phải lớn hơn 3 ký tự',
+                 'user_hoten.max' => 'Họ tên phải nhỏ hơn 255 ký tự',
                  'user_gioitinh.required' => 'Vui lòng không được để trống giới tính',
                  'user_ngaysinh.required' => 'Vui lòng không được để trống ngày sinh',
                  'user_diachi.required' => 'Vui lòng không được để trống địa chỉ',
-                 [
                  'user_email.required' => "Vui lòng nhập email",
-                 'user_email.unique' => "Email đã tồn tại"
-                 ],
+                 'user_email.unique' => "Email đã tồn tại",
                  'user_sdt.required' => 'Vui lòng không được để trống sđt',
                 
-             ]);
- 
+             ]
+        );
+
+
+
              $User = new User();
              $User->user_username = $request->user_username;
              $User->password = bcrypt($request->password);
@@ -83,7 +87,11 @@ class AuthController extends Controller
              $User->user_quyen = 1;
              $User->user_trangthai = 1;
              $User->save();
-             return view('frontend.login');
+             Session::flash('alert-info', 'Đăng ký thành công!!!');
+                return redirect()->route("formlogin");
+            //  Session::flash('alert alert-primary', 'Bạn đã đăng ký thành công, mời bạn đăng nhập!');
+          
+            //  return view('frontend.login');
             
  
      }
@@ -112,10 +120,10 @@ class AuthController extends Controller
 
            if (Auth::attempt($arrr)) {
                     $this->validate($request, [
-                        'new_password'=>'min:4|max:50',
+                        'new_password'=>'min:2|max:50',
                         'confirm_password'=>'same:new_password',
                         ],[
-                            'new_password.min'=>'Mật khẩu phải ít nhất 8 kí tự',
+                            'new_password.min'=>'Mật khẩu phải ít nhất 2 kí tự',
                             'new_password.max' => 'Mật khẩu không được quá 50 kí tự',
                             'confirm_password.same' => 'Mật khẩu không trùng khớp',
                         ]);
@@ -125,8 +133,9 @@ class AuthController extends Controller
 
                     $user->save();
 
-                    Session::flash('alert-success', 'Đổi mật khẩu thành công!!');
-                    return redirect::back();
+                    Session::flash('alert-success', 'Đổi mật khẩu thành công, mời bạn đăng nhập!!');
+                    // return redirect::back();
+                    return redirect()->route("formlogin");
            }else{
                     Session::flash('alert-warning', 'Đổi Mật Khẩu Thất Bại!!');
                     return redirect::back();

@@ -1,7 +1,11 @@
 @extends('frontend.layout.master')
 @section('frontend_content')
 
-
+<style>
+.line-through {
+       text-decoration: line-through;
+    }
+</style>
 <!-- main -->
 <section id="body">
 	<div class="container">
@@ -10,10 +14,14 @@
 				<nav id="menu">
 					<ul>
 					
-					<li class="menu-item">danh mục sản phẩm</li>
-						@foreach($LoaiGiay as $loai)
+					<li class="menu-item"><b>danh mục sản phẩm</b></li>
+					
+					@foreach($LoaiGiay as $loai)
+						@if($loai->loai_trangthai == 1)
+					
 						<li class="menu-item"><a href="{{route('category',['id'=>$loai->loai_id])}}" title="">{{$loai->loai_ten}}</a></li>
 					
+						@endif
 						@endforeach
 
 					</ul>
@@ -106,9 +114,14 @@
 									<td width="16.6665%">Thành tiền</td>
 									<td width="11.112%">Xóa</td>
 								</tr>
-								<?php $id = 0 ?>
+								<?php $id = 0 ;
+								
+
+								?>
 
 								@foreach($cart as $key => $value)
+
+						
 								<tr>
 									<?php $id++ ?>
 									<td><img class="img-responsive" src="{{ asset('upload/giay/' . $value->attributes->avatar) }}"></td>
@@ -122,6 +135,7 @@
 
 									</td>
 
+								
 
 									<td>{{number_format($value->price,0,',','.')}} đ</td>
 
@@ -210,16 +224,16 @@
 					
 
 							<div class="form-group text-right">
-								<button onclick="display()" type="submit" class="btn btn-default">Thanh toán</button>
+								<button onclick="display()" type="submit" class="btn btn-default">Thanh toán SKNH</button>
 							@else
 							@if(Cart::isEmpty())
 							<div class="form-group text-right">
-								<a href="{{route('thanhtoan-xl')}}"><button onclick="Empty()" type="submit" class="btn btn-default" >Thanh toán</button></a>
+								<a href="{{route('thanhtoan-xl')}}"><button onclick="Empty()" type="submit" class="btn btn-default" >Thanh toán SKNH</button></a>
 							@else
 							<form action="{{route('thanhtoan-xl')}}" method="POST">
 							@csrf
 							<div class="form-group text-right">
-								<button  type="submit" class="btn btn-default" name="saukhinhan" value="0" >Thanh toán</button>
+								<button  type="submit" class="btn btn-default" name="saukhinhan" value="0" >Thanh toán SKNH</button>
 								</form>
 							@endif
 							@endif

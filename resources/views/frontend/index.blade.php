@@ -1,5 +1,10 @@
 @extends('frontend.layout.master')
 @section('frontend_content')
+<style>
+.line-through {
+       text-decoration: line-through;
+    }
+</style>
 
 
 <!-- main -->
@@ -10,12 +15,14 @@
 				<nav id="menu">
 					<ul>
 				
-						<li class="menu-item">danh mục sản phẩm</li>
+						<li class="menu-item"><b>danh mục sản phẩm</b></li>
 					
 						@foreach($LoaiGiay as $loai)
+						@if($loai->loai_trangthai == 1)
 					
 						<li class="menu-item"><a href="{{route('category',['id'=>$loai->loai_id])}}" title="">{{$loai->loai_ten}}</a></li>
 					
+						@endif
 						@endforeach
 
 					</ul>
@@ -97,14 +104,32 @@
 				<div id="wrap-inner">
 					<div class="products">
 						<h3>sản phẩm mới nhất</h3>
-					
+			
 						<div class="product-list row">
 							@foreach ($giay1 as $g)
-							@if($g->giay_trangthai == 1)
+						
+						
 							<div class="product-item hihi col-md-3 col-sm-6 col-xs-12 " style="overflow:hidden">
-								<a href="#"><img src="upload/giay/{{$g->giay_hinhanh}}" class="img-thumbnail"></a>
+							@if(($g->KhuyenMai->km_id != 1))
+										<div class="lastest">
+											sale
+										</div>
+								
+										@endif
+								<a href="#"><img src="upload/giay/{{$g->giay_hinhanh}}" class="img-thumbnail" style="width:115px;height:199px"></a>
 								<p><a href="#">{{$g->giay_ten}}</a></p>
-								<p class="price">{{$g->giay_gia}}</p>
+
+								@if(($g->KhuyenMai->km_id != 1))
+								@php	
+									$giasaukm = $g->giay_gia - ($g->giay_gia * $g->KhuyenMai->km_phantram/100);
+									
+								@endphp
+									<p class="price line-through">{{number_format($g->giay_gia,0,',','.')}} VNĐ</p>
+									<p class="price">{{number_format($giasaukm,0,',','.')}} VNĐ</p>
+
+								@else
+									<p class="price">{{number_format($g->giay_gia,0,',','.')}} VNĐ</p>
+								@endif
 								
 								<div class="mask-custom">
 									<div>
@@ -123,13 +148,7 @@
 									
 							</div>
 
-										@if(isset($g->status))
-										<div class="lastest">
-											new
-										</div>
-								
-										@endif
-							@endif
+							
 							@endforeach
 						</div>
 						<!-- <button>add to cart</button>                 	                	 -->

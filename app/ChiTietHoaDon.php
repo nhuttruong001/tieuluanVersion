@@ -21,4 +21,8 @@ class ChiTietHoaDon extends Model
     public function HoaDon(){
         return $this->belongsto('App\HoaDon','hd_id','hd_id');
     }
+
+    // public function KhuyenMai(){
+    //     return $this->belongsto('App\KhuyenMai','km_id','km_id');
+    // }
 }

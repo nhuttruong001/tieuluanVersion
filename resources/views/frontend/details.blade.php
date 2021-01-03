@@ -1,8 +1,11 @@
 @extends('frontend.layout.master')
 @section('frontend_content')
 @include('sweetalert::alert')
-
-
+<style>
+.line-through {
+       text-decoration: line-through;
+    }
+</style>
 
   
   @if(Session::has('alert-3'))
@@ -25,10 +28,14 @@
 					<nav id="menu">
 						<ul>
 						
-						<li class="menu-item">danh mục sản phẩm</li>
+						<li class="menu-item"><b>danh mục sản phẩm</b></li>
+						
 						@foreach($LoaiGiay as $loai)
+						@if($loai->loai_trangthai == 1)
+					
 						<li class="menu-item"><a href="{{route('category',['id'=>$loai->loai_id])}}" title="">{{$loai->loai_ten}}</a></li>
 					
+						@endif
 						@endforeach
 
 						</ul>
@@ -113,23 +120,30 @@
 							<div class="clearfix"></div>
 							<h3>{{$details->giay_ten}}</h3>
 							<div class="row">
-								<div id="product-img" class="col-xs-12 col-sm-12 col-md-3 text-center">
-									<img src="upload/giay/{{$details->giay_hinhanh}}">
+								<div id="product-img" class="col-xs-12 col-sm-12 col-md-3 text-center" >
+							
+									<img src="upload/giay/{{$details->giay_hinhanh}}" style="height:100%">
 								</div>
 								<div id="product-details" class="col-xs-12 col-sm-12 col-md-9">
-									<p>Giá: <span class="price" >{{$details->giay_gia}} VND</span></p>
+								@if($details->km_id == 1)
+									<p><span class="price" >{{number_format($details->giay_gia,0,',','.')}} VNĐ</span></p>
+								@else
+								<p><span class=" line-through" >{{number_format($details->giay_gia,0,',','.')}} VNĐ</span> <span class="price" >{{number_format(($details->giay_gia)-(($details->giay_gia)*($details->KhuyenMai->km_phantram/100)),0,',','.')}} VNĐ</span></p>
+								@endif
+						
 									<p>Bảo hành: 1 đổi 1 trong 12 tháng</p> 
 									<p>Phụ kiện: Vớ,bộ vệ sinh giày</p>
 									<p>Tình trạng: mới 100%</p>
 									<p>Hỗ trợ thanh toán : Paypal,...</p>
 									<p>Còn hàng: Còn hàng</p>
-									
+							
 									<p class="add-cart text-center"><a href="{{route('addcart',$details->giay_id)}}">Đặt hàng online</a></p>
 								
 									
 								</div>
 							</div>							
 						</div>
+				
 						<div id="product-detail">
 							<h3>Chi tiết sản phẩm</h3>
 							<p class="text-justify">{{$details->giay_mota}}</p>
@@ -139,30 +153,63 @@
 							<h3>Bình luận</h3>
 							<div class="col-md-9 comment">
 						
-								<form action="{{route('binhluan-xl')}}" method="POST">
+							<!-- <form action="{{route('binhluan-xl')}}" method="POST">
 									@csrf
 									<div class="form-group">
-										<!-- <label for="cm">Bình luận:</label> -->
+								
 										<textarea required rows="5" id="cm" class="form-control" name="bl_noidung"></textarea>
-										<input type="hidden" name="user_id" id="id_nguoidung" value="{{isset($auth) ? $auth->user_id : null}}"  />
+										<input type="hidden" name="user_id"  value="{{isset($auth) ? $auth->user_id : null}}"  />
 										<input type="hidden" name="giay_id" value="{{isset($details) ? $details->giay_id : null}}" />
 									</div>
 									<div class="form-group text-right">
-										<button class="btn btn-default" type="button" id="submit" >Gửi</button>
+									@if(!isset($auth))
+										<button class="btn btn-default"  onclick="display()" >Gửi</button>
+										@else	
+										<button class="btn btn-default"  id="submit" type="submit">Gửi</button>
+										@endif
 									</div>
-								</form>
+							</form> -->
+
+							@if(!isset($auth))
+							<form action="" method="GET">
+									@csrf
+									<div class="form-group">
+										<textarea required rows="5" id="cm" class="form-control" name="bl_noidung"></textarea>
+										<input type="hidden" name="user_id"  value="{{isset($auth) ? $auth->user_id : null}}"  />
+										<input type="hidden" name="giay_id" value="{{isset($details) ? $details->giay_id : null}}" />
+									</div>
+									<div class="form-group text-right">
+										<button class="btn btn-default"  onclick="display()" >Gửi</button>
+									</div>
+							</form>
+							@else
+							<form action="{{route('binhluan-xl')}}" method="POST">
+									@csrf
+									<div class="form-group">
+										<textarea required rows="5" id="cm" class="form-control" name="bl_noidung"></textarea>
+										<input type="hidden" name="user_id"  value="{{isset($auth) ? $auth->user_id : null}}"  />
+										<input type="hidden" name="giay_id" value="{{isset($details) ? $details->giay_id : null}}" />
+									</div>
+									<div class="form-group text-right">
+										<button class="btn btn-default"  id="submit" type="submit">Gửi</button>
+									</div>
+							</form>
+							@endif
+
+
+
 							
 							</div>
 						</div>
 						<div >
-						<h3>Ý kiến khách hàng</h3><hr>
-						@foreach($binhluan as $bl)
+						<h3><i style='font-size:24px' class='far'>&#xf044;</i>&nbsp;Ý kiến khách hàng</h3><hr>
+						@foreach($comment as $bl)
 						@if($bl->bl_trangthai == 1)
 							<ul>
 								<li class="com-title">
-									{{$bl->user_hoten}}
+								<i style='font-size:24px' class='fas'>&#xf508;</i>&nbsp;{{$bl->User->user_hoten}}
 									<br>
-									<span>2017-19-01 10:00:00</span>	
+									<span>{{$bl->bl_created_at}}</span>	
 								</li>
 								<li class="com-details">
 									{{$bl->bl_noidung}}
@@ -197,17 +244,23 @@
 	// 	// }
 	// 	// this.form.submit();
 
-		$("#submit").click(function(e){
-			alert("Bạn cần đăng nhập để bình luận!")
-			e.preventDefault();
-                // var check;
-                // if($("#id_nguoidung").val() == ""){;
-                //     var check = confirm("Bạn phải đăng nhập mới có thể bình luận");
-                //     if(check){
-                //         window.location = "/login";
-                //     }
-                // }
-            });
+		function display(){
+			alert("Bạn phải đăng nhập mới bình luận được!");
+		
+		}
+
+		// $("#submit").click(function(e){
+		// 	if(!isset($auth))
+		// 	alert("Bạn cần đăng nhập để bình luận!")
+		// 	e.preventDefault();
+        //         // var check;
+        //         // if($("#id_nguoidung").val() == ""){;
+        //         //     var check = confirm("Bạn phải đăng nhập mới có thể bình luận");
+        //         //     if(check){
+        //         //         window.location = "/login";
+        //         //     }
+        //         // }
+        //     });
 	// 	})
 	// }
 </script>

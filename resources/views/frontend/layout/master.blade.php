@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="frontend/css/details.css">
     <link rel="stylesheet" href="frontend/css/category.css">
     <link rel="stylesheet" href="frontend/css/search.css">
+    <link rel="stylesheet" href="frontend/scss/_reboot.scss">
 
 
     <!-- Stylesheet -->

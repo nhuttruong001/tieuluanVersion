@@ -21,7 +21,8 @@ class GiaySeeder extends Seeder
                 'giay_gia' => 3500000,
                 'giay_soluong' => 100,
                 'giay_hinhanh' => 'jordan_1.jpg',
-                'giay_mota' => 'Mẫu giày thể thao luôn hot trong nhiều năm nay',
+                'giay_mota' => 'Sự hợp nhất của thế giới thời trang và giày thể thao đã đạt đến đỉnh cao tuyệt đối với sự hợp tác này, giữa Jordan Brand và nhà thời trang cao cấp của Pháp Dior.
+                Bằng cách áp dụng Dior Grey nổi tiếng với Oblique Jacquard của mình, Dior và Jordan đã tăng cường vẻ đẹp của hình dáng ban đầu một cách đáng kinh ngạc, dẫn đến sự xa hoa chưa từng có mà sau này, mọi người đã cạn kiệt tài khoản tiết kiệm chỉ để mua một đôi.',
                 'giay_trangthai' => 1
             ],
             [
@@ -33,7 +34,8 @@ class GiaySeeder extends Seeder
                 'giay_gia' => 4500000,
                 'giay_soluong' => 50,
                 'giay_hinhanh' => 'jordan_4.jpg',
-                'giay_mota' => 'Mẫu giày thể thao được ưa chuộng nhất',
+                'giay_mota' => 'Bạn đi giày hay bị đau đầu ngón chân, bạn lười xỏ và chỉnh dây giày (giày có dây nhưng ko chỉnh dây vẫn xỏ chân vào giày dc nhé^^) hay chỉ đơn giản là bạn thích sự mềm mại thoải mái cho bàn chân mà kiểu dáng vẫn vô cùng hợp thời trang thì bơi hết vào đây nào, đảm bảo đôi giày này sẽ ko làm bạn thất vọng đâu nhé!
+                Kiểu dáng cổ thấp, chất liệu vải dù siêu bền với thiết kế các lỗ nhỏ giúp không khi bên trong giày lưu thông, tránh bị hôi chân. Các bạn có thể giặt giũ thoải mái mà ko lo hư hại nhưng lưu ý phơi giày trong bóng râm để giày ko bị bay màu nhé. Giày gồm có 3 màu: hồng, đen, trắng cơ bản dễ phối đồ lắm nhé! ',
                 'giay_trangthai' => 1
             ],
             [
@@ -45,7 +47,8 @@ class GiaySeeder extends Seeder
                 'giay_gia' => 2400000,
                 'giay_soluong' => 10,
                 'giay_hinhanh' => 'stanmith_1.jpg',
-                'giay_mota' => 'Mẫu giày thể thao luôn hot trong nhiều năm nay',
+                'giay_mota' => 'Bạn đi giày hay bị đau đầu ngón chân, bạn lười xỏ và chỉnh dây giày (giày có dây nhưng ko chỉnh dây vẫn xỏ chân vào giày dc nhé^^) hay chỉ đơn giản là bạn thích sự mềm mại thoải mái cho bàn chân mà kiểu dáng vẫn vô cùng hợp thời trang thì bơi hết vào đây nào, đảm bảo đôi giày này sẽ ko làm bạn thất vọng đâu nhé!
+                Kiểu dáng cổ thấp, chất liệu vải dù siêu bền với thiết kế các lỗ nhỏ giúp không khi bên trong giày lưu thông, tránh bị hôi chân. Các bạn có thể giặt giũ thoải mái mà ko lo hư hại nhưng lưu ý phơi giày trong bóng râm để giày ko bị bay màu nhé. Giày gồm có 3 màu: hồng, đen, trắng cơ bản dễ phối đồ lắm nhé! ',
                 'giay_trangthai' => 1
             ],
             [
@@ -57,7 +60,8 @@ class GiaySeeder extends Seeder
                 'giay_gia' => 200,
                 'giay_soluong' => 60,
                 'giay_hinhanh' => 'ultraboost_1.jpg',
-                'giay_mota' => 'Mẫu giày thể thao luôn hot trong nhiều năm nay',
+                'giay_mota' => 'Bạn đi giày hay bị đau đầu ngón chân, bạn lười xỏ và chỉnh dây giày (giày có dây nhưng ko chỉnh dây vẫn xỏ chân vào giày dc nhé^^) hay chỉ đơn giản là bạn thích sự mềm mại thoải mái cho bàn chân mà kiểu dáng vẫn vô cùng hợp thời trang thì bơi hết vào đây nào, đảm bảo đôi giày này sẽ ko làm bạn thất vọng đâu nhé!
+                Kiểu dáng cổ thấp, chất liệu vải dù siêu bền với thiết kế các lỗ nhỏ giúp không khi bên trong giày lưu thông, tránh bị hôi chân. Các bạn có thể giặt giũ thoải mái mà ko lo hư hại nhưng lưu ý phơi giày trong bóng râm để giày ko bị bay màu nhé. Giày gồm có 3 màu: hồng, đen, trắng cơ bản dễ phối đồ lắm nhé! ',
                 'giay_trangthai' => 1
             ],
             [
@@ -69,7 +73,8 @@ class GiaySeeder extends Seeder
                 'giay_gia' => 2400000,
                 'giay_soluong' => 150,
                 'giay_hinhanh' => 'bitishunterx2020_1.jpg',
-                'giay_mota' => 'Mẫu giày thể thao luôn hot trong nhiều năm nay',
+                'giay_mota' => 'Bạn đi giày hay bị đau đầu ngón chân, bạn lười xỏ và chỉnh dây giày (giày có dây nhưng ko chỉnh dây vẫn xỏ chân vào giày dc nhé^^) hay chỉ đơn giản là bạn thích sự mềm mại thoải mái cho bàn chân mà kiểu dáng vẫn vô cùng hợp thời trang thì bơi hết vào đây nào, đảm bảo đôi giày này sẽ ko làm bạn thất vọng đâu nhé!
+                Kiểu dáng cổ thấp, chất liệu vải dù siêu bền với thiết kế các lỗ nhỏ giúp không khi bên trong giày lưu thông, tránh bị hôi chân. Các bạn có thể giặt giũ thoải mái mà ko lo hư hại nhưng lưu ý phơi giày trong bóng râm để giày ko bị bay màu nhé. Giày gồm có 3 màu: hồng, đen, trắng cơ bản dễ phối đồ lắm nhé! ',
                 'giay_trangthai' => 1
             ],
             [
@@ -81,7 +86,8 @@ class GiaySeeder extends Seeder
                 'giay_gia' => 2400000,
                 'giay_soluong' => 150,
                 'giay_hinhanh' => 'bongda_9.png',
-                'giay_mota' => 'Mẫu giày thể thao luôn hot trong nhiều năm nay',
+                'giay_mota' => 'Bạn đi giày hay bị đau đầu ngón chân, bạn lười xỏ và chỉnh dây giày (giày có dây nhưng ko chỉnh dây vẫn xỏ chân vào giày dc nhé^^) hay chỉ đơn giản là bạn thích sự mềm mại thoải mái cho bàn chân mà kiểu dáng vẫn vô cùng hợp thời trang thì bơi hết vào đây nào, đảm bảo đôi giày này sẽ ko làm bạn thất vọng đâu nhé!
+                Kiểu dáng cổ thấp, chất liệu vải dù siêu bền với thiết kế các lỗ nhỏ giúp không khi bên trong giày lưu thông, tránh bị hôi chân. Các bạn có thể giặt giũ thoải mái mà ko lo hư hại nhưng lưu ý phơi giày trong bóng râm để giày ko bị bay màu nhé. Giày gồm có 3 màu: hồng, đen, trắng cơ bản dễ phối đồ lắm nhé! ',
                 'giay_trangthai' => 1
             ],
             [
@@ -93,7 +99,8 @@ class GiaySeeder extends Seeder
                 'giay_gia' => 2400000,
                 'giay_soluong' => 150,
                 'giay_hinhanh' => 'sandal_1.jpg',
-                'giay_mota' => 'Mẫu giày Sandal luôn hot trong nhiều năm nay',
+                'giay_mota' => 'Bạn đi giày hay bị đau đầu ngón chân, bạn lười xỏ và chỉnh dây giày (giày có dây nhưng ko chỉnh dây vẫn xỏ chân vào giày dc nhé^^) hay chỉ đơn giản là bạn thích sự mềm mại thoải mái cho bàn chân mà kiểu dáng vẫn vô cùng hợp thời trang thì bơi hết vào đây nào, đảm bảo đôi giày này sẽ ko làm bạn thất vọng đâu nhé!
+                Kiểu dáng cổ thấp, chất liệu vải dù siêu bền với thiết kế các lỗ nhỏ giúp không khi bên trong giày lưu thông, tránh bị hôi chân. Các bạn có thể giặt giũ thoải mái mà ko lo hư hại nhưng lưu ý phơi giày trong bóng râm để giày ko bị bay màu nhé. Giày gồm có 3 màu: hồng, đen, trắng cơ bản dễ phối đồ lắm nhé! ',
                 'giay_trangthai' => 1
             ],
             [
@@ -105,7 +112,8 @@ class GiaySeeder extends Seeder
                 'giay_gia' => 2400000,
                 'giay_soluong' => 150,
                 'giay_hinhanh' => 'giaytay_1.jpg',
-                'giay_mota' => 'Mẫu giày tây luôn hot trong nhiều năm nay',
+                'giay_mota' => 'Bạn đi giày hay bị đau đầu ngón chân, bạn lười xỏ và chỉnh dây giày (giày có dây nhưng ko chỉnh dây vẫn xỏ chân vào giày dc nhé^^) hay chỉ đơn giản là bạn thích sự mềm mại thoải mái cho bàn chân mà kiểu dáng vẫn vô cùng hợp thời trang thì bơi hết vào đây nào, đảm bảo đôi giày này sẽ ko làm bạn thất vọng đâu nhé!
+                Kiểu dáng cổ thấp, chất liệu vải dù siêu bền với thiết kế các lỗ nhỏ giúp không khi bên trong giày lưu thông, tránh bị hôi chân. Các bạn có thể giặt giũ thoải mái mà ko lo hư hại nhưng lưu ý phơi giày trong bóng râm để giày ko bị bay màu nhé. Giày gồm có 3 màu: hồng, đen, trắng cơ bản dễ phối đồ lắm nhé! ',
                 'giay_trangthai' => 1
             ],
             [
@@ -117,7 +125,10 @@ class GiaySeeder extends Seeder
                 'giay_gia' => 180000,
                 'giay_soluong' => 150,
                 'giay_hinhanh' => 'dep_1.jpg',
-                'giay_mota' => 'Mẫu dép luôn hot trong nhiều năm nay',
+                'giay_mota' => 'Dép nam nữ  mắt cáo hàng siêu đẹp ,chính hãng made in THAILAND.
+                Chất liệu: xốp EVA cao cấp, đế có thiết kế dạng gợn sóng bằng cao su tăng độ ma sát
+                Dép rất chắc chắn, bền đẹp và êm chân
+                Phần đế dép được thiết kế 2 lớp chắc chắn.',
                 'giay_trangthai' => 1
             ],
             [
@@ -129,7 +140,10 @@ class GiaySeeder extends Seeder
                 'giay_gia' => 195000,
                 'giay_soluong' => 100,
                 'giay_hinhanh' => 'dep_2.jpeg',
-                'giay_mota' => 'Mẫu dép luôn hot trong nhiều năm nay',
+                'giay_mota' => 'Dép nam nữ  mắt cáo hàng siêu đẹp ,chính hãng made in THAILAND.
+                Chất liệu: xốp EVA cao cấp, đế có thiết kế dạng gợn sóng bằng cao su tăng độ ma sát
+                Dép rất chắc chắn, bền đẹp và êm chân
+                Phần đế dép được thiết kế 2 lớp chắc chắn.',
                 'giay_trangthai' => 1
             ],
             [
@@ -141,7 +155,10 @@ class GiaySeeder extends Seeder
                 'giay_gia' => 235000,
                 'giay_soluong' => 50,
                 'giay_hinhanh' => 'dep_3.jpg',
-                'giay_mota' => 'Mẫu dép luôn hot trong nhiều năm nay',
+                'giay_mota' => 'Dép nam nữ  mắt cáo hàng siêu đẹp ,chính hãng made in THAILAND.
+                Chất liệu: xốp EVA cao cấp, đế có thiết kế dạng gợn sóng bằng cao su tăng độ ma sát
+                Dép rất chắc chắn, bền đẹp và êm chân
+                Phần đế dép được thiết kế 2 lớp chắc chắn.',
                 'giay_trangthai' => 1
             ],
             [
@@ -153,7 +170,10 @@ class GiaySeeder extends Seeder
                 'giay_gia' => 215000,
                 'giay_soluong' => 50,
                 'giay_hinhanh' => 'dep_4.jpg',
-                'giay_mota' => 'Mẫu dép luôn hot trong nhiều năm nay',
+                'giay_mota' => 'Dép nam nữ  mắt cáo hàng siêu đẹp ,chính hãng made in THAILAND.
+                Chất liệu: xốp EVA cao cấp, đế có thiết kế dạng gợn sóng bằng cao su tăng độ ma sát
+                Dép rất chắc chắn, bền đẹp và êm chân
+                Phần đế dép được thiết kế 2 lớp chắc chắn.',
                 'giay_trangthai' => 1
             ],
             [
@@ -165,7 +185,11 @@ class GiaySeeder extends Seeder
                 'giay_gia' => 1215000,
                 'giay_soluong' => 30,
                 'giay_hinhanh' => 'bongda_2.jpg',
-                'giay_mota' => 'Mẫu giày bóng đá luôn hot trong nhiều năm nay',
+                'giay_mota' => 'Sản phẩm dùng cho dân PHỦI, đinh thấp, thích hợp đá bóng trên mặt sân cỏ nhân tạo. Nhưng cũng có thể đá trên sân cỏ tự nhiên ko vấn đề, sản phẩm được giới đá bóng phủi săn lùng. Giá tiền lại rất hợp lý cho a e chuyên bóng đá phủi 
+                Chất liệu da PU, chống thấm nước  
+                Đế giầy cao TF giúp tăng khả năng bám trụ.  
+                Họa tiết logo sắc nét 
+                Full khâu đế , chắc chắn , bền bỉ ',
                 'giay_trangthai' => 1
             ],
             [
@@ -177,7 +201,11 @@ class GiaySeeder extends Seeder
                 'giay_gia' => 400000,
                 'giay_soluong' => 50,
                 'giay_hinhanh' => 'bongda_3.jpg',
-                'giay_mota' => 'Mẫu giày bóng đá luôn hot trong nhiều năm nay',
+                'giay_mota' => 'Sản phẩm dùng cho dân PHỦI, đinh thấp, thích hợp đá bóng trên mặt sân cỏ nhân tạo. Nhưng cũng có thể đá trên sân cỏ tự nhiên ko vấn đề, sản phẩm được giới đá bóng phủi săn lùng. Giá tiền lại rất hợp lý cho a e chuyên bóng đá phủi 
+                Chất liệu da PU, chống thấm nước  
+                Đế giầy cao TF giúp tăng khả năng bám trụ.  
+                Họa tiết logo sắc nét 
+                Full khâu đế , chắc chắn , bền bỉ ',
                 'giay_trangthai' => 1
             ],
             [
@@ -189,7 +217,11 @@ class GiaySeeder extends Seeder
                 'giay_gia' => 550000,
                 'giay_soluong' => 20,
                 'giay_hinhanh' => 'bongda_4.jpg',
-                'giay_mota' => 'Mẫu giày bóng đá luôn hot trong nhiều năm nay',
+                'giay_mota' => 'Sản phẩm dùng cho dân PHỦI, đinh thấp, thích hợp đá bóng trên mặt sân cỏ nhân tạo. Nhưng cũng có thể đá trên sân cỏ tự nhiên ko vấn đề, sản phẩm được giới đá bóng phủi săn lùng. Giá tiền lại rất hợp lý cho a e chuyên bóng đá phủi 
+                Chất liệu da PU, chống thấm nước  
+                Đế giầy cao TF giúp tăng khả năng bám trụ.  
+                Họa tiết logo sắc nét 
+                Full khâu đế , chắc chắn , bền bỉ ',
                 'giay_trangthai' => 1
             ],
             [
@@ -201,7 +233,11 @@ class GiaySeeder extends Seeder
                 'giay_gia' => 950000,
                 'giay_soluong' => 60,
                 'giay_hinhanh' => 'bongda_5.jpg',
-                'giay_mota' => 'Mẫu giày bóng đá luôn hot trong nhiều năm nay',
+                'giay_mota' => 'Sản phẩm dùng cho dân PHỦI, đinh thấp, thích hợp đá bóng trên mặt sân cỏ nhân tạo. Nhưng cũng có thể đá trên sân cỏ tự nhiên ko vấn đề, sản phẩm được giới đá bóng phủi săn lùng. Giá tiền lại rất hợp lý cho a e chuyên bóng đá phủi 
+                Chất liệu da PU, chống thấm nước  
+                Đế giầy cao TF giúp tăng khả năng bám trụ.  
+                Họa tiết logo sắc nét 
+                Full khâu đế , chắc chắn , bền bỉ ',
                 'giay_trangthai' => 1
             ],
             [
@@ -213,7 +249,8 @@ class GiaySeeder extends Seeder
                 'giay_gia' => 300000,
                 'giay_soluong' => 50,
                 'giay_hinhanh' => 'sandal_2.jpg',
-                'giay_mota' => 'Mẫu dép luôn hot trong nhiều năm nay',
+                'giay_mota' => 'Bạn đi giày hay bị đau đầu ngón chân, bạn lười xỏ và chỉnh dây giày (giày có dây nhưng ko chỉnh dây vẫn xỏ chân vào giày dc nhé^^) hay chỉ đơn giản là bạn thích sự mềm mại thoải mái cho bàn chân mà kiểu dáng vẫn vô cùng hợp thời trang thì bơi hết vào đây nào, đảm bảo đôi giày này sẽ ko làm bạn thất vọng đâu nhé!
+                Kiểu dáng cổ thấp, chất liệu vải dù siêu bền với thiết kế các lỗ nhỏ giúp không khi bên trong giày lưu thông, tránh bị hôi chân. Các bạn có thể giặt giũ thoải mái mà ko lo hư hại nhưng lưu ý phơi giày trong bóng râm để giày ko bị bay màu nhé. Giày gồm có 3 màu: hồng, đen, trắng cơ bản dễ phối đồ lắm nhé! ',
                 'giay_trangthai' => 1
             ],
             [
@@ -225,7 +262,8 @@ class GiaySeeder extends Seeder
                 'giay_gia' => 215000,
                 'giay_soluong' => 50,
                 'giay_hinhanh' => 'sandal_3.jpg',
-                'giay_mota' => 'Mẫu dép luôn hot trong nhiều năm nay',
+                'giay_mota' => 'Bạn đi giày hay bị đau đầu ngón chân, bạn lười xỏ và chỉnh dây giày (giày có dây nhưng ko chỉnh dây vẫn xỏ chân vào giày dc nhé^^) hay chỉ đơn giản là bạn thích sự mềm mại thoải mái cho bàn chân mà kiểu dáng vẫn vô cùng hợp thời trang thì bơi hết vào đây nào, đảm bảo đôi giày này sẽ ko làm bạn thất vọng đâu nhé!
+                Kiểu dáng cổ thấp, chất liệu vải dù siêu bền với thiết kế các lỗ nhỏ giúp không khi bên trong giày lưu thông, tránh bị hôi chân. Các bạn có thể giặt giũ thoải mái mà ko lo hư hại nhưng lưu ý phơi giày trong bóng râm để giày ko bị bay màu nhé. Giày gồm có 3 màu: hồng, đen, trắng cơ bản dễ phối đồ lắm nhé! ',
                 'giay_trangthai' => 1
             ],
             [
@@ -237,7 +275,8 @@ class GiaySeeder extends Seeder
                 'giay_gia' => 2200000,
                 'giay_soluong' => 50,
                 'giay_hinhanh' => 'giaytay_2.jpg',
-                'giay_mota' => 'Mẫu giày tây luôn hot trong nhiều năm nay',
+                'giay_mota' => 'Bạn đi giày hay bị đau đầu ngón chân, bạn lười xỏ và chỉnh dây giày (giày có dây nhưng ko chỉnh dây vẫn xỏ chân vào giày dc nhé^^) hay chỉ đơn giản là bạn thích sự mềm mại thoải mái cho bàn chân mà kiểu dáng vẫn vô cùng hợp thời trang thì bơi hết vào đây nào, đảm bảo đôi giày này sẽ ko làm bạn thất vọng đâu nhé!
+                Kiểu dáng cổ thấp, chất liệu vải dù siêu bền với thiết kế các lỗ nhỏ giúp không khi bên trong giày lưu thông, tránh bị hôi chân. Các bạn có thể giặt giũ thoải mái mà ko lo hư hại nhưng lưu ý phơi giày trong bóng râm để giày ko bị bay màu nhé. Giày gồm có 3 màu: hồng, đen, trắng cơ bản dễ phối đồ lắm nhé! ',
                 'giay_trangthai' => 1
             ],
             [
@@ -249,7 +288,8 @@ class GiaySeeder extends Seeder
                 'giay_gia' => 2215000,
                 'giay_soluong' => 50,
                 'giay_hinhanh' => 'giaytay_3.jpg',
-                'giay_mota' => 'Mẫu giày tây luôn hot trong nhiều năm nay',
+                'giay_mota' => 'Bạn đi giày hay bị đau đầu ngón chân, bạn lười xỏ và chỉnh dây giày (giày có dây nhưng ko chỉnh dây vẫn xỏ chân vào giày dc nhé^^) hay chỉ đơn giản là bạn thích sự mềm mại thoải mái cho bàn chân mà kiểu dáng vẫn vô cùng hợp thời trang thì bơi hết vào đây nào, đảm bảo đôi giày này sẽ ko làm bạn thất vọng đâu nhé!
+                Kiểu dáng cổ thấp, chất liệu vải dù siêu bền với thiết kế các lỗ nhỏ giúp không khi bên trong giày lưu thông, tránh bị hôi chân. Các bạn có thể giặt giũ thoải mái mà ko lo hư hại nhưng lưu ý phơi giày trong bóng râm để giày ko bị bay màu nhé. Giày gồm có 3 màu: hồng, đen, trắng cơ bản dễ phối đồ lắm nhé! ',
                 'giay_trangthai' => 1
             ],
             [
@@ -261,7 +301,8 @@ class GiaySeeder extends Seeder
                 'giay_gia' => 1400000,
                 'giay_soluong' => 30,
                 'giay_hinhanh' => 'giaytay_4.jpg',
-                'giay_mota' => 'Mẫu giày tây luôn hot trong nhiều năm nay',
+                'giay_mota' => 'Bạn đi giày hay bị đau đầu ngón chân, bạn lười xỏ và chỉnh dây giày (giày có dây nhưng ko chỉnh dây vẫn xỏ chân vào giày dc nhé^^) hay chỉ đơn giản là bạn thích sự mềm mại thoải mái cho bàn chân mà kiểu dáng vẫn vô cùng hợp thời trang thì bơi hết vào đây nào, đảm bảo đôi giày này sẽ ko làm bạn thất vọng đâu nhé!
+                Kiểu dáng cổ thấp, chất liệu vải dù siêu bền với thiết kế các lỗ nhỏ giúp không khi bên trong giày lưu thông, tránh bị hôi chân. Các bạn có thể giặt giũ thoải mái mà ko lo hư hại nhưng lưu ý phơi giày trong bóng râm để giày ko bị bay màu nhé. Giày gồm có 3 màu: hồng, đen, trắng cơ bản dễ phối đồ lắm nhé! ',
                 'giay_trangthai' => 1
             ],
             [
@@ -273,7 +314,38 @@ class GiaySeeder extends Seeder
                 'giay_gia' => 115000,
                 'giay_soluong' => 30,
                 'giay_hinhanh' => 'sandal_4.jpg',
-                'giay_mota' => 'Mẫu giày Sandal luôn hot trong nhiều năm nay',
+                'giay_mota' => 'Bạn đi giày hay bị đau đầu ngón chân, bạn lười xỏ và chỉnh dây giày (giày có dây nhưng ko chỉnh dây vẫn xỏ chân vào giày dc nhé^^) hay chỉ đơn giản là bạn thích sự mềm mại thoải mái cho bàn chân mà kiểu dáng vẫn vô cùng hợp thời trang thì bơi hết vào đây nào, đảm bảo đôi giày này sẽ ko làm bạn thất vọng đâu nhé!
+                Kiểu dáng cổ thấp, chất liệu vải dù siêu bền với thiết kế các lỗ nhỏ giúp không khi bên trong giày lưu thông, tránh bị hôi chân. Các bạn có thể giặt giũ thoải mái mà ko lo hư hại nhưng lưu ý phơi giày trong bóng râm để giày ko bị bay màu nhé. Giày gồm có 3 màu: hồng, đen, trắng cơ bản dễ phối đồ lắm nhé! ',
+                'giay_trangthai' => 1
+            ],
+            [
+                'giay_id' => 23,
+                'loai_id' => 5,
+                'km_id' => 1,
+                'ncc_id' => 3,
+                'giay_ten' => 'Dép Gucci 1',
+                'giay_gia' => 165000,
+                'giay_soluong' => 30,
+                'giay_hinhanh' => 'dep_1_1.jpg',
+                'giay_mota' => 'Dép nam nữ  mắt cáo hàng siêu đẹp ,chính hãng made in THAILAND.
+                Chất liệu: xốp EVA cao cấp, đế có thiết kế dạng gợn sóng bằng cao su tăng độ ma sát
+                Dép rất chắc chắn, bền đẹp và êm chân
+                Phần đế dép được thiết kế 2 lớp chắc chắn.',
+                'giay_trangthai' => 1
+            ],
+            [
+                'giay_id' => 24,
+                'loai_id' => 5,
+                'km_id' => 2,
+                'ncc_id' => 3,
+                'giay_ten' => 'Dép Gucci 2',
+                'giay_gia' => 115000,
+                'giay_soluong' => 30,
+                'giay_hinhanh' => 'dep_1_2.jpg',
+                'giay_mota' => 'Dép nam nữ  mắt cáo hàng siêu đẹp ,chính hãng made in THAILAND.
+                Chất liệu: xốp EVA cao cấp, đế có thiết kế dạng gợn sóng bằng cao su tăng độ ma sát
+                Dép rất chắc chắn, bền đẹp và êm chân
+                Phần đế dép được thiết kế 2 lớp chắc chắn.',
                 'giay_trangthai' => 1
             ]
 

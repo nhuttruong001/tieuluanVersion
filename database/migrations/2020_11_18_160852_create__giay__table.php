@@ -17,7 +17,7 @@ class CreateGiayTable extends Migration
             $table->engine = "InnoDB";
             $table->increments('giay_id');
             $table->unsignedInteger('loai_id');
-            $table->unsignedInteger('km_id');
+            $table->unsignedInteger('km_id')->nullable();
             $table->unsignedInteger('ncc_id');
             $table->string('giay_ten');
             $table->double('giay_gia');

@@ -20,7 +20,8 @@ class CreateBinhluanTable extends Migration
             $table->unsignedInteger('user_id');
             $table->text('bl_noidung');
             $table->tinyInteger('bl_trangthai')->comment('1 la hien thi 0 la an thong tin');
-            $table->timestamps();
+            $table->timestamp('bl_created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+         
 
             $table->foreign('giay_id')->references('giay_id')->on('Giay')->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->foreign('user_id')->references('user_id')->on('User')->onDelete('CASCADE')->onUpdate('CASCADE');

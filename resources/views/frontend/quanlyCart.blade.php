@@ -24,6 +24,11 @@
   background-color: #4CAF50;
   color: white;
 }
+
+.line-through {
+       text-decoration: line-through;
+    }
+
 </style>
 
 <!-- main -->
@@ -34,10 +39,14 @@
 					<nav id="menu">
 						<ul>
 					
-						<li class="menu-item">danh mục sản phẩm</li>
+						<li class="menu-item"><b>danh mục sản phẩm</b></li>
+						
 						@foreach($LoaiGiay as $loai)
+						@if($loai->loai_trangthai == 1)
+					
 						<li class="menu-item"><a href="{{route('category',['id'=>$loai->loai_id])}}" title="">{{$loai->loai_ten}}</a></li>
 					
+						@endif
 						@endforeach
 
 											
@@ -161,10 +170,32 @@
 				<?php $tong=0;?>
                 @foreach ($chitietHD as $value1)
 					@foreach ($value1->ChiTietHoaDon as $value)
+
+			
 									<td>{{$value->Giay[0]->giay_ten}}</td>
-									<td>{{number_format($value->Giay[0]->giay_gia,0,',','.')}} VNĐ</td>
+
+									@if(($value->Giay[0]->km_id != 1))
+								
+								@php	
+									$giasaukm = ($value->Giay[0]->giay_gia)-($value->Giay[0]->giay_gia*$value->Giay[0]->KhuyenMai->km_phantram/100);
+									
+								@endphp
+								<td>
+									<p class="line-through">{{number_format($value->Giay[0]->giay_gia,0,',','.')}} VNĐ</p>
+									<p class="price">{{number_format($giasaukm,0,',','.')}} VNĐ</p>
+								</td>
+								@else
+								<td>
+								<p class="price">{{number_format($value->Giay[0]->giay_gia,0,',','.')}} VNĐ</p>
+								</td>
+									
+								@endif
+						
+									
+
+
 									<td>{{$value->soluong}}</td>
-									<td>{{number_format($value->soluong * $value->Giay[0]->giay_gia,0,',','.')}} VNĐ</td>
+									<td>{{number_format($value->soluong * ($value->Giay[0]->giay_gia)-($value->Giay[0]->giay_gia*$value->Giay[0]->KhuyenMai->km_phantram/100),0,',','.')}} VNĐ</td>
 									<td>{{$value1->hd_ngaylap}}</td>
 									@if($value1->hd_trangthaidh == 0)
 									<td>Đang xử lý</td>
@@ -172,7 +203,7 @@
 									<td>Đã hoàn thành</td>
 									@endif	
 								</tr>	
-								<?php $tong += $value->soluong * $value->Giay[0]->giay_gia ?>
+								<?php $tong += $value->soluong * ($value->Giay[0]->giay_gia)-($value->Giay[0]->giay_gia*$value->Giay[0]->KhuyenMai->km_phantram/100) ?>
 					@endforeach
 
 				@endforeach
@@ -180,7 +211,7 @@
 				  <td class="total-price"></td>
 				  <td class="total-price"></td>
 
-				  <td colspan="3"> <b>Tổng tiền:</b> {{number_format($tong,0,',','.')}} VNĐ</td>
+				  <td colspan="3" > <b>Tổng tiền:</b> {{number_format($tong,0,',','.')}} VNĐ</td>
 								</tr>
 							</table>
 						</div>

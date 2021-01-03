@@ -16,7 +16,11 @@ class KhuyenMai extends Model
         'km_trangthai'
     ];
 
-    public function KhuyenMai(){
-        return $this->belongsto('App\KhuyenMai','giay_id','giay_id');
+    public function Giay(){
+        return $this->belongsto('App\Giay','giay_id','giay_id');
     }
+
+    // public function ChiTietHoaDon(){
+    //     return $this->belongsto('App\ChiTietHoaDon');
+    // }
 }

@@ -81,8 +81,8 @@ Route::post('/changpass/{id}','AuthController@postChangePass')->name('changePass
 //comment
 
 
-// Route::get('xoabinhluan/{id}', 'BinhLuanController@destroy')->name('xoabinhluan');
-Route::post('/binhluan','BinhLuanController@postBinhLuan')->name('binhluan-xl');
+Route::get('/binhluan', 'BinhLuanController@getBinhLuan')->name('binhluan');
+Route::post('/binhluan-xl','BinhLuanController@postBinhLuan')->name('binhluan-xl');
 
 
 // Tìm kiếm giay frontend

@@ -10,6 +10,8 @@ use DB;
 class BinhLuanController extends Controller
 {
 
+   
+
     public function postBinhLuan(Request $request)
     {
         $BinhLuan = new BinhLuan();
@@ -19,7 +21,14 @@ class BinhLuanController extends Controller
         $BinhLuan->bl_trangthai = 1;
         $BinhLuan->save();
         return redirect()->route('details', ['id' => $request->giay_id]);
+        
     }
+
+    //  public function hienthiBinhLuan(){
+    //     $listBinhLuan = BinhLuan::where([['user_id',null],['giay_id',$id]])->get();
+        
+    //     return view('details')->with('listBinhLuan',$listBinhLuan);
+    // }
 
 
    

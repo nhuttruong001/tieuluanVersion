@@ -10,10 +10,14 @@
 					<nav id="menu">
 						<ul>
 						
-						<li class="menu-item">danh mục sản phẩm</li>
+						<li class="menu-item"><b>danh mục sản phẩm</b></li>
+					
 						@foreach($LoaiGiay as $loai)
+						@if($loai->loai_trangthai == 1)
+					
 						<li class="menu-item"><a href="{{route('category',['id'=>$loai->loai_id])}}" title="">{{$loai->loai_ten}}</a></li>
 					
+						@endif
 						@endforeach
 
 											

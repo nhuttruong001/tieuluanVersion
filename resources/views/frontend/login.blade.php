@@ -8,7 +8,10 @@
         width: 200px;
     }
 
+
+
 </style>
+
 <head>
 	<title>Đăng Nhập</title>
 	<meta charset="UTF-8">
@@ -44,6 +47,17 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+			<!-- <div class="alert alert-primary" role="alert">
+  This is a primary alert—check it out!
+</div> -->
+<div class="col-12">
+    @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+        @if(Session::has('alert-' . $msg))
+        <p id='alrt' class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} </p>
+        @endif
+    @endforeach
+</div>
+
 			<form class="login100-form validate-form" id="formDemo1" method="post" action="{{route('login')}}">
 				@csrf
 				<span class="login100-form-title p-b-33">
@@ -108,7 +122,14 @@
     <script src="login/js/main.js"></script>
 
     
+<script>
+$(document).ready(function(){
+	setTimeout(function() {
+		document.getElementById('alrt').remove();}, 3000);
+});
 
+
+</script>
 </body>
 
 </html>

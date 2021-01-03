@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+
+
+
 <style>
   label.error {
         display: inline-block;
@@ -61,7 +66,7 @@
 					</span>
 
                  
-					<div class="wrap-input100 validate-input">
+					<div class="wrap-input100 ">
 					<input class="input100" type="text"  required name="user_username" id="user_username" placeholder="Nhập tên đăng nhập.....">
 					<span class="focus-input100-1"></span>
 						<span class="focus-input100-2"></span>
@@ -71,7 +76,7 @@
                     @endif
 
 
-					<div class="wrap-input100 rs1 validate-input">
+					<div class="wrap-input100 rs1 ">
 						<input class="input100" type="password" name="password" id="password" required placeholder="Nhập mật khẩu.....">
 						<span class="focus-input100-1"></span>
 						<span class="focus-input100-2"></span>
@@ -81,18 +86,20 @@
                     @endif
 
 
-                    <div class="wrap-input100 rs1 validate-input">
-						<input class="input100" type="text" name="user_hoten" id="user_hoten" required placeholder="Nhập họ tên.....">
+                    <div class="wrap-input100 rs1">
+						<input class="input100" type="text" name="user_hoten" id="user_hoten" placeholder="Nhập họ tên.....">
 						<span class="focus-input100-1"></span>
 						<span class="focus-input100-2"></span>
 					</div>
+					
 					@if($errors->has('user_hoten'))
-                    <div style="color:red">{{ $errors->first('user_hoten')}}</div>
+                    	<div style="color:red">{{ $errors->first('user_hoten')}}</div>
                     @endif
 
 
-                    <div class="wrap-input100 rs1 validate-input">
-						<!-- <input class="input100" required placeholder="Chọn ngày sinh....."> -->
+
+                    <div class="wrap-input100 rs1 "> 
+				
                         <input class="input100" type="date" name="user_ngaysinh" id="user_ngaysinh" title="Ngày sinh">
 						<span class="focus-input100-1"></span>
 						<span class="focus-input100-2"></span>
@@ -102,8 +109,8 @@
                     @endif
 
 
-                    <div class="wrap-input100 rs1 validate-input">
-						<!-- <input class="input100"  name="user_gioitinh" required placeholder="Chọn giới tính....."> -->
+                    <div class="wrap-input100 rs1">
+					
                         <label class="radio-inline">
                               <input type="radio" id="user_gioitinh" name="user_gioitinh" value="1"> Nam
                           </label>
@@ -117,7 +124,7 @@
                     <div style="color:red">{{ $errors->first('user_gioitinh')}}</div>
                     @endif
 
-                    <div class="wrap-input100 rs1 validate-input">
+                    <div class="wrap-input100 rs1 ">
 						<input class="input100" type="text" name="user_diachi" id="user_diachi" required placeholder="Nhập địa chỉ.....">
 						<span class="focus-input100-1"></span>
 						<span class="focus-input100-2"></span>
@@ -126,7 +133,7 @@
                     <div style="color:red">{{ $errors->first('user_diachi')}}</div>
                     @endif
 
-					<div class="wrap-input100 rs1 validate-input">
+					<div class="wrap-input100 rs1 ">
 						<input class="input100" type="email" name="user_email" id="user_email" required placeholder="Nhập Email.....">
 						<span class="focus-input100-1"></span>
 						<span class="focus-input100-2"></span>
@@ -135,7 +142,7 @@
                     <div style="color:red">{{ $errors->first('user_email')}}</div>
                     @endif
 
-                    <div class="wrap-input100 rs1 validate-input">
+                     <div class="wrap-input100 rs1 ">
 						<input class="input100" type="number" name="user_sdt" id="user_sdt" required placeholder="Nhập số điện thoại.....">
 						<span class="focus-input100-1"></span>
 						<span class="focus-input100-2"></span>
@@ -148,7 +155,7 @@
 				
 
 					<div class="container-login100-form-btn m-t-20">
-						<button class="login100-form-btn" onclick="sucsess()" >
+						<button class="login100-form-btn">
 							Đăng ký
 						</button>
 					</div>

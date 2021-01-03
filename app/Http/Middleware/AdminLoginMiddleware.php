@@ -24,7 +24,7 @@ class AdminLoginMiddleware
                 return redirect()->route('trangchu');
             }
         }else{
-            return redirect()->route('formLogin');
+            return redirect()->route('formlogin');
         }
     }
 }

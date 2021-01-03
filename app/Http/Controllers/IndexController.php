@@ -83,16 +83,22 @@ class IndexController extends Controller
     }
     public function getIndex(Request $request){
         
-        $giay1 = DB::table('Giay')
-            ->orderBy('Giay.giay_id','desc')
+        $giay1 = Giay::orderBy('Giay.giay_id','desc')->where('giay_trangthai', 1)
             ->paginate(12);
+        // $giay1 = DB::table('Giay')
+        // ->join('loaigiay','loaigiay.loai_id','=','Giay.loai_id')
+        // ->join('khuyenmai','khuyenmai.km_id','=','Giay.km_id')
+        // ->join('nhacungcap','nhacungcap.ncc_id','=','Giay.ncc_id')
+        // ->orderBy('Giay.giay_id','desc')
+        // ->paginate(12);
         
-        if($request['page'] == 1){
-            $giay1[0]->status = 1;
-            $giay1[1]->status = 1;
-            $giay1[2]->status = 1;
-            $giay1[3]->status = 1;
-        }
+        // if($request['page'] == 1){
+        //     $giay1[0]->status = 1;
+        //     $giay1[1]->status = 1;
+        //     $giay1[2]->status = 1;
+        //     $giay1[3]->status = 1;
+        // }
+    
         return view('frontend.index')->with('giay1',$giay1);
     }
 
@@ -103,13 +109,19 @@ class IndexController extends Controller
 
     public function getAddCart($id){
      
-        $product = Giay::select('giay_id','giay_ten','giay_gia','giay_hinhanh')->find($id);
         $product = Giay::find($id);
-          Cart::add(array(         
+        
+        $giasaukm = $product->giay_gia;
+        if($product->KhuyenMai->km_id != 1){
+            $giasaukm = $giasaukm - $giasaukm * ($product->KhuyenMai->km_phantram/100);
+        }
+        
+        $product = Giay::find($id);
+          Cart::add(array(          
          'id'           => $id,
          'name'         => $product->giay_ten, 
          'quantity'      => 1, 
-         'price'        => $product->giay_gia, 
+         'price'        => $giasaukm, 
          'attributes'   => array('avatar' => $product-> giay_hinhanh)));
          $cart = Cart::getcontent();
         
@@ -162,7 +174,11 @@ class IndexController extends Controller
 
     public function getDetails($id){
         $details =Giay::find($id);
-        return view('frontend.details')->with('details',$details);
+        $comment =  BinhLuan::where('giay_id', $id)->get();
+
+        return view('frontend.details')
+                ->with('comment', $comment)
+                ->with('details', $details);
     }
 
     // public function getSearch(){
@@ -222,6 +238,7 @@ class IndexController extends Controller
 
     public function getThanhtoan(Request $request){  
 
+       
      if (Cart::isEmpty()) {
             return redirect('cart');
         }
@@ -233,7 +250,9 @@ class IndexController extends Controller
         $HoaDon->hd_hinhthuctt = 0;
         $HoaDon->hd_trangthai = 1;
         $HoaDon->save();
+
         foreach(Cart::getContent() as $value){
+        
             $ChiTietHoaDon = new ChiTietHoaDon();
             $ChiTietHoaDon->hd_id = $HoaDon->hd_id;
             $ChiTietHoaDon->giay_id = $value->id;

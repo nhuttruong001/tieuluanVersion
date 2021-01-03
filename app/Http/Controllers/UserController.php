@@ -36,7 +36,7 @@ class UserController extends Controller
             'user_gioitinh' => 'required',
             'user_ngaysinh' => 'required',
             'user_diachi' => 'required',
-            'user_email' => 'unique:User',
+            'user_email' => 'required|unique:User', 
             'user_sdt' => 'required',
             'user_quyen' => 'required',
             ]
@@ -48,7 +48,8 @@ class UserController extends Controller
                 'user_gioitinh.required' => 'Vui lòng không được để trống giới tính',
                 'user_ngaysinh.required' => 'Vui lòng không được để trống ngày sinh',
                 'user_diachi.required' => 'Vui lòng không được để trống địa chỉ',
-                'user_email.unique' => 'Email đã tồn tại',
+                'user_email.required' => "Vui lòng nhập email",
+                 'user_email.unique' => "Email đã tồn tại",
                 'user_sdt.required' => 'Vui lòng không được để trống sđt',
                 'user_quyen.required' => 'Vui lòng chọn quyền',
             ]);
