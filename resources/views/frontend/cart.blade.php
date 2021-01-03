@@ -155,7 +155,7 @@
 							<div class="col-md-6 col-sm-12 col-xs-12">
 								<a href="{{route('trangchu')}}" class="my-btn btn">Mua tiếp</a>
 								<a href="{{route('cart')}}" class="my-btn btn">Cập nhật</a>
-								<a href="#" class="my-btn btn">Xóa giỏ hàng</a>
+								<a href="{{route('delete')}}" class="my-btn btn">Xóa giỏ hàng</a>
 							</div>
 						</div>
 

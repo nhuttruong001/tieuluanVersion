@@ -14,7 +14,7 @@
 
       <section class="panel">
           <header class="panel-heading">
-              Thêm Giày
+              Sửa Giày
 
           </header>
           <div class="panel-body">
@@ -118,7 +118,7 @@
 
                   {{-- Giay soluong--}}
                     <div class="form-group ">
-                      <label for="firstname" class="control-label col-lg-3">Giá</label>
+                      <label for="firstname" class="control-label col-lg-3">Số lượng</label>
                       <div class="col-lg-6">
                           <input class=" form-control" value="{{$Giay->giay_soluong}}" id="giay_soluong"  name="giay_soluong" type="number">
                           @if($errors->has('giay_soluong'))

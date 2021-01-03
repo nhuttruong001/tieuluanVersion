@@ -32,6 +32,13 @@ Route::get('/cart/destroy/{id}','IndexController@getDestroy')->name('destroycart
 Route::get('/cart/update','IndexController@getUpdate')->name('updatecart');
 
 
+
+//xoa gio hang
+Route::get('/delete','IndexController@getDelete')->name('delete');
+
+
+
+
 // //test
 
 // Route::get('/test','IndexController@getTest')->name('test');

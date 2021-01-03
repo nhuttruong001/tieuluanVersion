@@ -59,30 +59,6 @@ class HoaDonSeeder extends Seeder
                 'hd_trangthaidh' => 0,
                 'hd_hinhthuctt' => 0,
                 'hd_trangthai' => 1
-            ],
-            [
-                'hd_id' => 7,
-                'user_id' => 6,
-                'hd_ngaylap' => '2020-11-17',
-                'hd_trangthaidh' => 0,
-                'hd_hinhthuctt' => 0,
-                'hd_trangthai' => 1
-            ],
-            [
-                'hd_id' => 8,
-                'user_id' => 7,
-                'hd_ngaylap' => '2020-11-02',
-                'hd_trangthaidh' => 0,
-                'hd_hinhthuctt' => 0,
-                'hd_trangthai' => 1
-            ],
-            [
-                'hd_id' => 9,
-                'user_id' => 8,
-                'hd_ngaylap' => '2020-10-18',
-                'hd_trangthaidh' => 0,
-                'hd_hinhthuctt' => 1,
-                'hd_trangthai' => 1
             ]
 
 

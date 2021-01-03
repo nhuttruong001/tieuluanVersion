@@ -32,12 +32,12 @@ class UserController extends Controller
        $this->validate($request, [
             'user_username' => 'required',
             'user_password' => 'required',
-            'user_hoten' => 'required',
+            'user_hoten' => 'required|min:3|max:255',
             'user_gioitinh' => 'required',
             'user_ngaysinh' => 'required',
             'user_diachi' => 'required',
-            'user_email' => 'required|unique:User', 
-            'user_sdt' => 'required',
+            'user_email' => 'required|unique:User',
+            'user_sdt' => 'required|min:10|max:11', 
             'user_quyen' => 'required',
             ]
             ,
@@ -51,6 +51,8 @@ class UserController extends Controller
                 'user_email.required' => "Vui lòng nhập email",
                  'user_email.unique' => "Email đã tồn tại",
                 'user_sdt.required' => 'Vui lòng không được để trống sđt',
+                'user_sdt.min' => 'Số điện thoại là 10 số hoặc 11 số',
+                'user_sdt.max' => 'Số điện thoại là 10 số hoặc 11 số',
                 'user_quyen.required' => 'Vui lòng chọn quyền',
             ]);
 

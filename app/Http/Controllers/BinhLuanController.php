@@ -22,7 +22,7 @@ class BinhLuanController extends Controller
         if(!$request->user_id){
             return response()->json([
                 'type' => 500,
-                'message' => "Ban phai dang nhap moi duoc them binh luan!!!"
+                'message' => "Bạn cần đăng nhập để thêm bình luận!!!"
             ]); 
         }
         $BinhLuan = new BinhLuan();
@@ -42,7 +42,7 @@ class BinhLuanController extends Controller
 	
         return response()->json([
             'type' => 200,
-            'message' => "Ban da them binh luan thanh cong!!!",
+            'message' => "Bạn đã thêm bình luận thành công!!!",
             'data' => $bl
         ]);    
     }

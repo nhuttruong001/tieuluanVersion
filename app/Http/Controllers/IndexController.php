@@ -15,6 +15,7 @@ use App\LoaiGiay;
 use App\NhaCungCap;
 Use Alert;
 
+
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
@@ -29,6 +30,8 @@ use Carbon\Carbon;
 
 use Cart;
 use Cacbon;
+
+
 
 class IndexController extends Controller
 {
@@ -137,15 +140,37 @@ class IndexController extends Controller
 
 
     public function getDestroy($id){
-     
+        
         Cart::remove($id);
-        // if (Cart::isEmpty()) {
-        //     return redirect('/');
-        // }
         $cart = Cart::getcontent();
        return view('frontend.cart')->with('cart',$cart);
 
     }
+
+    public function getDelete(){
+        if (Cart::isEmpty()) {
+            return redirect('cart');
+        }else{
+            
+            Cart::clear();
+        }
+        $cart = Cart::getcontent();
+        return view('frontend.cart')->with('cart',$cart);
+    }
+
+    // public function getDeleteCart($id){
+    //     if($id == 'all'){
+    //         Clear::Cart();
+    //     }else{
+    //         Cart::remove($id);
+    //     }
+    //     $cart = Cart::getcontent();
+    //     return view('frontend.cart')->with('cart',$cart);
+    // }
+
+   
+
+
 
     public function getUpdate(Request $request){
         
@@ -170,6 +195,9 @@ class IndexController extends Controller
     // return back();
         
     }
+
+
+
 
 
 
