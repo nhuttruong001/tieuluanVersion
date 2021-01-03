@@ -22,7 +22,7 @@ class HoaDonSeeder extends Seeder
             ],
             [
                 'hd_id' => 2,
-                'kh_id' => 2,
+                'user_id' => 2,
                 'hd_ngaylap' => '2020-06-09',
                 'hd_trangthaidh' => 0,
                 'hd_hinhthuctt' => 1,
@@ -30,12 +30,61 @@ class HoaDonSeeder extends Seeder
             ],
             [
                 'hd_id' => 3,
-                'kh_id' => 2,
+                'user_id' => 2,
                 'hd_ngaylap' => '2020-10-07',
                 'hd_trangthaidh' => 0,
                 'hd_hinhthuctt' => 0,
                 'hd_trangthai' => 1
+            ],
+            [
+                'hd_id' => 4,
+                'user_id' => 5,
+                'hd_ngaylap' => '2020-11-07',
+                'hd_trangthaidh' => 0,
+                'hd_hinhthuctt' => 0,
+                'hd_trangthai' => 1
+            ],
+            [
+                'hd_id' => 5,
+                'user_id' => 5,
+                'hd_ngaylap' => '2020-12-07',
+                'hd_trangthaidh' => 0,
+                'hd_hinhthuctt' => 0,
+                'hd_trangthai' => 1
+            ],
+            [
+                'hd_id' => 6,
+                'user_id' => 6,
+                'hd_ngaylap' => '2020-12-11',
+                'hd_trangthaidh' => 0,
+                'hd_hinhthuctt' => 0,
+                'hd_trangthai' => 1
+            ],
+            [
+                'hd_id' => 7,
+                'user_id' => 6,
+                'hd_ngaylap' => '2020-11-17',
+                'hd_trangthaidh' => 0,
+                'hd_hinhthuctt' => 0,
+                'hd_trangthai' => 1
+            ],
+            [
+                'hd_id' => 8,
+                'user_id' => 7,
+                'hd_ngaylap' => '2020-11-02',
+                'hd_trangthaidh' => 0,
+                'hd_hinhthuctt' => 0,
+                'hd_trangthai' => 1
+            ],
+            [
+                'hd_id' => 9,
+                'user_id' => 8,
+                'hd_ngaylap' => '2020-10-18',
+                'hd_trangthaidh' => 0,
+                'hd_hinhthuctt' => 1,
+                'hd_trangthai' => 1
             ]
+
 
             ];
             DB::table('HoaDon')->insert($arr);

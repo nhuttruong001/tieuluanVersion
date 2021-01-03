@@ -136,7 +136,6 @@ class UserSeeder extends Seeder
                 'user_sdt' => '0349081143',
                 'user_quyen' => 1, #1 la khach hang 0 la admin
                 'user_trangthai' => 1
-
             ]
 
             ];

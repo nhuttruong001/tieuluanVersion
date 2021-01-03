@@ -6,20 +6,7 @@
        text-decoration: line-through;
     }
 </style>
-
-  
-  @if(Session::has('alert-3'))
-  @section('script')
-  <script>
-    window.onload =  function()
-      {
-      alert('Xóa bình luận thành công');
-      };
-</script>
-  @endsection
-    <a class="close" data-dismiss="alert" aria-label="close">&times;</a></p>
-  @endif
-  
+ 
 <!-- main -->
 <section id="body">
 		<div class="container">
@@ -152,60 +139,25 @@
 						
 							<h3>Bình luận</h3>
 							<div class="col-md-9 comment">
-						
-							<!-- <form action="{{route('binhluan-xl')}}" method="POST">
+								<form id="formData">
 									@csrf
 									<div class="form-group">
-								
-										<textarea required rows="5" id="cm" class="form-control" name="bl_noidung"></textarea>
+										<textarea required rows="5" id="cmformData" class="form-control" name="bl_noidung"></textarea>
 										<input type="hidden" name="user_id"  value="{{isset($auth) ? $auth->user_id : null}}"  />
 										<input type="hidden" name="giay_id" value="{{isset($details) ? $details->giay_id : null}}" />
 									</div>
 									<div class="form-group text-right">
-									@if(!isset($auth))
-										<button class="btn btn-default"  onclick="display()" >Gửi</button>
-										@else	
-										<button class="btn btn-default"  id="submit" type="submit">Gửi</button>
-										@endif
+										<button class="btn btn-default" type="button" id="saveBtn">Gửi</button>
 									</div>
-							</form> -->
-
-							@if(!isset($auth))
-							<form action="" method="GET">
-									@csrf
-									<div class="form-group">
-										<textarea required rows="5" id="cm" class="form-control" name="bl_noidung"></textarea>
-										<input type="hidden" name="user_id"  value="{{isset($auth) ? $auth->user_id : null}}"  />
-										<input type="hidden" name="giay_id" value="{{isset($details) ? $details->giay_id : null}}" />
-									</div>
-									<div class="form-group text-right">
-										<button class="btn btn-default"  onclick="display()" >Gửi</button>
-									</div>
-							</form>
-							@else
-							<form action="{{route('binhluan-xl')}}" method="POST">
-									@csrf
-									<div class="form-group">
-										<textarea required rows="5" id="cm" class="form-control" name="bl_noidung"></textarea>
-										<input type="hidden" name="user_id"  value="{{isset($auth) ? $auth->user_id : null}}"  />
-										<input type="hidden" name="giay_id" value="{{isset($details) ? $details->giay_id : null}}" />
-									</div>
-									<div class="form-group text-right">
-										<button class="btn btn-default"  id="submit" type="submit">Gửi</button>
-									</div>
-							</form>
-							@endif
-
-
-
-							
+								</form>
 							</div>
 						</div>
-						<div >
+						
+						<div id="blForm">
 						<h3><i style='font-size:24px' class='far'>&#xf044;</i>&nbsp;Ý kiến khách hàng</h3><hr>
+						<ul id="list-bl">
 						@foreach($comment as $bl)
-						@if($bl->bl_trangthai == 1)
-							<ul>
+						@if($bl->bl_trangthai == 1)	
 								<li class="com-title">
 								<i style='font-size:24px' class='fas'>&#xf508;</i>&nbsp;{{$bl->User->user_hoten}}
 									<br>
@@ -213,12 +165,10 @@
 								</li>
 								<li class="com-details">
 									{{$bl->bl_noidung}}
-								</li>
-								
-							</ul>
+								</li>								
 							@endif
 						@endforeach
-						
+						</ul>
 						</div>
 					</div>					
 					
@@ -231,39 +181,34 @@
 
 @endsection
 @section('script')
+
 <script>
-    function timkiem(){
-      document.getElementById('search').click();
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
-
-	// function display(e,id) {
-	// 	console.log({id})
-	// 	e.preventDefault();
-	// 	// if(!confirm("Bạn phải đăng nhập mới bình luận được!")){
-	// 	// 	return false;
-	// 	// }
-	// 	// this.form.submit();
-
-		function display(){
-			alert("Bạn phải đăng nhập mới bình luận được!");
-		
+});
+//binhluan
+$('#saveBtn').click(function(e){
+	e.preventDefault();
+	$.ajax({
+		data: $('#formData').serialize(),
+		url: "{{route('binhluan-xl')}}",
+		type: "POST"
+	}).done(function(data){
+		if(data.type == 500){
+			alert(data.message);
+		}else{
+			$('#formData').trigger("reset");
+			$('#list-bl').append(data.data);
+			alert(data.message);
 		}
+		
 
-		// $("#submit").click(function(e){
-		// 	if(!isset($auth))
-		// 	alert("Bạn cần đăng nhập để bình luận!")
-		// 	e.preventDefault();
-        //         // var check;
-        //         // if($("#id_nguoidung").val() == ""){;
-        //         //     var check = confirm("Bạn phải đăng nhập mới có thể bình luận");
-        //         //     if(check){
-        //         //         window.location = "/login";
-        //         //     }
-        //         // }
-        //     });
-	// 	})
-	// }
+	}).error(function(e){
+		console.log(e);
+	});
+});
 </script>
-
 
 @endsection

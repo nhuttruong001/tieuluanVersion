@@ -26,7 +26,38 @@ class ChiTietHoaDonSeeder extends Seeder
                 'giay_id' => 10,
                 'hd_id' => 3,
                 'soluong' => 2
+            ],
+            [
+                'giay_id' => 3,
+                'hd_id' => 4,
+                'soluong' => 2
+            ],
+            [
+                'giay_id' => 2,
+                'hd_id' => 5,
+                'soluong' => 2
+            ],
+            [
+                'giay_id' => 6,
+                'hd_id' => 6,
+                'soluong' => 2
+            ],
+            [
+                'giay_id' => 4,
+                'hd_id' => 7,
+                'soluong' => 2
+            ],
+            [
+                'giay_id' => 11,
+                'hd_id' => 8,
+                'soluong' => 2
+            ],
+            [
+                'giay_id' => 3,
+                'hd_id' => 9,
+                'soluong' => 2
             ]
+
 
             ];
             DB::table('ChiTietHoaDon')->insert($arr);

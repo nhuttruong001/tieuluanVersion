@@ -100,7 +100,7 @@
 						</div>
 					</div>
 				</div>
-{{--san pham moi nhat--}}
+			{{--san pham moi nhat--}}
 				<div id="wrap-inner">
 					<div class="products">
 						<h3>sản phẩm mới nhất</h3>
@@ -154,7 +154,7 @@
 						<!-- <button>add to cart</button>                 	                	 -->
 					</div>
 
-					{{--san pham moi nhat--}}			
+			{{--san pham moi nhat--}}			
 				
 					
 			</div>

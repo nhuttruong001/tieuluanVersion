@@ -24,6 +24,10 @@
   background-color: #4CAF50;
   color: white;
 }
+
+.line-through {
+       text-decoration: line-through;
+    }
 </style>
 
 <div class="row">
@@ -73,12 +77,37 @@
                 @foreach ($ChiTietHoaDon as $key => $cthd)
 								<tr>
 									<td>{{$cthd->Giay[0]->giay_ten}}</td>
-									<td class="price">{{$cthd->Giay[0]->giay_gia}} VNĐ</td>
+
+								{{--km--}}
+								<td>
+									@if(($cthd->Giay[0]->km_id != 1))
+								@php	
+									$giasaukm = $cthd->Giay[0]->giay_gia - ($cthd->Giay[0]->giay_gia * $cthd->Giay[0]->KhuyenMai->km_phantram/100);
+									
+								@endphp
+									<p class="price line-through">{{number_format($cthd->Giay[0]->giay_gia,0,',','.')}} VNĐ</p>
+									<p class="price">{{number_format($giasaukm,0,',','.')}} VNĐ</p>
+
+								@else
+									<p class="price">{{number_format($cthd->Giay[0]->giay_gia,0,',','.')}} VNĐ</p>
+								@endif
+								</td>
+								{{--km--}}
+
+									
 									<td>{{$cthd->soluong}}</td>
-									<td class="price">{{($cthd->Giay[0]->giay_gia) * ($cthd->soluong) }} VNĐ</td>
+									@if(($cthd->Giay[0]->km_id != 1))
+									<td class="price">{{number_format($giasaukm * $cthd->soluong,0,',','.')}} VNĐ</td>
+									@else
+									<td class="price">{{number_format($cthd->Giay[0]->giay_gia * $cthd->soluong,0,',','.')}} VNĐ</td>
+									@endif
 									<td>{{$cthd->HoaDon->hd_ngaylap}}</td>
 								</tr>
-					<?php $tong += ($cthd->Giay[0]->giay_gia) * ($cthd->soluong) ; ?>
+								@if(($cthd->Giay[0]->km_id != 1))
+								<?php $tong += $giasaukm * $cthd->soluong ; ?>
+								@else
+								<?php $tong += ($cthd->Giay[0]->giay_gia) * ($cthd->soluong) ; ?>
+								@endif
 									
            
 				  @endforeach

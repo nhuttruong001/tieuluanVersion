@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 
 use Illuminate\Support\Facades\Redirect;
@@ -175,6 +176,7 @@ class IndexController extends Controller
     public function getDetails($id){
         $details =Giay::find($id);
         $comment =  BinhLuan::where('giay_id', $id)->get();
+        
 
         return view('frontend.details')
                 ->with('comment', $comment)
@@ -189,12 +191,15 @@ class IndexController extends Controller
         // Tìm kiếm
     public function getSearch(Request $request){
             $tu_khoa = ($request->tu_khoa);
-            $giay1 = DB::table('giay')
-            ->whereRaw('giay_trangthai = 1 and lower(giay_ten) LIKE (?)',["%{$tu_khoa}%"])
-            ->paginate(4);
-            return view('frontend.index')->with('giay1',$giay1);
+            if(!($tu_khoa == null)){
+                $giay1 = DB::table('giay')
+                ->whereRaw('giay_trangthai = 1 and lower(giay_ten) LIKE (?)',["%{$tu_khoa}%"])
+                ->paginate(4);
+                return view('frontend.index')->with('giay1',$giay1);
+            }else{
+                return redirect('home');
 
-
+            }
     }
 
     public function getCategory($id){
@@ -231,14 +236,7 @@ class IndexController extends Controller
         return view('frontend.quanlyCart')->with('chitietHD',$HoaDon);
     }
 
-
-
-    
-  
-
     public function getThanhtoan(Request $request){  
-
-       
      if (Cart::isEmpty()) {
             return redirect('cart');
         }
@@ -262,16 +260,12 @@ class IndexController extends Controller
     }
        Session::flash('alert-4', 'Thanh toán thành công!!!');
        Cart::clear();
-    // session()->forget('cart');
        return redirect()->route('complete');
   
     }
 
 
-    // public function getBongda($id){
-    //     // dd($id);
-    //      return view('frontend.category');
-    // }
+ 
 
 
 

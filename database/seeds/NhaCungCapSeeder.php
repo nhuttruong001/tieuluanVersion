@@ -26,7 +26,13 @@ class NhaCungCapSeeder extends Seeder
                 'ncc_id' => 3,
                 'ncc_ten' => 'bitis',
                 'ncc_trangthai' => 1
+            ],
+            [
+                'ncc_id' => 4,
+                'ncc_ten' => 'yame',
+                'ncc_trangthai' => 1
             ]
+
 
             ];
             DB::table('NhaCungCap')->insert($arr);

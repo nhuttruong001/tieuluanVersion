@@ -7,7 +7,7 @@
   <script>
     window.onload =  function()
       {
-      alert('Cap nhat trang thai thanh cong');
+      alert('Cập nhật trạng thái thành công!');
       };
 </script>
   @endsection

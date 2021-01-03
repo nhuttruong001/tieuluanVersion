@@ -81,7 +81,7 @@ Route::post('/changpass/{id}','AuthController@postChangePass')->name('changePass
 //comment
 
 
-Route::get('/binhluan', 'BinhLuanController@getBinhLuan')->name('binhluan');
+Route::get('/binhluan{id}', 'BinhLuanController@getBinhLuan')->name('binhluan');
 Route::post('/binhluan-xl','BinhLuanController@postBinhLuan')->name('binhluan-xl');
 
 

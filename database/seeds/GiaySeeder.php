@@ -295,7 +295,7 @@ class GiaySeeder extends Seeder
             [
                 'giay_id' => 21,
                 'loai_id' => 4,
-                'km_id' => 1,
+                'km_id' => 4,
                 'ncc_id' => 3,
                 'giay_ten' => 'Giầy tây 4',
                 'giay_gia' => 1400000,
@@ -308,7 +308,7 @@ class GiaySeeder extends Seeder
             [
                 'giay_id' => 22,
                 'loai_id' => 2,
-                'km_id' => 1,
+                'km_id' => 2,
                 'ncc_id' => 3,
                 'giay_ten' => 'Sandal 4',
                 'giay_gia' => 115000,
@@ -321,7 +321,7 @@ class GiaySeeder extends Seeder
             [
                 'giay_id' => 23,
                 'loai_id' => 5,
-                'km_id' => 1,
+                'km_id' => 3,
                 'ncc_id' => 3,
                 'giay_ten' => 'Dép Gucci 1',
                 'giay_gia' => 165000,
