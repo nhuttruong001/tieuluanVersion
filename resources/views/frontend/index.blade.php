@@ -108,9 +108,9 @@
 						<div class="product-list row">
 							@foreach ($giay1 as $g)
 						
-						
+				
 							<div class="product-item hihi col-md-3 col-sm-6 col-xs-12 " style="overflow:hidden">
-							@if(($g->KhuyenMai->km_id != 1))
+							@if(($g->km_id != 1))
 										<div class="lastest">
 											sale
 										</div>
@@ -119,7 +119,7 @@
 								<a href="#"><img src="upload/giay/{{$g->giay_hinhanh}}" class="img-thumbnail" style="width:115px;height:199px"></a>
 								<p><a href="#">{{$g->giay_ten}}</a></p>
 
-								@if(($g->KhuyenMai->km_id != 1))
+								@if(($g->km_id != 1))
 								@php	
 									$giasaukm = $g->giay_gia - ($g->giay_gia * $g->KhuyenMai->km_phantram/100);
 									
